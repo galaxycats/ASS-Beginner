@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Twitter-Clone</title>
+  <%= stylesheet_link_tag "layout", :cache => true %>
+  <%= javascript_include_tag :all, :cache => true %>
+</head>
+<body>
+  <div id="header">
+    <div id="logo">
+      <%= link_to image_tag("logo.png"), root_url %>
+    </div>
+    <div id="login_info">
+      <%= display_login_info %>
+    </div>
+  </div>
+  <div id="container">
+    <%= yield %>
+  </div>
+  <div id="footer">
+    <p>© 2010 Galaxy Cats</p>
+  </div>
+</body>
+</html>

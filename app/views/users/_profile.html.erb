@@ -1,0 +1,16 @@
+<div id="<%= logged_in? ? 'logged_in_user_info' : 'user_info' %>">
+  <div id="profile_picture">
+    <img src="/images/user_images/<%= @user.username %>_big.png" class="big_gravatar_image">
+  </div>
+  <div id="profile_info">
+    <div id="username">@<%= @user.username %><%= follow_user_button %></div>
+    <div><span id="info_text">real name:</span> <%= @user.real_name %></div>
+    <div><span id="info_text">total status updates till now:</span> <%= @user.messages.count %></div>
+    <% unless @user.mentions.blank? %>
+    <div><span id="info_text">mentioned:</span> <%= link_to @user.mentions.count, user_mentions_url(:user_id => @user.username) %> <span id="info_text">times</span></div>
+    <% end %>
+    <div id="last_status">
+      <div><span id="info_text">last status:</span><p>"<%= @user.messages.last.try(:content) %>"</p></div>
+    </div>
+  </div>
+</div>

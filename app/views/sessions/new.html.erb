@@ -1,0 +1,9 @@
+<div id="login_box">
+  <%= error_messages_for :session, :header_message => "We couldn't log you in, due to some errors:", :message => nil %>
+  <h1>Log into Statr:</h1>
+  <% form_for :session, :url => session_url do |f| %>
+    <%= f.text_field :username %>
+    <%= f.password_field :password %>
+    <%= f.submit "Login" %>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<div id="timeline">
+  <% if logged_in? %>
+    <%= render :partial => "messages/new" %>
+  <% end %>
+  <div id="messages_list">
+    <ul id="tabs">
+      <li id="active"><a href="#">recent posts</a></li>
+    </ul>
+    <div id="messages">
+      <%= render :partial => "messages/message", :collection => @messages %>
+    </div>
+  </div>
+</div>

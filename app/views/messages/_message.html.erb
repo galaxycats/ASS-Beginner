@@ -1,0 +1,9 @@
+<%- div_for message do -%>
+  <div class="gravatar">
+    <a href="#"><img src="/images/user_images/<%= message.user.username %>.png" class="gravatar_image"></a>
+  </div>
+  <div class="name_of_poster"><%= link_to "@#{message.user.username}", user_url(message.user) %>&nbsp;<%= display_mention_info_for(message) %></div>
+  <span><%= auto_markup message.content %></span>
+  <span class="date_of_post">–&nbsp;<%= time_ago_in_words message.created_at %> ago</span>
+<%- end -%>
+<%= content_tag(:div, '&nbsp;', :class => "divider", :id => (@messages.last == message ? 'last' : nil)) %>
