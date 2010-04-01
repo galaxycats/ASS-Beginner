@@ -1,0 +1,4 @@
+source: git://github.com/galaxycats/ASS-Beginner.git
+destination: .
+lsi: false
+pygments: true
