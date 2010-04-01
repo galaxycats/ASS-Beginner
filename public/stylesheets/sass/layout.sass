@@ -1,0 +1,212 @@
+!white = #fff
+!green = #c2ba4e
+!light_green = #b7ffea
+!light_grey = #b4b4b4
+!grey = #727272
+
+=clearfix
+  content: "&nbsp;"
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden
+  
+=input_elements
+  :border-style solid 
+  :border-color = !light_grey
+  :border-width 2px
+  :color = !grey
+  :font-family Georgia
+  :padding 10px
+  :line-height 1.3em
+
+@import errors
+@import profile
+@import login_box
+
+*
+  :margin 0 0
+
+body
+  :background = !light_green
+  :font-family Georgia, serif
+  :color = !white
+  
+h1
+  :font-size 60px
+  :color = !light_grey
+
+#header
+  :background-color = !green
+  :background-image url(/images/header_bg.png)
+  :background-repeat repeat-x
+  :height 72px
+  :font-size 30px
+  :text-align right
+  
+  a
+    :text-decoration none
+
+  #logo
+    img
+      :border none
+      :position absolute
+      :top 0
+      :left 0
+      
+  #login_info
+    :padding 15px 20px 0px 0px
+    :color = !light_green
+    a, a:visited
+      :text-decoration underline
+      :color = !light_green
+      :font-weight bold
+    a:hover
+      :color = !green
+      :background-color = !light_green
+      
+      
+#container
+  :margin 0 auto
+  :width 600px
+  :min-height 600px
+  :padding-top 10px
+  
+form
+  input[type="submit"]
+    :width 147px
+    :height 30px
+    :border none
+    :background-color = !white
+    :font-family Georgia
+    :color = !light_grey
+    :font-size 145%
+    :font-style italic
+    :margin-left 437px
+    :margin-top 10px
+
+#new_status_post
+  
+  #characters_left
+    :width 600px
+    :color = !light_grey
+    :font-size 62px
+    :text-align right
+    :margin-bottom 8px
+  
+  form
+    #post_status
+      :margin-top 10px
+      :margin-left 437px
+
+  #textbox
+    :height 133px
+    :width 560px
+    :font-size 160%
+    +input_elements
+    
+#timeline
+  :margin-top 30px
+  :width 560px
+  
+  ul#tabs
+    :margin-top 10px
+    :padding 0
+    :list-style none
+    li
+      a
+        :color = !light_grey
+        :text-decoration none
+      :float left
+      :height 27px
+      :min-width 132px
+      :text-align center
+      :padding-top 3px
+      :margin-right 5px
+      :font-size 18px
+      :background-color #fafafa
+    li#active
+      :background-color = !white
+      a
+        :color = !grey
+        :text-decoration none
+    
+  #clearfix
+    +clearfix
+    
+  #messages
+    :clear left
+    :width 536px
+    :background-color = !white
+    :color = !grey
+    :padding 13px 24px 10px 24px
+  
+    .mention
+      .mentioned_by
+        :background-color = !light_green
+        :color = !light_grey
+        :font-size 75%
+        :font-style italic
+        :padding 2px 4px
+        :margin-left 5px
+  
+    .message, .mention
+      :margin-top 20px
+      :margin-bottom 11px
+      :font-size 115%
+      :line-height 1.3em
+      
+      .gravatar
+        :float left
+        :margin-right 10px
+        :padding-top 5px
+        img.gravatar_image
+          :height 79px
+          :width 79px
+          :border-style solid 
+          :border-color = !light_grey
+          :border-width 2px
+          
+      .name_of_poster a
+        :color = !green
+        :text-decoration none
+        :font-weight bold
+      
+      span
+        .tag a, .mentioned_user a
+          :text-decoration none
+        
+        a, a:visited
+          :color = !green
+        a:hover
+          :color = !white
+          :background-color = !green
+        
+      .date_of_post
+        :font-size 75%
+        :font-style italic
+        :color = !light_grey
+        
+    .divider
+      :margin 0 auto
+      :width 80%
+      :border-bottom-style solid
+      :border-bottom-width 1px
+      :border-bottom-color = !light_grey
+      :clear left
+    .divider#last
+      :border none
+    
+#footer
+  :font-size 85%
+  :background-image url(/images/footer_bg.png)
+  :background-repeat repeat-x
+  :text-align right
+  :height 39px
+  :margin-top 30px
+  :background-color = !green
+  p
+    :padding-top 15px
+    :padding-right 5px
+
+  

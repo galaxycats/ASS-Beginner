@@ -1,0 +1,64 @@
+#profile_page
+  :width 880px
+
+#user_info
+  :margin-top 30px
+  
+#logged_in_user_info
+  :margin-top 80px
+
+#user_info, #logged_in_user_info
+  :width 268px
+  :background-color = !green
+  :float right
+  :padding-bottom 10px
+
+  img
+    :border-style solid 
+    :border-color = !green
+    :border-width 6px
+
+  #profile_info
+    :padding-left 6px
+    :padding-right 6px
+    :margin-top -5px
+    :font-size 20px
+  
+    #username
+      :font-size 26px
+      :font-weight bold
+      :margin-bottom 10px
+      
+      form.button-to
+        :float right
+      
+      .follow_button, .unfollow_button
+        :width auto
+        :margin 0
+        :margin-left 10px
+        :padding 4px 8px
+        :font-weight normal
+        :font-style italic
+        :font-size 70%
+        :background-color = !light_green
+            
+    #info_text
+      :color = !light_green
+      :font-size 14px
+      :font-style italic
+
+    a, a:visited
+      :color = !white
+      &:hover
+        :color = !green
+        :background-color = !white
+      
+
+    #last_status
+      :margin-top 10px
+      :border-top-style solid 
+      :border-top-color = !light_green
+      :border-top-width 1px
+      p
+        :font-size 15px
+      

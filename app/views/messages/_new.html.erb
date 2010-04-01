@@ -1,0 +1,8 @@
+<div id="new_status_post">
+  <%= custom_error_messages_for @message %>
+  <div id="characters_left">140</div>
+  <% form_for :message, :url => messages_url do |f| %>
+    <%= f.text_area :content, :rows => 3, :id => "textbox" %>
+    <%= f.submit "Post Status", :id => "post_status" %>
+  <% end %>
+</div>
