@@ -1,4 +1,2 @@
-source: git://github.com/galaxycats/ASS-Beginner.git
-destination: .
-lsi: false
+markdown: maruku
 pygments: true
