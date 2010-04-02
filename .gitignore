@@ -4,3 +4,7 @@ log/*.log
 tmp/**/*
 *.css
 htdocs
+statr/db/test.sqlite3
+statr/log/development.log
+statr/log/test.log
+statr/db/development.sqlite3
