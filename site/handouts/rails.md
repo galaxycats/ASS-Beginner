@@ -106,5 +106,3 @@ Datentypen:
 
 **Wichtig** In der `self.down` Methode müssen immer die Aktionen der `self.up`
 Methode rückgängig gemacht werden.
-
-

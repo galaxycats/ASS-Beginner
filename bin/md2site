@@ -1,0 +1,71 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'trollop'
+require 'ftools'
+require 'rdiscount'
+
+opts = Trollop::options do
+  version "md2site (c) 2010 Dirk Breuer"
+  banner <<-EOS
+Converts a bunch of Markdown files from a directory structure into a bunch of
+HTML files maintaining the original structure.
+
+Usage:
+       md2site [options]
+where [options] are:
+EOS
+
+  opt :source_path, "Where to read the Markdown files from", :default => "site"
+  opt :destination_path, "Where to put the generated files", :default => "htdocs"
+  opt :config, "Path to config file with meta information", :default => "config.yml"
+  opt :nojekyll, "Put a .nojekyll file in destination_path", :default => true
+end
+
+class SiteGenerator
+  
+  attr_reader :options
+  
+  def initialize(options)
+    @options = options
+  end
+  
+  def generate
+    find_all_markdown_pages
+    create_directory_structure
+    create_html_files
+    create_nojekyll if @options[:nojekyll]
+  end
+  
+  private
+  
+    def find_all_markdown_pages
+      @markdown_pages = Dir.glob("#{@options[:source_path]}/**/*.md").inject({}) do |md2html, md_page|
+        md2html[md_page] = md_page.gsub(/\.md/, ".html").gsub(/#{@options[:source_path]}\//, '')
+        md2html
+      end
+    end
+    
+    def create_directory_structure
+      `rm -r #{@options[:destination_path]}`
+      
+      @markdown_pages.each do |md_path, html_path|
+        File.makedirs("#{@options[:destination_path]}/#{File.dirname(html_path)}")
+      end
+    end
+    
+    def create_html_files
+      @markdown_pages.each do |md_path, html_path|
+        markdown = RDiscount.new(File.read(md_path))
+        File.open(File.join(@options[:destination_path], html_path), "w") { |f| f.write markdown.to_html }
+      end
+    end
+    
+    def create_nojekyll
+      File.open(File.join(@options[:destination_path], ".nojekyll"), "w")
+    end
+  
+end
+
+site_generator = SiteGenerator.new(opts)
+site_generator.generate
