@@ -1,13 +1,21 @@
 <div id="timeline">
   <% if logged_in? %>
-    <%= render :partial => "messages/new" %>
+    <%= render "messages/new" %>
   <% end %>
   <div id="messages_list">
     <ul id="tabs">
       <li id="active"><a href="#">recent posts</a></li>
     </ul>
     <div id="messages">
+      <% unless @messages.empty? %>
       <%= render :partial => "messages/message", :collection => @messages %>
+      <% else %>
+        <% if logged_in? %>
+          Go ahead and post your first status.
+        <% else %>
+          Hey, there are no posts yet. Be the first one to post a message. Just <%= link_to "login", login_url %>.
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
