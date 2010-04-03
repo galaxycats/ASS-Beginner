@@ -13,6 +13,7 @@
 ### Tag 2
 
   * [Controller und Views](handson/controller_und_views.html "Controller/Views Hands-On - Tag 2")
+  * [Partials](handson/oartials.html "Partials Hands-On - Tag 2")
 
 ### Tag 3
 

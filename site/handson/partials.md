@@ -1,34 +1,54 @@
 # Tag 2, Hands-On 7: Partials
 
-## Ziel des Hands-on
+## Ziel
 
-Liste der Kommentare als Partials implementieren.
+Bestimmte Teile des HTML-Markups so extrahieren, dass sie sich leicht
+wiederverwenden lassen. Diese Extraktionen werden dabei als *Partials*
+bezeichnet.
 
 ## Aufgabe
 
-1. Die Liste der Kommentare eines Artikels soll als Partial eingebunden werden. Dabei ist es wichtig das "Partial"-Konzept zu verstehen. Um Wiederholungen bei der Ausgabe der Kommentare zu vermeiden, sollte das Partial mittels einer Collection eingebunden werden.
-2. Gemäß dem DRY-Prinzip sind Partials unerlässlich. Es sollen weitere Möglichkeitewn zur Erstellung von Partials gefunden und implemenitert werden.
+1. Zunächst soll die Darstellung einer einzelnen Statusmitteilung innerhalb
+der Liste aller Mitteilungen in ein Partial extrahiert werden. Diese
+Darstellung werden wir später noch an andere Stelle verwenden müssen bzw.
+können.
+
+2. Auch das Formular für die Eingabe neuer Statusmitteilungen soll in einem
+Partial realisiert werden.
 
 ## Ressourcen
 
-* http://api.rubyonrails.com/classes/ActionView/Partials.html
+* [Layouts and Rendering in Rails – Using Partials](http://guides.rails.info/layouts_and_rendering.html#using-partials "Layouts and Rendering in Rails – Using Partials")
 
 ## Shortcuts
 
-### Partial mit Übergabe einer lokalen Variable
+Partials werden in Rails immer durch einen Underscore als Prefix im Dateinamen
+identifiziert und werden in der gleichen Verzeichnisstruktur abgelegt wie die eigentlichen
+Templates zu einem Controller:
 
-<code><%= render :partial => "comment" %></code><br />
-(Partial _comment.rhtml, lokale Variable person)
+    app/
+    +-views/
+      +-messages/
+        +-index.html.erb
+        +-_message.html.erb
+        +-_form.html.erb
+        
+Anhand des folgenden Beispiels wollen wir kurz erklären, wie Partials in Templates
+integriert werden können:
 
-<code><%= render :partial => "account", :locals => { :account => @customer.account } %></code><br />
-(Partial _account.rhtml, lokale Variable account)  
+    <h1>Statusmitteilungen</h1>
+    <div>
+      <%= render "messages/form" %>
+    </div>
+    <div id="timeline">
+      <%= render @messages %>
+    </div>
 
-Partial mit Übergabe einer Collection  (Iteration z.B. über ein Array, Ausgabe für jedes Objekt im Array)
-
-<code><%= render :partial => "comment", :collection => @articles.comments %></code><br />
-(Partial _comment.rhtml, lokale Variable comment)  
-
-Partials mit anderen Controllern teilen
-
-<code><%= render :partial => "user/login", :locals => { :user => @user.id } %></code><br />
-(Partial /user/_login.rhtml, lokale Variable user)
+Hier lässt sich schon sehr gut sehen, dass es unterschiedliche Arten gibt ein
+Partial einzubinden. Die erste Variante `<%= render "messages/form" %>` bindet
+das Partial `_form.html.erb` aus dem Verzeichnis für die Message-Templates
+ein. Rails erkennt hier automatisch, dass es das Partial `_form.html.erb`
+nehmen muss. Die zweite, nicht ganz offensichtliche Variante, stellt für jedes
+`message`-Objekt in der Collection `@messages` das Partial `_message.html.erb`
+dar. Dabei wird das jeweilige `message`-Objekt an das Partial übergeben und
+ist über die Variable `message` verfügbar.
