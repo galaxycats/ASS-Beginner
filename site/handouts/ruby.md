@@ -24,13 +24,13 @@ should be able to `count_the_oranges` (which returns the number of oranges on
 the tree), and `pick_an_orange` (which reduces the `@orange_count` by one and
 returns a string telling you how delicious the orange was, or else it just
 tells you that there are no more oranges to pick this year). Make sure that
-any oranges you don't pick one year fall off before the next year. ("Learn to
-Program" von Chris Pine)
+any oranges you don't pick one year fall off before the next year. (["Learn to
+Program"](http://pine.fm/LearnToProgram/ "Learn to Program, by Chris Pine") von *Chris Pine*)
 
 ## Ressourcen
 
-* [http://railsapi.com/](http://railsapi.com/ "Rails Searchable API Doc")
-* Ruby Cheat Sheet
+* [Rails Searchable API Doc](http://railsapi.com/ "Rails Searchable API Doc")
+* [Ruby Quick Reference Card](http://www.scribd.com/doc/7991776/Refcard-30-Essential-Ruby "Refcard #30: Essential Ruby")
 
 ## Shortcuts
 
@@ -61,7 +61,7 @@ Program" von Chris Pine)
     0..4
 
 ### Schleifen
-
+    
     4.times { |n| puts n }
 
     while i &lt; 10 

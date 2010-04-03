@@ -47,11 +47,11 @@ Datenbank-Tabellen angelegt werden.
 
 ## Ressourcen
 
-* [http://railsapi.com](http://railsapi.com/ "Rails Searchable API Doc")
-* Rails Guides ([http://guides.rails.info/](http://guides.rails.info/ "Rails Guides"))
-* [http://guides.rails.info/getting_started.html](http://guides.rails.info/getting_started.html "Getting Started with Rails")
-* [http://guides.rails.info/migrations.html](http://guides.rails.info/migrations.html "Migrations")
-* Bonus: [http://guides.rails.info/command_line.html](http://guides.rails.info/command_line.html "A Guide to The Rails Command Line")
+* [Rails Searchable API Doc](http://railsapi.com/ "Rails Searchable API Doc")
+* [Rails Guides](http://guides.rails.info/ "Rails Guides")
+* [Getting Started with Rails](http://guides.rails.info/getting_started.html "Getting Started with Rails")
+* [Migrations](http://guides.rails.info/migrations.html "Migrations")
+* *Bonus:* [A Guide to The Rails Command Line](http://guides.rails.info/command_line.html "A Guide to The Rails Command Line")
 
 ## Shortcuts
 
