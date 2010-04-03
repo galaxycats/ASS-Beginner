@@ -1,6 +1,6 @@
 # Tag 1, Hands-On 2: Getting started with Rails
 
-## Ziel des Hands-on
+## Ziel
 
 Ein Rails Projekt aufsetzen und die dazugehörige Datenbank einrichten
 und migrieren können.

@@ -1,6 +1,6 @@
 # Tag 1, Hands-On 1: Getting started with Ruby
 
-## Ziel des Hands-on
+## Ziel
 
 Ruby Syntax verstehen und in den Grundzügen schreiben können.
 

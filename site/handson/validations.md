@@ -1,5 +1,9 @@
 # Tag 1, Hands-On 3: Validierungen
 
+## Ziel
+
+Objekte vor ihrer Speicherung in der Datenbank validieren können.
+
 ## Aufgabe
 
 1. Ein zentraler Gedanke bei Twitter (und damit auch bei unserem Klon) ist es,
