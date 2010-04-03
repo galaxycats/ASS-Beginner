@@ -62,3 +62,21 @@ geschieht hier die Ausgabe über einen anderen Weg, der an dieser Stelle nicht
 weiter betrachtet werden soll. Wenn wir das Ergebnis unseres Ruby-Codes in das
 Template integrieren wollen, verwenden wir die Notation `<%= ruby_code %>`.
 Wie eben für die Ausgabe des Inhalts (`content`) des `message`-Objekts.
+
+Zur Eingabe von Daten auf einer Webseite werden bekanntermaßen Formulare
+verwendet. Für deren Realisierung zur Eingabe von Daten für ein
+`ActiveRecord`-Objekt bietet Rails eine ganze Reihe von Helper-Methoden an. An
+folgendem Beispiel seien einige dieser Methoden kurz beschrieben:
+
+    <% form_for :message do |f| %>
+      <%= f.text_area :content %>
+      <%= f.submit "Post Status" %>
+    <% end %>
+
+Durch die Helper-Methode `form_for` erhalten wir ein Formular-Objekt auf das
+wir im folgenden über die Variable `f` Zugriff erhalten. Auf diesem Objekt
+lassen sich dann die üblichen Formularfelder definieren, wie hier zum Beispiel
+eine `text_area` oder ein `submit`-Button. Am Ende erhalten wir ein
+HTML-Formular, dass die einzelnen Felder korrekt bezeichnet hat, um ein
+`Message`-Objekt damit zu erzeugen. Die Helper-Methode erzeugt ebenfalls die
+URL an die die Formulardaten gesandt werden sollen korrekt für uns.
