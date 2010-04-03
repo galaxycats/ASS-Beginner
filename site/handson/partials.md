@@ -1,4 +1,4 @@
-# Tag 2, Hands-On 7: Partials
+# Tag 2, Hands-On 5: Partials
 
 ## Ziel
 

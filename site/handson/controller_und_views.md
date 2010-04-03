@@ -22,6 +22,7 @@ Zusammengefasst soll am Ende dieses Hands-On folgendes umgesetzt sein:
 
 * [Action Controller Overview](http://guides.rails.info/action_controller_overview.html "Action Controller Overview")
 * [Layouts and Rendering in Rails](http://guides.rails.info/layouts_and_rendering.html "Layouts and Rendering in Rails")
+* [Rails Form helpers](http://guides.rails.info/form_helpers.html "Rails Form helpers")
 
 ## Shortcuts
 
