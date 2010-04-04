@@ -11,6 +11,13 @@
 
 ActiveRecord::Schema.define(:version => 20100331185244) do
 
+  create_table "followees", :id => false, :force => true do |t|
+    t.integer  "followee_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mentions", :force => true do |t|
     t.integer  "message_id"
     t.integer  "mentioning_id"
@@ -32,8 +39,6 @@ ActiveRecord::Schema.define(:version => 20100331185244) do
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "follower_id"
-    t.integer  "followee_id"
   end
 
 end

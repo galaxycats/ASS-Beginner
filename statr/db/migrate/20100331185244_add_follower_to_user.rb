@@ -1,11 +1,13 @@
 class AddFollowerToUser < ActiveRecord::Migration
   def self.up
-    add_column :users, :follower_id, :integer
-    add_column :users, :followee_id, :integer
+    create_table :followees, :force => true, :id => false do |t|
+      t.integer :followee_id
+      t.integer :user_id
+      t.timestamps
+    end
   end
 
   def self.down
-    remove_column :users, :followee_id
-    remove_column :users, :follower_id
+    drop_table :followees
   end
 end

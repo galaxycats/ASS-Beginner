@@ -7,6 +7,6 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 User.create(:email => "maya.natsume@juken-club.jp", :username => "natsume", :first_name => "Maya", :last_name => "Natsume")
-User.create(:email => "sanji@strawhat-pirates.jp", :username => "sanji", :first_name => "Sanji", :last_name => nil)
-User.create(:email => "zorro@strawhat-pirates.jp", :username => "zorro", :first_name => "Zorro", :last_name => "Lorenor")
+User.create(:email => "sanji@strawhat-pirates.jp", :username => "sanji", :first_name => "Sanji", :last_name => "The Cook")
+User.create(:email => "zorro@strawhat-pirates.jp", :username => "zoro", :first_name => "Zoro", :last_name => "Lorenor")
 User.create(:email => "seras.victoria@hellsing.co.uk", :username => "seras", :first_name => "Seras", :last_name => "Victoria")

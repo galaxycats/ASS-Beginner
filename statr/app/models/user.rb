@@ -1,12 +1,11 @@
 class User < ActiveRecord::Base
   has_many :mentions, :class_name => "Mention", :foreign_key => "mentioning_id"
   has_many :messages
-  has_many :followees, :class_name => "User", :foreign_key => "followee_id" do
+  has_and_belongs_to_many :followees, :join_table => "followees", :class_name => "User", :foreign_key => "followee_id" do
     def messages
       Message.where(:user_id => proxy_owner.followees.map(&:id))
     end
   end
-  has_many :followers, :class_name => "User", :foreign_key => "follower_id"
   
   validates_presence_of :first_name, :last_name
   validates_presence_of :email
@@ -28,14 +27,12 @@ class User < ActiveRecord::Base
   def follow(user)
     follow_unfollow(user) do |user|
       followees << user
-      user.followers << self
     end
   end
   
   def unfollow(user)
     follow_unfollow(user) do |user|
       followees.delete(user)
-      user.followers.delete(self)
     end
   end
   
