@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
   
   def show
-    @user = User.find_by_username(params[:id])
-    @messages = if logged_in? and current_user == @user
-      @user.all_messages
+    if @user = User.find_by_username(params[:id])
+      @messages = if logged_in? and current_user == @user
+        @user.all_messages
+      else
+        @user.messages
+      end
     else
-      @user.messages
+      flash[:error] = "We couldn't find the user with the username '#{params[:id]}'."
+      render "shared/404", :status => 404
     end
   end
   
