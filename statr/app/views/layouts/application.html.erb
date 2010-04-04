@@ -4,7 +4,12 @@
   <meta charset="utf-8" />
   <title>Twitter-Clone</title>
   <%= stylesheet_link_tag "layout", :cache => true %>
-  <%= javascript_include_tag :all, :cache => true %>
+  <script src="http://www.google.com/jsapi"></script>
+  <script>
+    // Load jQuery
+    google.load("jquery", "1.4.2");
+  </script>
+  <%= javascript_include_tag "application", :cache => true %>
 </head>
 <body>
   <div id="header">
