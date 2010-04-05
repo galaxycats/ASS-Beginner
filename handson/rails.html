@@ -196,6 +196,46 @@ ansehen:</p>
       =&gt; #&lt;Message id: 1, content: "Dies ist meine erste Nachricht.", created_at: "2010-03-12 17:02:41", updated_at: "2010-03-12 17:02:41"&gt;
 </pre></code></pre>
 
+<h4>Einrichten der Rails Console</h4>
+
+<p>Die Console l&auml;sst sich um einige Gimmicks erweitern, wie etwa
+Syntax-Highlighting. Eine weitere sinnvolle Anpassung ist die Umleitung der
+Logausgaben auf STDOUT. So kann man direkt in der Console sehen wie etwa die
+SQL-Query aussieht, die von Rails generiert wird. Um dass zu erreichen, m&uuml;ssen
+zwei kleine Gems (Ruby Bibliotheken) installiert werden:</p>
+
+<pre><code><pre class="sunburst">$&gt; gem install wirble
+$&gt; gem install utility_belt
+</pre></code></pre>
+
+<p>Danach muss noch eine <code>.irbrc</code>-Datei im Home-Verzeihnis angelegt mit folgendem
+Inhalt angelegt werden:</p>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> load libraries</span>
+<span class="Keyword">require</span> <span class="String"><span class="String">'</span>rubygems<span class="String">'</span></span>
+<span class="Keyword">require</span> <span class="String"><span class="String">'</span>wirble<span class="String">'</span></span>  
+<span class="Keyword">require</span> <span class="String"><span class="String">'</span>utility_belt<span class="String">'</span></span>
+
+<span class="Comment"><span class="Comment">#</span> start wirble (with color)</span>
+<span class="Support">Wirble</span>.<span class="Entity">init</span>
+<span class="Support">Wirble</span>.<span class="Entity">colorize</span>
+
+<span class="Variable">IRB</span>.<span class="Entity">conf</span>[<span class="Constant"><span class="Constant">:</span>SAVE_HISTORY</span>] <span class="Keyword">=</span> <span class="Constant">100</span>
+<span class="Variable">IRB</span>.<span class="Entity">conf</span>[<span class="Constant"><span class="Constant">:</span>HISTORY_FILE</span>] <span class="Keyword">=</span> <span class="String"><span class="String">"</span><span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span><span class="StringEmbeddedSource"><span class="StringVariable">ENV</span>[<span class="String"><span class="String">'</span>HOME<span class="String">'</span></span>]</span><span class="StringEmbeddedSource">}</span></span>/.irb-save-history<span class="String">"</span></span>
+
+<span class="Keyword">if</span> <span class="Support">Object</span>.<span class="Entity">const_defined?</span>(<span class="String"><span class="String">'</span>Rails<span class="String">'</span></span>)
+  <span class="Support">Rails</span>.<span class="Entity">logger</span>.<span class="Entity">instance_variable_set</span>(<span class="String"><span class="String">"</span>@log<span class="String">"</span></span>, <span class="Variable">STDOUT</span>)
+<span class="Keyword">end</span>
+</pre></code></pre>
+
+<p>Anschlie&szlig;end m&uuml;ssen nun noch die zuvor installierten Gems im Rails-Projekt
+hinzugef&uuml;gt werden. Dazu einfach folgende Zeilen im <code>Gemfile</code> des
+Rails-Projektes hinzuf&uuml;gen:</p>
+
+<pre><code><pre class="sunburst">gem <span class="String"><span class="String">"</span>wirble<span class="String">"</span></span>
+gem <span class="String"><span class="String">"</span>utility_belt<span class="String">"</span></span>
+</pre></code></pre>
+
 <h3>Konventionen</h3>
 
 <ul>

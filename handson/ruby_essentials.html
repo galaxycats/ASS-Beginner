@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
+<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
+<style type="text/css">
+		body {
+			margin-top: 1.0em;
+			background-color: #0b084a;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #ffffff;
+		}
+		#container {
+			margin: 0 auto;
+			width: 800px;
+		}
+		h1 {
+		  font-size: 50px;
+		  color: #f4f7b5;
+		  margin-bottom: 3px;
+		}
+		h1 .small {
+		  font-size: 0.4em;
+		}
+		h1 a {
+		  text-decoration: none
+		}
+		h2 {
+		  font-size: 1.5em; color: #f4f7b5;
+		}
+		h3 {
+		  text-align: center; color: #f4f7b5;
+		}
+		a {
+		  color: #f4f7b5;
+		}
+		.description {
+		  font-size: 1.2em;
+		  margin-bottom: 30px;
+		  margin-top: 30px;
+		  font-style: italic;
+		}
+		.download { 
+		  float: right;
+		}
+		pre {
+		  background: #000;
+		  color: #fff;
+		  padding: 15px;
+		}
+		hr {
+		  border: 0;
+		  width: 80%;
+		  border-bottom: 1px solid #aaa;
+		}
+		.footer {
+		  text-align:center;
+		  padding-top:30px;
+		  font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  	<div id="container">
+
+  		<div class="download">
+  			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  		</div>
+
+        <div id="content">
+          <h1>Tag 1, Hands-On 1.1: Ruby Essentials</h1>
+
+<h2>Ziel</h2>
+
+<p>Hier zeigen wir ein paar ausf&uuml;hrlichere Ruby Beispiel und gehen noch mal auf
+die zentralen Konzepte der Objekt-Orientierung ein.</p>
+
+<h2>Konzepte der OOP</h2>
+
+<h3>Abstraktion</h3>
+
+<p>Jedes Objekt im System kann als ein abstraktes Modell eines Akteurs
+betrachtet werden, der Auftr&auml;ge erledigen, seinen Zustand berichten und
+&auml;ndern und mit den anderen Objekten im System kommunizieren kann, ohne
+offenlegen zu m&uuml;ssen, wie diese F&auml;higkeiten implementiert sind (vgl.
+abstrakter Datentyp (ADT)). Solche Abstraktionen sind entweder Klassen (in
+der klassenbasierten Objektorientierung) oder Prototypen (in der
+prototypbasierten Programmierung).</p>
+
+<ul>
+<li>
+<em>Klasse</em> Die Datenstruktur eines Objekts wird durch die Attribute (auch
+Eigenschaften) seiner Klassendefinition festgelegt. Das Verhalten des
+Objekts wird von den Methodern der Klasse bestimmt. Klassen k&ouml;nnen von
+anderen Klassen abgeleitet werden (Vererbung). Dabei erbt die Klasse die
+Datenstruktur (Attribute) und die Methoden von der vererbenden Klasse
+(Basisklasse).</li>
+<li>
+<em>Prototype</em> Objekte werden durch das Clonen bereits existierender Objekte
+erzeugt und k&ouml;nnen anderen Objekten als Prototypen dienen und damit ihre
+eigenen Methoden zur Wiederverwendung zur Verf&uuml;gung stellen, wobei die
+neuen Objekte nur die Unterschiede zu ihrem Prototypen-Objekt definieren
+m&uuml;ssen..</li>
+</ul>
+<h3>Datenkapselung</h3>
+
+<p>Als Datenkapselung bezeichnet man in der Programmierung das Verbergen von
+Implementierungsdetails. Der direkte Zugriff auf die interne Datenstruktur
+wird unterbunden und erfolgt statt dessen &uuml;ber definierte Schnittstellen.
+Objekte k&ouml;nnen den internen Zustand anderer Objekte nicht in unerwarteter
+Weise lesen oder &auml;ndern. Ein Objekt hat eine Schnittstelle, die dar&uuml;ber
+bestimmt, auf welche Weise mit dem Objekt interagiert werden kann. Dies
+verhindert das Umgehen von Invarianten des Programms.</p>
+
+<h3>Polymorphie</h3>
+
+<p>Verschiedene Objekte k&ouml;nnen auf die gleiche Nachricht unterschiedlich
+reagieren. Wird die Zuordnung einer Nachricht zur Reaktion auf die Nachricht
+erst zur Laufzeit aufgel&ouml;st, dann wird dies auch sp&auml;te Bindung genannt.</p>
+
+<h3>Feedback</h3>
+
+<p>Verschiedene Objekte kommunizieren &uuml;ber einen
+Nachricht-Antwort-Mechanismus, der zu Ver&auml;nderungen in den Objekten f&uuml;hrt
+und neue Nachrichtenaufrufe erzeugt. Daf&uuml;r steht die Kopplung als Index
+f&uuml;r den Grad des Feedback.</p>
+
+<h3>Vererbung</h3>
+
+<p>Vererbung hei&szlig;t vereinfacht, dass eine abgeleitete Klasse die Methoden und
+Attribute der Basisklasse ebenfalls besitzt, also &bdquo;erbt&ldquo;. Somit kann die
+abgeleitete Klasse auch darauf zugreifen. Neue Arten von Objekten k&ouml;nnen
+auf der Basis bereits vorhandener Objekt-Definitionen festgelegt werden. Es
+k&ouml;nnen neue Bestandteile hinzugenommen werden oder vorhandene &uuml;berlagert
+werden. Wird keine Vererbung zugelassen, so spricht man zur Unterscheidung
+oft auch von objektbasierter Programmierung.</p>
+
+<h2>Everything is an Object!</h2>
+
+<h3>Die Basics</h3>
+
+<pre><code><pre class="sunburst"><span class="String"><span class="String">"</span>Alles sind Objekte<span class="String">"</span></span>.<span class="Entity">class</span> <span class="Comment"><span class="Comment">#</span> String</span>
+<span class="Constant">6</span>.<span class="Entity">class</span> <span class="Comment"><span class="Comment">#</span> Fixnum</span>
+(<span class="Constant">5.0</span>).<span class="Entity">class</span> <span class="Comment"><span class="Comment">#</span> Float</span>
+
+<span class="Comment"><span class="Comment">#</span> achja ...</span>
+<span class="String"><span class="String">"</span>test<span class="String">"</span></span>.<span class="Entity">class</span>.<span class="Entity">class</span> <span class="Comment"><span class="Comment">#</span> Class</span>
+
+<span class="Comment"><span class="Comment">#</span> Alles sind Objekte?! Ja alles!</span>
+<span class="Constant">7</span>.<span class="Keyword">+</span>(<span class="Constant">7</span>)
+m <span class="Keyword">=</span> <span class="Constant">7</span>.<span class="Entity">method</span>(<span class="String"><span class="String">'</span>+<span class="String">'</span></span>)
+m.<span class="Entity">class</span>
+m.<span class="Entity">call</span>(<span class="Constant">7</span>)
+<span class="Comment"><span class="Comment">#</span> ... Wirklich alles ist ein Objekt!</span>
+
+<span class="Comment"><span class="Comment">#</span> Wissenwertes: Call-by-Reference</span>
+<span class="Keyword">def</span> <span class="Entity">modify_arg</span>(<span class="Variable">arg</span>)
+  arg.<span class="Entity">clone</span> <span class="Keyword">&lt;&lt;</span> <span class="Entity">rand</span>(<span class="Constant">40</span>)
+<span class="Keyword">end</span>
+  arg <span class="Keyword">&lt;&lt;</span> <span class="Entity">rand</span>(<span class="Constant">40</span>)
+<span class="Comment">  <span class="Comment">#</span> Kann mit der +clone+ Methode verhindert werden.</span>
+array <span class="Keyword">=</span> [<span class="Constant">12</span>,<span class="Constant">34</span>,<span class="Constant">54</span>]
+<span class="Entity">modify_arg</span>(array)
+array
+</pre></code></pre>
+
+<h3>Dynamische Typisierung und starke Bindung</h3>
+
+<pre><code><pre class="sunburst">my_string <span class="Keyword">=</span> <span class="String"><span class="String">"</span>7<span class="String">"</span></span>
+my_string.<span class="Entity">class</span> <span class="Comment"><span class="Comment">#</span> String</span>
+
+number <span class="Keyword">=</span> <span class="Constant">7</span>
+number.<span class="Entity">class</span> <span class="Comment"><span class="Comment">#</span> Fixnum</span>
+
+number <span class="Keyword">+</span> my_string <span class="Comment"><span class="Comment">#</span> TypeError</span>
+number.<span class="Entity">to_s</span> <span class="Keyword">+</span> my_string <span class="Comment"><span class="Comment">#</span> '7hello World' -&gt; Explizites Casten n&amp;ouml;tig</span>
+
+<span class="Comment"><span class="Comment">#</span> in der irb ...</span>
+<span class="Variable">self</span>.<span class="Entity">class</span>
+<span class="Comment"><span class="Comment">#</span> -&gt; Es gibt immer ein 'Root'-Objekt</span>
+</pre></code></pre>
+
+<h3>Strings</h3>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> vielleicht so ...</span>
+anzahl_schafe <span class="Keyword">=</span> <span class="Constant">6</span>
+new_string <span class="Keyword">=</span> <span class="String"><span class="String">'</span>Ich habe <span class="String">'</span></span> <span class="Keyword">+</span> anzahl_schafe.<span class="Entity">to_s</span> <span class="Keyword">+</span> <span class="String"><span class="String">'</span> Schafe.<span class="String">'</span></span>
+<span class="Comment"><span class="Comment">#</span> ... oder besser so!</span>
+new_string <span class="Keyword">=</span> <span class="String"><span class="String">"</span>Ich habe <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>anzahl_schafe<span class="StringEmbeddedSource">}</span></span> Schafe.<span class="String">"</span></span>
+</pre></code></pre>
+
+<h3>Symbole</h3>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> Symbole als andere Repr&amp;auml;sentation von Strings</span>
+jedi1 <span class="Keyword">=</span> {<span class="String"><span class="String">"</span>firstname<span class="String">"</span></span> =&gt; <span class="String"><span class="String">"</span>Anikin<span class="String">"</span></span>, <span class="String"><span class="String">"</span>lastname<span class="String">"</span></span> =&gt; <span class="String"><span class="String">"</span>Skywalker<span class="String">"</span></span>, <span class="String"><span class="String">"</span>rank<span class="String">"</span></span> =&gt; <span class="String"><span class="String">"</span>Jedi Padawan<span class="String">"</span></span>}
+jedi2 <span class="Keyword">=</span> {<span class="String"><span class="String">"</span>firstname<span class="String">"</span></span> =&gt; <span class="String"><span class="String">"</span>Obi-Wan<span class="String">"</span></span>, <span class="String"><span class="String">"</span>lastname<span class="String">"</span></span> =&gt; <span class="String"><span class="String">"</span>Kenobi<span class="String">"</span></span>, <span class="String"><span class="String">"</span>rank<span class="String">"</span></span> =&gt; <span class="String"><span class="String">"</span>Jedi High General<span class="String">"</span></span>}
+jedi3 <span class="Keyword">=</span> {<span class="Constant"><span class="Constant">:</span>firstname</span> =&gt; <span class="String"><span class="String">"</span>Qui-Gon<span class="String">"</span></span>, <span class="Constant"><span class="Constant">:</span>lastname</span> =&gt; <span class="String"><span class="String">"</span>Jinn<span class="String">"</span></span>, <span class="Constant"><span class="Constant">:</span>rank</span> =&gt; <span class="String"><span class="String">"</span>Jedi Master<span class="String">"</span></span>}
+jedi4 <span class="Keyword">=</span> {<span class="Constant"><span class="Constant">:</span>firstname</span> =&gt; <span class="String"><span class="String">"</span>Mace<span class="String">"</span></span>, <span class="Constant"><span class="Constant">:</span>lastname</span> =&gt; <span class="String"><span class="String">"</span>Windu<span class="String">"</span></span>, <span class="Constant"><span class="Constant">:</span>rank</span> =&gt; <span class="String"><span class="String">"</span>Jedi Master<span class="String">"</span></span>}
+
+object_ids_of_keys <span class="Keyword">=</span> []
+
+jedi1.<span class="Entity">keys</span>.<span class="Entity">each</span> { |<span class="Variable">key</span>| object_ids_of_keys <span class="Keyword">&lt;&lt;</span> key.<span class="Entity">object_id</span> }
+jedi2.<span class="Entity">keys</span>.<span class="Entity">each</span> { |<span class="Variable">key</span>| object_ids_of_keys <span class="Keyword">&lt;&lt;</span> key.<span class="Entity">object_id</span> }
+
+puts object_ids_of_keys.<span class="Entity">uniq</span> <span class="Comment"><span class="Comment">#</span> =&gt; 85690, 85750, 85810, 85470, 85530, 85590</span>
+object_ids_of_keys <span class="Keyword">=</span> []
+
+jedi3.<span class="Entity">keys</span>.<span class="Entity">each</span> { |<span class="Variable">key</span>| object_ids_of_keys <span class="Keyword">&lt;&lt;</span> key.<span class="Entity">object_id</span> }
+jedi4.<span class="Entity">keys</span>.<span class="Entity">each</span> { |<span class="Variable">key</span>| object_ids_of_keys <span class="Keyword">&lt;&lt;</span> key.<span class="Entity">object_id</span> }
+
+puts object_ids_of_keys.<span class="Entity">uniq</span> <span class="Comment"><span class="Comment">#</span> =&gt; 109858, 109938, 110018</span>
+</pre></code></pre>
+
+<h3>Datenstrukturen</h3>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> In Arrays liegen die Daten sortiert und lassen sich &amp;uuml;ber</span>
+<span class="Comment"><span class="Comment">#</span> ihren Index abrufen</span>
+an_array <span class="Keyword">=</span> [<span class="Constant">1</span>, <span class="Constant">2</span>, <span class="Constant">3</span>, <span class="Constant">4</span>]
+an_array[<span class="Constant">1</span>]
+an_array_of_words <span class="Keyword">=</span> <span class="String"><span class="String">%w(</span>Geige Gitarre Violine Bass<span class="String">)</span></span> <span class="Comment"><span class="Comment">#</span> so ...</span>
+an_array_of_words <span class="Keyword">=</span> [<span class="String"><span class="String">"</span>Geige<span class="String">"</span></span>, <span class="String"><span class="String">"</span>Gitarre<span class="String">"</span></span>, <span class="String"><span class="String">"</span>Violine<span class="String">"</span></span>, <span class="String"><span class="String">"</span>Bass<span class="String">"</span></span>] <span class="Comment"><span class="Comment">#</span> ... oder so</span>
+an_array_of_words[<span class="Constant">2</span>]
+
+<span class="Comment"><span class="Comment">#</span> In einem Hash liegen die Daten unsortiert und lassen sich</span>
+<span class="Comment"><span class="Comment">#</span> &amp;uuml;ber ihren +key+ abrufen</span>
+an_hash <span class="Keyword">=</span> { <span class="Constant"><span class="Constant">:</span>author</span> =&gt; <span class="String"><span class="String">"</span>Dave Thomas<span class="String">"</span></span>, <span class="String"><span class="String">"</span>title<span class="String">"</span></span> =&gt; <span class="String"><span class="String">"</span>Programming Ruby<span class="String">"</span></span> } <span class="Comment"><span class="Comment">#</span> Keys k&amp;ouml;nnen sowohl Symbol als auch String sein</span>
+an_hash[<span class="Constant"><span class="Constant">:</span>author</span>]
+an_hash[<span class="String"><span class="String">'</span>title<span class="String">'</span></span>]
+</pre></code></pre>
+
+<h4>Arbeiten mit Datenstrukturen</h4>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> Iteratoren &amp;uuml;ber Datenstrukturen (oder einfach alles was +Enumerable+ implementiert)</span>
+an_hash.<span class="Entity">each</span> { |<span class="Variable">k</span>,<span class="Variable">v</span>| puts <span class="String"><span class="String">"</span>Der Key ist: <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>k<span class="StringEmbeddedSource">}</span></span> und der Value ist <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>v<span class="StringEmbeddedSource">}</span></span><span class="String">"</span></span> }
+an_array_of_words.<span class="Entity">each</span> { |<span class="Variable">w</span>| puts w }
+</pre></code></pre>
+
+<h3>Klassen</h3>
+
+<pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">Rectangle</span>
+
+  <span class="Keyword">attr_accessor</span> <span class="Constant"><span class="Constant">:</span>width</span>, <span class="Constant"><span class="Constant">:</span>height</span>
+
+<span class="Comment">  <span class="Comment">#</span> attr_reader :width</span>
+<span class="Comment">  <span class="Comment">#</span> attr_writer :height</span>
+
+<span class="Comment">  <span class="Comment">#</span> Konstruktor mit Parametern</span>
+  <span class="Keyword">def</span> <span class="Entity">initialize</span>(<span class="Variable">width<span class="Variable">,</span> height</span>)
+<span class="Comment">    <span class="Comment">#</span> Zwei Instanzvariablen</span>
+    <span class="Variable"><span class="Variable">@</span>width</span>, <span class="Variable"><span class="Variable">@</span>height</span> <span class="Keyword">=</span> width, height <span class="Comment"><span class="Comment">#</span> Mehrfachzuweisung ;-)</span>
+  <span class="Keyword">end</span>
+
+<span class="Comment">  <span class="Comment">#</span> # Getter/Setter - non-Ruby Style</span>
+<span class="Comment">  <span class="Comment">#</span> def width</span>
+<span class="Comment">  <span class="Comment">#</span>   @width # Es wird IMMER der letzte Wert zur&amp;uuml;ckgegeben, daher oft kein +return+ noetig!</span>
+<span class="Comment">  <span class="Comment">#</span> end</span>
+<span class="Comment">  <span class="Comment">#</span> </span>
+<span class="Comment">  <span class="Comment">#</span> def width=(width)</span>
+<span class="Comment">  <span class="Comment">#</span>   @width = width</span>
+<span class="Comment">  <span class="Comment">#</span> end</span>
+<span class="Comment">  <span class="Comment">#</span> </span>
+<span class="Comment">  <span class="Comment">#</span> def height</span>
+<span class="Comment">  <span class="Comment">#</span>   @height</span>
+<span class="Comment">  <span class="Comment">#</span> end</span>
+<span class="Comment">  <span class="Comment">#</span> </span>
+<span class="Comment">  <span class="Comment">#</span> def height=(height)</span>
+<span class="Comment">  <span class="Comment">#</span>   @height = height</span>
+<span class="Comment">  <span class="Comment">#</span> end</span>
+
+  <span class="Keyword">def</span> <span class="Entity">area</span>
+    height <span class="Keyword">*</span> width
+  <span class="Keyword">end</span>
+
+  <span class="Keyword">def</span> <span class="Entity">to_s</span>
+    <span class="String"><span class="String">"</span>This is a <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span><span class="StringVariable">self</span><span class="StringEmbeddedSource"><span class="StringEmbeddedSource">.</span><span class="Entity">class</span></span><span class="StringEmbeddedSource"><span class="StringEmbeddedSource">.</span><span class="Entity">name</span></span><span class="StringEmbeddedSource">}</span></span> with the dimension: <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>width<span class="StringEmbeddedSource">}</span></span>x<span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>height<span class="StringEmbeddedSource">}</span></span><span class="String">"</span></span>
+  <span class="Keyword">end</span>
+
+  <span class="Keyword">protected</span>
+
+    <span class="Keyword">def</span> <span class="Entity">meine_protected_methode</span>
+      puts <span class="String"><span class="String">"</span>protected<span class="String">"</span></span>
+    <span class="Keyword">end</span>
+
+  <span class="Keyword">private</span>
+
+    <span class="Keyword">def</span> <span class="Entity">meine_private_methode</span>
+      puts <span class="String"><span class="String">"</span>private<span class="String">"</span></span>
+    <span class="Keyword">end</span>
+
+<span class="Keyword">end</span>
+
+<span class="Comment"><span class="Comment">#</span> - Es gibt keine abstrakten Klassen!</span>
+<span class="Comment"><span class="Comment">#</span> - Es gibt aber Vererbung ...</span>
+<span class="Keyword">class</span> <span class="JEntityNameType">Square<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> Rectangle</span></span>
+  <span class="Keyword">def</span> <span class="Entity">initialize</span>(<span class="Variable">width</span>)
+    <span class="Keyword">super</span>(width, width)
+  <span class="Keyword">end</span>
+
+  <span class="Keyword">def</span> <span class="Entity">width=</span>(<span class="Variable">width</span>)
+    <span class="Variable">self</span>.<span class="Entity">height</span> <span class="Keyword">=</span> width
+    <span class="Variable">self</span>.<span class="Entity">width</span>  <span class="Keyword">=</span> width
+  <span class="Keyword">end</span>
+
+  <span class="Keyword">private</span> 
+    <span class="Keyword">attr_writer</span> <span class="Constant"><span class="Constant">:</span>height</span>
+<span class="Keyword">end</span>
+</pre></code></pre>
+
+<h3>Variablen</h3>
+
+<pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">String</span>
+  <span class="Keyword">def</span> <span class="Entity">play</span>
+    puts <span class="String"><span class="String">"</span>playing song: <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span><span class="StringVariable">self</span><span class="StringEmbeddedSource">}</span></span> ...<span class="String">"</span></span>
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+<span class="Comment"><span class="Comment">#</span> Verwendung von Klassen-, Instanzvariablen und Konstanten</span>
+<span class="Keyword">class</span> <span class="JEntityNameType">MusicPlayer</span>
+
+  <span class="Variable">VENDOR_ID</span> <span class="Keyword">=</span> <span class="String"><span class="String">"</span>00:23:FE:89:EC:42<span class="String">"</span></span>
+
+  <span class="Keyword">def</span> <span class="Entity">initialize</span>(<span class="Variable">playlist</span>)
+    <span class="Variable"><span class="Variable">@</span>playlist</span> <span class="Keyword">=</span> playlist
+  <span class="Keyword">end</span>
+
+  <span class="Keyword">def</span> <span class="Entity">self.overall_played_tracks</span>
+    <span class="Variable"><span class="Variable">@@</span>overall_played_tracks</span> <span class="Keyword">||=</span> <span class="Constant">0</span>
+  <span class="Keyword">end</span>
+
+  <span class="Keyword">def</span> <span class="Entity">play_track</span>(<span class="Variable">track_number</span>)
+    <span class="Variable"><span class="Variable">@</span>playlist</span>[track_number].<span class="Entity">play</span>
+    <span class="Variable"><span class="Variable">@@</span>overall_played_tracks</span> <span class="Keyword">+=</span> <span class="Constant">1</span>
+  <span class="Keyword">end</span>
+
+<span class="Keyword">end</span>
+
+puts <span class="Support">MusicPlayer</span>::<span class="Entity">VENDOR_ID</span> <span class="Comment"><span class="Comment">#</span> =&gt; 00:23:FE:89:EC:42</span>
+
+mp <span class="Keyword">=</span> <span class="Support">MusicPlayer</span>.<span class="Entity">new</span>([<span class="String"><span class="String">"</span>Duality<span class="String">"</span></span>, <span class="String"><span class="String">"</span>B.Y.O.B<span class="String">"</span></span>])
+
+puts <span class="Support">MusicPlayer</span>.<span class="Entity">overall_played_tracks</span> <span class="Comment"><span class="Comment">#</span> =&gt; 0</span>
+mp.<span class="Entity">play_track</span>(<span class="Constant">0</span>) <span class="Comment"><span class="Comment">#</span> =&gt; playing song: Duality ...</span>
+puts <span class="Support">MusicPlayer</span>.<span class="Entity">overall_played_tracks</span> <span class="Comment"><span class="Comment">#</span> =&gt; 1</span>
+mp.<span class="Entity">play_track</span>(<span class="Constant">1</span>) <span class="Comment"><span class="Comment">#</span> =&gt; playing song: B.Y.O.B ...</span>
+puts <span class="Support">MusicPlayer</span>.<span class="Entity">overall_played_tracks</span> <span class="Comment"><span class="Comment">#</span> =&gt; 2</span>
+</pre></code></pre>
+
+<h3>Mixins</h3>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> &amp;Uuml;ber Modules k&amp;ouml;nnen zus&amp;auml;tzliche Funktionalit&amp;auml;ten</span>
+<span class="Comment"><span class="Comment">#</span> in eine Klasse "gemixt" werden.</span>
+<span class="Keyword">module</span> <span class="JEntityNameType">MultiplierMixin</span>
+  <span class="Keyword">def</span> <span class="Entity">multiply</span>(<span class="Variable">times</span>)
+    data <span class="Keyword">*</span> times
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+<span class="Keyword">class</span> <span class="JEntityNameType">MyString</span>
+  <span class="Keyword">include</span> <span class="Variable">MultiplierMixin</span>
+
+  <span class="Keyword">def</span> <span class="Entity">data</span>
+    <span class="String"><span class="String">"</span>foo<span class="String">"</span></span>
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+<span class="Keyword">class</span> <span class="JEntityNameType">MyInteger</span>
+  <span class="Keyword">include</span> <span class="Variable">MultiplierMixin</span>
+
+  <span class="Keyword">def</span> <span class="Entity">data</span>
+    <span class="Constant">23</span>
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+str <span class="Keyword">=</span> <span class="Support">MyString</span>.<span class="Entity">new</span>
+puts str.<span class="Entity">multiply</span>(<span class="Constant">3</span>) <span class="Comment"><span class="Comment">#</span> =&gt; foofoofoo</span>
+
+int <span class="Keyword">=</span> <span class="Support">MyInteger</span>.<span class="Entity">new</span>
+puts int.<span class="Entity">multiply</span>(<span class="Constant">3</span>) <span class="Comment"><span class="Comment">#</span> =&gt; 69</span>
+</pre></code></pre>
+
+<h3></h3>
+
+<h3>Schleifen und Bedingungen</h3>
+
+<pre><code><pre class="sunburst"><span class="Keyword">for</span> i <span class="Keyword">in</span> <span class="Constant">1</span>...<span class="Constant">10</span>
+  puts i
+<span class="Keyword">end</span>
+
+<span class="Constant">10</span>.<span class="Entity">times</span> {|<span class="Variable">i</span>| puts i}
+
+a <span class="Keyword">=</span> <span class="Entity">rand</span>(<span class="Constant">2</span>)
+<span class="Keyword">if</span> a <span class="Keyword">==</span> <span class="Constant">0</span>
+  puts <span class="String"><span class="String">"</span>Das war eine Null<span class="String">"</span></span>
+<span class="Keyword">else</span>
+  puts <span class="String"><span class="String">"</span>Das war keine Null<span class="String">"</span></span>
+<span class="Keyword">end</span>
+
+puts a <span class="Keyword">==</span> <span class="Constant">0</span> <span class="Keyword">?</span> <span class="String"><span class="String">"</span>Das war eine Null<span class="String">"</span></span> : <span class="String"><span class="String">"</span>Das war keine Null<span class="String">"</span></span>
+
+<span class="Keyword">while</span> line <span class="Keyword">=</span> gets
+  puts <span class="String"><span class="String">"</span>Ihre Eingabe: <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>line<span class="StringEmbeddedSource">}</span></span><span class="String">"</span></span>
+<span class="Keyword">end</span>
+</pre></code></pre>
+
+<h3>Bl&ouml;cke und Procs</h3>
+
+<p>Einfach:</p>
+
+<pre><code><pre class="sunburst">my_proc <span class="Keyword">=</span> <span class="Support">Proc</span>.<span class="Entity">new</span> { puts <span class="String"><span class="String">'</span>hello world<span class="String">'</span></span> } <span class="Comment"><span class="Comment">#</span> Ohne Uebergabewert</span>
+my_proc.<span class="Entity">class</span>
+my_proc.<span class="Entity">call</span>
+
+my_proc <span class="Keyword">=</span> <span class="Support">Proc</span>.<span class="Entity">new</span> { |<span class="Variable">to</span>| puts <span class="String"><span class="String">"</span>hello <span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span>to<span class="StringEmbeddedSource">}</span></span><span class="String">"</span></span> } <span class="Comment"><span class="Comment">#</span> Mit Uebergabewert</span>
+my_proc.<span class="Entity">call</span> <span class="String"><span class="String">'</span>ASS Kurs<span class="String">'</span></span>
+
+<span class="Comment"><span class="Comment">#</span> Sicherstellen, dass etwas vorher und hinterher gemacht wird.</span>
+
+do_something <span class="Keyword">=</span> <span class="Support">Proc</span>.<span class="Entity">new</span> { puts <span class="String"><span class="String">"</span>Irgendwas was gemacht wird.<span class="String">"</span></span> }
+
+<span class="Keyword">def</span> <span class="Entity">ensure_important_stuff</span>(<span class="Variable">any_proc</span>)
+  puts <span class="String"><span class="String">"</span>Sehr wichtige Sache, die vorher gemacht werden muss!<span class="String">"</span></span>
+  any_proc.<span class="Entity">call</span>
+  puts <span class="String"><span class="String">"</span>Sehr wichtige Sache, die nachher gemacht werden muss!<span class="String">"</span></span>
+<span class="Keyword">end</span>
+</pre></code></pre>
+
+<p>Ein bisschen komplexer:</p>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> Proc Objekt</span>
+<span class="Keyword">class</span> <span class="JEntityNameType">Array</span>
+  <span class="Keyword">def</span> <span class="Entity">my_find</span>(<span class="Variable">find_proc</span>)
+    <span class="Keyword">for</span> i <span class="Keyword">in</span> <span class="Constant">0</span>...size
+      <span class="Keyword">return</span> <span class="Variable">self</span>[i] <span class="Keyword">if</span> find_proc.<span class="Entity">call</span>(<span class="Variable">self</span>[i])
+    <span class="Keyword">end</span>
+    <span class="Keyword">return</span> <span class="Constant">nil</span>
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+puts [<span class="Constant">1</span>,<span class="Constant">3</span>,<span class="Constant">5</span>,<span class="Constant">6</span>,<span class="Constant">7</span>].<span class="Entity">my_find</span> <span class="Support">Proc</span>.<span class="Entity">new</span> { |<span class="Variable">e</span>| e.<span class="Entity">modulo</span>(<span class="Constant">2</span>) <span class="Keyword">==</span> <span class="Constant">0</span> }
+
+<span class="Comment"><span class="Comment">#</span> Block to Proc</span>
+<span class="Keyword">class</span> <span class="JEntityNameType">Array</span>
+  <span class="Keyword">def</span> <span class="Entity">my_find</span>(<span class="Variable"><span class="Keyword">&amp;</span>find_block</span>)
+    <span class="Keyword">for</span> i <span class="Keyword">in</span> <span class="Constant">0</span>...size
+      <span class="Keyword">return</span> <span class="Variable">self</span>[i] <span class="Keyword">if</span> find_block.<span class="Entity">call</span>(<span class="Variable">self</span>[i])
+    <span class="Keyword">end</span>
+    <span class="Keyword">return</span> <span class="Constant">nil</span>
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+puts [<span class="Constant">1</span>,<span class="Constant">3</span>,<span class="Constant">5</span>,<span class="Constant">6</span>,<span class="Constant">7</span>].<span class="Entity">my_find</span> { |<span class="Variable">e</span>| e.<span class="Entity">modulo</span>(<span class="Constant">2</span>) <span class="Keyword">==</span> <span class="Constant">0</span> }
+
+<span class="Comment"><span class="Comment">#</span> Block via yield</span>
+<span class="Keyword">class</span> <span class="JEntityNameType">Array</span>
+  <span class="Keyword">def</span> <span class="Entity">my_find</span>
+    <span class="Keyword">for</span> i <span class="Keyword">in</span> <span class="Constant">0</span>...size
+      <span class="Keyword">return</span> <span class="Variable">self</span>[i] <span class="Keyword">if</span> <span class="Keyword">yield</span> <span class="Variable">self</span>[i]
+    <span class="Keyword">end</span>
+    <span class="Keyword">return</span> <span class="Constant">nil</span>
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+puts [<span class="Constant">1</span>,<span class="Constant">3</span>,<span class="Constant">5</span>,<span class="Constant">6</span>,<span class="Constant">7</span>].<span class="Entity">my_find</span> { |<span class="Variable">e</span>| e.<span class="Entity">modulo</span>(<span class="Constant">2</span>) <span class="Keyword">==</span> <span class="Constant">0</span> }
+</pre></code></pre>
+
+        </div>
+
+  		<div class="footer">
+  			get the source code on GitHub : <a href="http://github.com/galaxycats/ASS-Beginner">galaxycats/ASS-Beginner</a>
+  		</div>
+
+  	</div>
+
+</body>
+</html>
