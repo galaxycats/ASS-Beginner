@@ -1,6 +1,7 @@
 # ASS Anfängerkurs
 
-
+Maintains the demo source code, course material, like hand outs and
+demo-scripts for the ASS courses at the University of Applied Science Cologne.
 
 ## Hands-On
 
@@ -24,3 +25,15 @@
 ## Musterlösungen
 
 *Not yet ... ;-)*
+
+## Authors
+
+  * Andreas Bade ([andi@galaxycats.com](mailto:&#x41;&#x6E;&#x64;&#x72;&#x65;&#x61;&#x73;&#x20;&#x42;&#x61;&#x64;&#x65;&#x20;&#x28;&#x61;&#x6E;&#x64;&#x69;&#x40;&#x67;&#x61;&#x6C;&#x61;&#x78;&#x79;&#x63;&#x61;&#x74;&#x73;&#x2E;&#x63;&#x6F;&#x6D;&#x29;))
+  * Dirk Breuer ([dirk@galaxycats.com](mailto:&#x41;&#x6E;&#x64;&#x72;&#x65;&#x61;&#x73;&#x20;&#x42;&#x61;&#x64;&#x65;&#x20;&#x28;&#x61;&#x6E;&#x64;&#x69;&#x40;&#x67;&#x61;&#x6C;&#x61;&#x78;&#x79;&#x63;&#x61;&#x74;&#x73;&#x2E;&#x63;&#x6F;&#x6D;&#x29;))
+
+## 	Download
+
+Alle Handouts und Musterlösungen können als
+[ZIP](http://github.com/galaxycats/ASS-Beginner/zipball/master "zip") oder
+[tar](http://github.com/galaxycats/ASS-Beginner/tarball/master "tar") Archive
+runtergeladen werden.

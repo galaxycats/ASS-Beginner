@@ -4,6 +4,10 @@ require 'rubygems'
 require 'trollop'
 require 'ftools'
 require 'rdiscount'
+require 'erb'
+require 'uv'
+require 'nokogiri'
+require 'cgi'
 
 opts = Trollop::options do
   version "md2site (c) 2010 Dirk Breuer"
@@ -18,8 +22,9 @@ EOS
 
   opt :source_path, "Where to read the Markdown files from", :default => "site"
   opt :destination_path, "Where to put the generated files", :default => "htdocs"
-  opt :config, "Path to config file with meta information", :default => "config.yml"
   opt :nojekyll, "Put a .nojekyll file in destination_path", :default => true
+  opt :template, "Which template to use", :default => "templates/base.html.erb"
+  opt :theme, "Which syntax color scheme to use", :default => "sunburst"
 end
 
 class SiteGenerator
@@ -48,7 +53,7 @@ class SiteGenerator
     
     def create_directory_structure
       `rm -r #{@options[:destination_path]}`
-      
+
       @markdown_pages.each do |md_path, html_path|
         File.makedirs("#{@options[:destination_path]}/#{File.dirname(html_path)}")
       end
@@ -57,8 +62,28 @@ class SiteGenerator
     def create_html_files
       @markdown_pages.each do |md_path, html_path|
         markdown = RDiscount.new(File.read(md_path))
-        File.open(File.join(@options[:destination_path], html_path), "w") { |f| f.write markdown.to_html }
+        File.open(File.join(@options[:destination_path], html_path), "w") { |f| f.write trough_template(markdown.to_html) }
       end
+      Uv.copy_files "xhtml", @options[:destination_path]
+    end
+    
+    def highlight_code_in_html(html)
+      html = Nokogiri::HTML(html)
+      html.xpath('//pre/code').each do |element|
+        element.inner_html =~ /^\!\!\!(\w+)/
+        element.inner_html = element.inner_html.gsub(/^\!\!\!(\w+)/, '')
+        element.inner_html = Uv.parse(CGI.unescapeHTML(CGI.unescapeHTML(element.inner_html)), "xhtml", "#{$1 || 'ruby'}", false, @options[:theme])
+      end
+      html
+    end
+    
+    def template
+      @renderer ||= ERB.new(File.read(@options[:template]))
+    end
+    
+    def trough_template(content)
+      @content = content
+      highlight_code_in_html(template.result(binding))
     end
     
     def create_nojekyll

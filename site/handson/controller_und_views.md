@@ -30,6 +30,7 @@ Die Aufgabe soll natürlich RESTful realisiert werden. Wir brauchen daher auf
 jeden Fall drei Actions in unserem Controller. Hier noch einmal beispielhaft
 die Implementierung der Action zu Anzeige aller Statusmitteilungen:
 
+    !!!ruby_on_rails
     class MessagesController < ApplicationController
     
       def index
@@ -43,6 +44,7 @@ Ordner `app/views/messages` verwenden. Im Template muss nicht mehr das HTML
 Gerüst definiert werden, dass ist bereits über das Layout geschehen. Wir müssen also 
 nur noch alle Statusmitteilungen ausgeben. Dazu kann man sich folgenden Code vorstellen:
 
+    !!!html_rails
     <% @messages.each do |message| %>
       <% div_for message do %>
         <p><%= message.content %></p>
@@ -69,6 +71,7 @@ verwendet. Für deren Realisierung zur Eingabe von Daten für ein
 `ActiveRecord`-Objekt bietet Rails eine ganze Reihe von Helper-Methoden an. An
 folgendem Beispiel seien einige dieser Methoden kurz beschrieben:
 
+    !!!html_rails
     <% form_for :message do |f| %>
       <%= f.text_area :content %>
       <%= f.submit "Post Status" %>

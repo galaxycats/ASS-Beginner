@@ -36,6 +36,7 @@ Program"](http://pine.fm/LearnToProgram/ "Learn to Program, by Chris Pine") von 
 
 ### Environment Setup
 
+    !!!plain_text
     export PATH=/usr/local/bin:$PATH
 
 ### Strings

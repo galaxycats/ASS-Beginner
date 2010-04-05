@@ -57,6 +57,7 @@ Datenbank-Tabellen angelegt werden.
 
 ### Rails installieren und Projektstruktur initialisieren
 
+    !!!plain_text
     $> gem update --system
     $> gem --version
     1.3.6
@@ -64,6 +65,7 @@ Datenbank-Tabellen angelegt werden.
     
 Rails-Projekt generieren:
 
+    !!!plain_text
     $> rails <appname>
 
 ### Generatoren und rake-Tasks
@@ -73,6 +75,7 @@ Zunächst muss eine Resource mit Hilfe des folgenden Befehls generiert werden:
 Dabei werden alle relevanten Dateien erzeugt, von der Migration über das
 Modell bis hin zum Controller. Hier ein Beispiel:
   
+    !!!plain_text
     rails generate resource message content:string
     ($> ~/projects/ass/twitter-clone)
         invoke  active_record
@@ -101,6 +104,7 @@ Jetzt kann man direkt die erzeugte Migration ausführen und den Server starten:
 **Aber** wir wollen uns das ganze erstmal ohne Web Server auf der *Console*
 ansehen:
 
+    !!!plain_text
      $> rails console
       irb> Message
           => Message(id: integer, content: string, created_at: datetime, updated_at: datetime)
@@ -131,6 +135,7 @@ In der Routing-Datei (`RAILS_ROOT/config/routes.rb`) muss zu diesem Zeitpunkt ni
 `root`-Route anzulegen. Diese beschreibt welche Action mit dazugehörigem Controller beim Aufruf der Haupt-URL (`http://localhost:3000`)
 aufgerufen werden soll. Dazu fügt man folgenden Code am Ende der Routing-Definition ein:
 
+    !!!ruby_on_rails
     route :to => "<controller>#<action>"
 
 ### Migrationen

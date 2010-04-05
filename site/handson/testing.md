@@ -115,6 +115,7 @@ specific Assertions") finden lassen.
 
 Beispiel:
 
+    !!!yaml
     # Dieser Datensatz muss in der test/fixtures/articles.yml Datei stehen
     # Auch gelten ganz normale Kommentare
     article_for_test: # Name des Datensatzes
@@ -141,6 +142,7 @@ erwähnt sein, sich mit der Thematik näher zu beschäftigen.
 
 Beispiel:
     
+    !!!ruby_on_rails
     class ArticleTest < ActiveSupport::TestCase
       test "should have a valid title" do
         article = Article.new(:title => '', :author => users(:jessie))
