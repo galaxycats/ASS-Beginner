@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
+<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
+<style type="text/css">
+		body {
+			margin-top: 1.0em;
+			background-color: #0b084a;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #ffffff;
+		}
+		#container {
+			margin: 0 auto;
+			width: 800px;
+		}
+		h1 {
+		  font-size: 50px;
+		  color: #f4f7b5;
+		  margin-bottom: 3px;
+		}
+		h1 .small {
+		  font-size: 0.4em;
+		}
+		h1 a {
+		  text-decoration: none
+		}
+		h2 {
+		  font-size: 1.5em; color: #f4f7b5;
+		}
+		h3 {
+		  text-align: center; color: #f4f7b5;
+		}
+		a {
+		  color: #f4f7b5;
+		}
+		.description {
+		  font-size: 1.2em;
+		  margin-bottom: 30px;
+		  margin-top: 30px;
+		  font-style: italic;
+		}
+		.download { 
+		  float: right;
+		}
+		pre {
+		  background: #000;
+		  color: #fff;
+		  padding: 15px;
+		}
+		hr {
+		  border: 0;
+		  width: 80%;
+		  border-bottom: 1px solid #aaa;
+		}
+		.footer {
+		  text-align:center;
+		  padding-top:30px;
+		  font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  	<div id="container">
+
+  		<div class="download">
+  			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  		</div>
+
+        <div id="content">
+          <h1>Tag 3, Hands-On 8: Testing</h1>
+
+<h2>Ziel</h2>
+
+<p>Die Grundlagen von automatisierten Tests verstanden haben und grundlegend anwenden k&ouml;nnen.</p>
+
+<h2>Aufgabe</h2>
+
+<p>Bis hierher haben wir unsere Anwendung allein durch Ausprobieren in der
+Console oder im Browser "getestet". Das ist jedoch keine wirkliche Alternative
+zu automatisierten Tests. Dabei werden Test-Abl&auml;ufe programmiert, die sich
+immer und immer wieder auf die gleiche Art und Weise ausf&uuml;hren lassen. In
+diesem Rahmen ist es sicher nicht m&ouml;glich die gesamte bisherige Anwendung mit
+solchen Tests abzudecken, aber zumindest wollen wir einmal eine kleine
+Teilfunktionalit&auml;t mit einem echten Test abdecken:</p>
+
+<ol>
+<li>Es sollen eine Reihe Tests geschrieben werden, die die
+Follower-Funktionalit&auml;t &uuml;berpr&uuml;fen. Dazu geh&ouml;rt, ob ein Nutzer einem anderen
+folgen kann und dann seine Mitteilungen erh&auml;lt und das er die Mitteilungen
+nicht mehr erh&auml;lt, sobald er aufh&ouml;rt jemandem zu folgen.</li>
+</ol>
+<h3>Eine kleine Anmerkung</h3>
+
+<p>Die Methodik der testgetriebenen Entwicklung (TDD) entstammt der agilen
+Softwareentwicklung und dort Vorgehensmodellen wie Extreme Programming (XP).
+In der agilen Softwareentwicklung wird oft auf eine formale Spezifikation des
+Systems verzichtet, um schnell auf &Auml;nderungen reagieren zu k&ouml;nnen. Dies
+bedeutet jedoch nicht, dass &uuml;berhaupt keine Spezifikation existiert! Die
+automatischen Tests bilden hier die Spezifikation. Daher ist es auch notwendig
+die Tests vor der eigentlichen Entwicklung zu schreiben. Sie definieren, wie
+eine Spezifikation, den Funktionsumfang der zu implementierenden Teile des
+Systems. Daher kommt die Aussage, dass Code der nicht getestet ist, auch nicht
+existiert.</p>
+
+<h2>Ressourcen</h2>
+
+<ul>
+<li><a href="http://guides.rails.info/testing.html" title="A Guide to Testing Rails Applications">A Guide to Testing Rails Applications</a></li>
+</ul>
+<h2>Shortcuts</h2>
+
+<h3>Testarten</h3>
+
+<ul>
+<li><p><strong>Unit-Tests:</strong> Testen Funktionalit&auml;ten auf Modell-Ebene. Hier wird immer
+nur eine Modellklasse selbst getestet. Dazu z&auml;hlt aber auch ob Relationen
+zwischen Modellen wie erwartet funktionieren.</p></li>
+<li><p><strong>Functional-Tests:</strong> Testen ob die Controllerebene wie erwartet
+funktioniert. Ob Parameter richtig verarbeitet und die richtigen Objekte
+instanziiert werden, sind Fragen die hier beantwortet werden m&uuml;ssen. Ein
+Viewtesting ist hier nur sehr rudiment&auml;r m&ouml;glich. In einem Functional-Test
+wird immer nur ein Controller getestet.</p></li>
+<li><p><strong>Integration-Tests:</strong> Testen Abl&auml;ufe innerhalb der Applikation. Hier werden
+verschiedene Controller im Zusammenspiel getestet. Es l&auml;sst sich simulieren
+wie sich ein Benutzer in der Applikation bewegt. Aber auch hier ist
+View-Testing nur rudiment&auml;r m&ouml;glich.</p></li>
+</ul>
+<h3>Testcases</h3>
+
+<ul>
+<li><p>Die Klassen der Testcases befinden sich im Ordner <code>test</code> und dort in den
+entsprechenden Unterordnern.</p></li>
+<li><p>Die Datei <code>test_helper.rb</code> wird von allen Tests geladen. Hier werden
+allgemeine Einstellungen vorgenommen (wie alle Fixtures zu laden und wie
+Fixtures geladen werden) und das Environment auf <code>test</code> gesetzt.</p></li>
+<li><p>Die Tests vererben von <code>ActiveSupport::TestCase</code> (Unittests) oder
+<code>ActionController::TestCase</code>(Functionaltests, vererbt selbst aber auch von
+<code>ActiveSupport::TestCase</code>). Dadurch sind zwei Methoden verf&uuml;gbar,
+die &uuml;berschrieben werden k&ouml;nnen: <code>setup</code> und <code>teardown</code>. Diese Methoden
+beinhalten Anweisungen, die vor bzw. nach jedem Test (also jeder
+Testmethode) auszuf&uuml;hren sind.</p></li>
+<li><p>Testmethoden werden mit <code>test "&lt;test_name&gt;" do; # your test code; end</code>,
+ansonsten werden sie nicht beim Testlauf ausgef&uuml;hrt.</p></li>
+</ul>
+<h3>Assertions</h3>
+
+<p>Im folgenden eine Auswahl von relevanten Assertions (&Uuml;berpr&uuml;fungen) die zur
+Verf&uuml;gung stehen:</p>
+
+<pre><code><pre class="sunburst">assert_equal <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob zwei Objekte gleich sind</span>
+assert_not_equal <span class="Comment"><span class="Comment">#</span> Negierung von 'assert_equal'</span>
+assert_instance_of <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob ein Objekt eine Instanz einer bestimmten Klasse ist</span>
+assert_kind_of <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob ein Objekt eine Instanz einer Klasse aus einem Klassen-/Modulbaum ist</span>
+assert_match <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob ein String gegen einen regul&amp;auml;ren Ausdruck erfolgreich gepr&amp;uuml;ft werden kann</span>
+assert_no_match <span class="Comment"><span class="Comment">#</span> Negierung von 'assert_match'</span>
+assert_nil <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob ein Objekt 'nil' ist</span>
+assert_not_nil <span class="Comment"><span class="Comment">#</span> Negierung von 'assert_nil'</span>
+assert_raise <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob eine Exception innerhalb des angegeben Code-Blocks geworfen wird</span>
+assert_nothing_raised <span class="Comment"><span class="Comment">#</span> Negierung von 'assert_raise'</span>
+assert_respond_to <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob ein Objekt eine bestimmte Methode besitzt</span>
+assert_same <span class="Comment"><span class="Comment">#</span> &amp;Uuml;berpr&amp;uuml;ft ob zwei Objekte die gleiche Instanz sind</span>
+assert_not_same <span class="Comment"><span class="Comment">#</span> Negierung von 'assert_same'</span>
+</pre></code></pre>
+
+<p>Rails definiert zus&auml;tzlich noch eine Reihe weiterer Assertions, die sich,
+zusammen mit der hier beschriebenen Auswahl vollst&auml;ndig
+<a href="http://guides.rails.info/testing.html#assertions-available" title="Available
+Assertions">hier</a> und
+<a href="http://guides.rails.info/testing.html#rails-specific-assertions" title="Rails
+specific Assertions">hier</a> finden lassen.</p>
+
+<h3>Fixtures</h3>
+
+<ul>
+<li><p>In den Fixturesdateien zu jeder Modellklasse sind die Testdaten in YAML
+Notation spezifiziert. Sie entsprechen einer Art Objektserialisierung und
+daher k&ouml;nnen die selben Methodennamen verwendet werden, wie beim Erzeugen
+eines Objekts im Programm. Zu beachten ist, dass die Einr&uuml;ckungen in einer
+YAML Datei Leerzeichen sein m&uuml;ssen und keine Tabs (TextMate verwendet immer
+<em>SoftTabs</em>, setzt also Leerzeichen wenn man die Tabulatortaste dr&uuml;ckt).</p></li>
+<li><p>Innerhalb der Tests kann auf die Testdaten &uuml;ber eine Methode die wie die
+Fixturedatei heisst zugegriffen werden, mit dem Namen des Datensatzes als
+Parameter (Bsp.: <code>articles(:article_for_test)</code>)</p></li>
+</ul>
+<p>Beispiel:</p>
+
+<pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> Dieser Datensatz muss in der test/fixtures/articles.yml Datei stehen</span>
+<span class="Comment"><span class="Comment">#</span> Auch gelten ganz normale Kommentare</span>
+<span class="MetaTagAll"><span class="MetaTagInline">article_for_test</span><span class="MetaTagAll">:</span> </span><span class="Comment"><span class="Comment">#</span> Name des Datensatzes</span>
+  <span class="String"><span class="MetaTagInline">title<span class="MetaTagInline">:</span></span> <span class="String">Article for Pagination test</span></span>
+  <span class="String"><span class="MetaTagInline">author<span class="MetaTagInline">:</span></span> <span class="String">dirk # Referenz auf einen Datensatz in der authors.yml Datei</span></span>
+  <span class="String"><span class="MetaTagInline">content<span class="MetaTagInline">:</span></span> <span class="String">Lorem ipsum dolor sit amet, consectetur </span></span>
+  <span class="MetaTagAll"><span class="MetaTagInline">created_at</span><span class="MetaTagAll">:</span> </span>&lt;%= <span class="Constant">5</span>.<span class="Entity">days</span>.<span class="Entity">ago</span>.<span class="Entity">to_formatted_s</span>(<span class="Constant"><span class="Constant">:</span>db</span>) %&gt; <span class="Comment"><span class="Comment">#</span> Fixtures durchlaufen auch den ERB Parser!</span>
+</pre></code></pre>
+
+<p><strong>Anmerkung:</strong> Der Einsatz von Fixtures sollte unserer Meinung nach nur
+punktuell erfolgen. Da hier tats&auml;chlich auf der Datenbank gearbeitet wird,
+wird die Ausf&uuml;hrung der Tests mit steigender Komplexit&auml;t und vielen Fixtures
+signifikant verlangsamt. Als Alternative zu Fixtures l&auml;sst sich <em>Mocking</em>
+einsetzen, zusammen mit dem Mock-Framework <a href="http://mocha.rubyforge.org/" title="Mocha 0.9.8">mocha</a> f&uuml;r Ruby. Mocking kann aber nicht mehr Teil dieses Kurses sein,
+sondern wird im Advanced-Kurs behandelt. Es soll aber hier als Motivation
+erw&auml;hnt sein, sich mit der Thematik n&auml;her zu besch&auml;ftigen.</p>
+
+<h3>Ausf&uuml;hren der Tests</h3>
+
+<ul>
+<li>
+<code>rake test:units</code> - F&uuml;hrt alle Unit Tests aus</li>
+<li>
+<code>rake test:functionals</code> - F&uuml;hrt alle Functional Tests aus</li>
+<li>
+<code>rake test:integration</code> - F&uuml;hrt alle Functional Tests aus</li>
+<li>
+<code>rake test</code> - F&uuml;hrt alle Tests aus</li>
+</ul>
+<p>Beispiel:</p>
+
+<pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">ArticleTest<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ActiveSupport::TestCase</span></span>
+  test <span class="String"><span class="String">"</span>should have a valid title<span class="String">"</span></span> <span class="Keyword">do</span>
+    article <span class="Keyword">=</span> <span class="Support">Article</span>.<span class="Entity">new</span>(<span class="Constant"><span class="Constant">:</span>title</span> =&gt; <span class="String"><span class="String">'</span><span class="String">'</span></span>, <span class="Constant"><span class="Constant">:</span>author</span> =&gt; <span class="Entity">users</span>(<span class="Constant"><span class="Constant">:</span>jessie</span>))
+    assert <span class="Keyword">!</span>article.<span class="Entity">valid?</span>
+    assert article.<span class="Entity">errors</span>.<span class="Entity">invalid?</span>(<span class="Constant"><span class="Constant">:</span>title</span>)
+    article.<span class="Entity">title</span> <span class="Keyword">=</span> <span class="String"><span class="String">"</span>Test Title<span class="String">"</span></span>
+    assert article.<span class="Entity">save</span>
+  <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+</pre></code></pre>
+
+        </div>
+
+  		<div class="footer">
+  			get the source code on GitHub : <a href="http://github.com/galaxycats/ASS-Beginner">galaxycats/ASS-Beginner</a>
+  		</div>
+
+  	</div>
+
+</body>
+</html>

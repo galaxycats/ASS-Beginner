@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
+<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
+<style type="text/css">
+		body {
+			margin-top: 1.0em;
+			background-color: #0b084a;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #ffffff;
+		}
+		#container {
+			margin: 0 auto;
+			width: 800px;
+		}
+		h1 {
+		  font-size: 50px;
+		  color: #f4f7b5;
+		  margin-bottom: 3px;
+		}
+		h1 .small {
+		  font-size: 0.4em;
+		}
+		h1 a {
+		  text-decoration: none
+		}
+		h2 {
+		  font-size: 1.5em; color: #f4f7b5;
+		}
+		h3 {
+		  text-align: center; color: #f4f7b5;
+		}
+		a {
+		  color: #f4f7b5;
+		}
+		.description {
+		  font-size: 1.2em;
+		  margin-bottom: 30px;
+		  margin-top: 30px;
+		  font-style: italic;
+		}
+		.download { 
+		  float: right;
+		}
+		pre {
+		  background: #000;
+		  color: #fff;
+		  padding: 15px;
+		}
+		hr {
+		  border: 0;
+		  width: 80%;
+		  border-bottom: 1px solid #aaa;
+		}
+		.footer {
+		  text-align:center;
+		  padding-top:30px;
+		  font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  	<div id="container">
+
+  		<div class="download">
+  			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  		</div>
+
+        <div id="content">
+          <h1>Tag 1, Hands-On 1: Getting started with Ruby</h1>
+
+<h2>Ziel</h2>
+
+<p>Ruby Syntax verstehen und in den Grundz&uuml;gen schreiben k&ouml;nnen.</p>
+
+<h2>Aufgabe</h2>
+
+<ol>
+<li><p>Gib auf vier verschiedene Arten den String "Hello World!" viermal auf dem
+Bildschirm aus. Die unterschiedlichen Methoden sollten m&ouml;glichst kreativ sein!</p></li>
+<li><p>Eine Liste von Studenten, die Matrikelnummern den Namen der Studenten
+zuweist (mind. 4 Studenten in der Liste). Aus dieser Liste sollen die Namen
+sortiert ausgegeben werden.</p></li>
+<li><p>Make an <code>OrangeTree</code> class. It should have a <code>height</code> method which returns
+its height, and a <code>one_year_passes</code> method, which, when called, ages the tree
+one year. Each year the tree grows taller (however much you think an orange
+tree should grow in a year), and after some number of years (again, your call)
+the tree should die. For the first few years, it should not produce fruit, but
+after a while it should, and I guess that older trees produce more each year
+than younger trees... whatever you think makes most sense. And, of course, you
+should be able to <code>count_the_oranges</code> (which returns the number of oranges on
+the tree), and <code>pick_an_orange</code> (which reduces the <code>@orange_count</code> by one and
+returns a string telling you how delicious the orange was, or else it just
+tells you that there are no more oranges to pick this year). Make sure that
+any oranges you don't pick one year fall off before the next year. (<a href="http://pine.fm/LearnToProgram/" title="Learn to Program, by Chris Pine">"Learn to
+Program"</a> von <em>Chris Pine</em>)</p></li>
+</ol>
+<h2>Ressourcen</h2>
+
+<ul>
+<li><a href="http://railsapi.com/" title="Rails Searchable API Doc">Rails Searchable API Doc</a></li>
+<li><a href="http://www.scribd.com/doc/7991776/Refcard-30-Essential-Ruby" title="Refcard #30: Essential Ruby">Ruby Quick Reference Card</a></li>
+</ul>
+<h2>Shortcuts</h2>
+
+<h3>Environment Setup</h3>
+
+<pre><code><pre class="sunburst">export PATH=/usr/local/bin:$PATH
+</pre></code></pre>
+
+<h3>Strings</h3>
+
+<pre><code><pre class="sunburst"><span class="String"><span class="String">"</span>Das ist ein String<span class="String">"</span></span>
+<span class="String"><span class="String">'</span>Das hier auch<span class="String">'</span></span>
+</pre></code></pre>
+
+<h3>Symbols</h3>
+
+<pre><code><pre class="sunburst"><span class="Constant"><span class="Constant">:</span>das_ist_ein_symbol</span>
+</pre></code></pre>
+
+<h3>Arrays</h3>
+
+<pre><code><pre class="sunburst">[<span class="Constant">1</span>,<span class="Constant">2</span>,<span class="Constant">3</span>]
+<span class="String"><span class="String">%w(</span>eins zwei drei<span class="String">)</span></span>
+</pre></code></pre>
+
+<h3>Hash</h3>
+
+<pre><code><pre class="sunburst">{ <span class="Constant"><span class="Constant">:</span>key</span> =&gt; <span class="String"><span class="String">'</span>value<span class="String">'</span></span>, <span class="Constant"><span class="Constant">:</span>another_key</span> =&gt; <span class="String"><span class="String">'</span>another_value<span class="String">'</span></span> }
+</pre></code></pre>
+
+<h3>Ranges</h3>
+
+<pre><code><pre class="sunburst"><span class="Constant">0</span>..<span class="Constant">4</span>
+</pre></code></pre>
+
+<h3>Schleifen</h3>
+
+<pre><code><pre class="sunburst"><span class="Constant">4</span>.<span class="Entity">times</span> { |<span class="Variable">n</span>| puts n }
+
+<span class="Keyword">while</span> i <span class="Keyword">&lt;</span> <span class="Constant">10</span> 
+<span class="Comment">  <span class="Comment">#</span> do something </span>
+<span class="Keyword">end</span>
+
+[<span class="Constant">1</span>,<span class="Constant">2</span>,<span class="Constant">3</span>].<span class="Entity">each</span> { |<span class="Variable">x</span>| puts x<span class="Keyword">+</span><span class="Constant">1</span> }
+
+<span class="Keyword">for</span> i <span class="Keyword">in</span> <span class="Constant">0</span>..<span class="Constant">10</span> <span class="Keyword">do </span>|<span class="Variable">n</span>| 
+<span class="Comment">  <span class="Comment">#</span> do something with 'n'</span>
+<span class="Keyword">end</span> 
+</pre></code></pre>
+
+<h3>Ausgabe</h3>
+
+<pre><code><pre class="sunburst">puts string <span class="Comment"><span class="Comment">#</span> =&gt; Die String Representation eines Objektes (durch Aufruf der Methode 'to_s')</span>
+
+puts obj.<span class="Entity">inspect</span> <span class="Comment"><span class="Comment">#</span> =&gt; i.d.R. mehr Details &amp;uuml;ber ein Object bei der Ausgabe</span>
+</pre></code></pre>
+
+<h3>Allgemeines</h3>
+
+<ul>
+<li>Ruby Source Dateien: <code>my_ruby_prog.rb</code>
+</li>
+<li>Ruby Interpreter starten: <code>ruby &lt;dateiname&gt;.rb</code>
+</li>
+<li>Interactive Ruby Shell starten: <code>irb</code>
+</li>
+<li>Interactive Ruby Shell starten und Bibliothek laden: <code>irb -r bib.rb</code>
+</li>
+<li>R&uuml;ckgabewerte: Eine Funktion gibt <strong>immer den zuletzt evaluierten Wert zur&uuml;ck</strong>, auch ohne Angabe des Schl&uuml;sselworts <code>return</code>.</li>
+</ul>
+<h3>Konventionen</h3>
+
+<ul>
+<li>Klassen-/Modulnamen werden in CamelCase notiert</li>
+<li>Methodenamen werden mit Unterstrichen notiert (<code>find_by_name</code>)</li>
+<li>Methoden, die das Callerobjekt ver&auml;ndern haben einen Ausrufezeichen (<code>sort!</code>)</li>
+<li>Methoden, die true oder false zur&uuml;ckgeben haben ein Fragezeichen (<code>instance_of?</code>)</li>
+</ul>
+</div>
+
+  		<div class="footer">
+  			get the source code on GitHub : <a href="http://github.com/galaxycats/ASS-Beginner">galaxycats/ASS-Beginner</a>
+  		</div>
+
+  	</div>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
+<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
+<style type="text/css">
+		body {
+			margin-top: 1.0em;
+			background-color: #0b084a;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #ffffff;
+		}
+		#container {
+			margin: 0 auto;
+			width: 800px;
+		}
+		h1 {
+		  font-size: 50px;
+		  color: #f4f7b5;
+		  margin-bottom: 3px;
+		}
+		h1 .small {
+		  font-size: 0.4em;
+		}
+		h1 a {
+		  text-decoration: none
+		}
+		h2 {
+		  font-size: 1.5em; color: #f4f7b5;
+		}
+		h3 {
+		  text-align: center; color: #f4f7b5;
+		}
+		a {
+		  color: #f4f7b5;
+		}
+		.description {
+		  font-size: 1.2em;
+		  margin-bottom: 30px;
+		  margin-top: 30px;
+		  font-style: italic;
+		}
+		.download { 
+		  float: right;
+		}
+		pre {
+		  background: #000;
+		  color: #fff;
+		  padding: 15px;
+		}
+		hr {
+		  border: 0;
+		  width: 80%;
+		  border-bottom: 1px solid #aaa;
+		}
+		.footer {
+		  text-align:center;
+		  padding-top:30px;
+		  font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  	<div id="container">
+
+  		<div class="download">
+  			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  		</div>
+
+        <div id="content">
+          <h1>Tag 1, Hands-On 3: Validierungen</h1>
+
+<h2>Ziel</h2>
+
+<p>Objekte vor ihrer Speicherung in der Datenbank validieren k&ouml;nnen.</p>
+
+<h2>Aufgabe</h2>
+
+<ol>
+<li><p>Ein zentraler Gedanke bei Twitter (und damit auch bei unserem Klon) ist es,
+dass die Nachrichten sehr kurz sind. Sie werden daher auf 140 Zeichen
+beschr&auml;nkt (ja, noch weniger als SMS mit 160 Zeichen). Damit auch in unserer
+Anwendung keine l&auml;ngeren Mitteilungen geschrieben werden k&ouml;nnen, soll ein
+entsprechender Validator hinzugef&uuml;gt werden. Kleiner Tipp noch: Leere
+Mitteilungen machen nicht wirklich Sinn.</p></li>
+<li><p>Falls ein Nutzer zu viele Zeichen eingegeben hat, oder &uuml;berhaupt gar keine,
+dann sollen ihn entsprechende Fehler darauf aufmerksam machen.</p></li>
+</ol>
+<h2>Ressourcen</h2>
+
+<ul>
+<li><a href="http://guides.rails.info/activerecord_validations_callbacks.html" title="Active Record Validations and Callbacks">Active Record Validations</a></li>
+</ul>
+<h2>Wichtige Informationen</h2>
+
+<ul>
+<li><p>Die Validierung findet statt bevor das Objekt gespeichert wird.</p></li>
+<li><p>Jedes ActiveRecord Objekt hat eine <code>valid?</code> Methode, mit der
+die Validierung explizit getriggert werden kann.</p></li>
+<li><p>Scheitert eine Validierung, so wird die Fehlermeldung dem <code>errors</code>-Objekt
+hinzugef&uuml;gt und kann in der View zur Fehlerausgabe verwendet werden.</p></li>
+<li><p>Die Ausgabe der Fehler l&auml;sst sich in der View &uuml;ber die Hilfsmethode
+<code>error_messages_for</code> realisieren.</p></li>
+</ul>
+<h3>Einige Standardvalidierungen:</h3>
+
+<pre><code><pre class="sunburst"><span class="SupportFunction">validates_presence_of</span> <span class="Constant"><span class="Constant">:</span>first_name</span>, <span class="Constant"><span class="Constant">:</span>last_name</span> <span class="Comment"><span class="Comment">#</span> Attribute 'first_name' und 'last_name' d&amp;uuml;rfen nicht leer sein</span>
+<span class="SupportFunction">validates_uniqueness_of</span> <span class="Constant"><span class="Constant">:</span>username</span> <span class="Comment"><span class="Comment">#</span> Attribut 'username' muss einzigartig sein</span>
+<span class="SupportFunction">validates_format_of</span> <span class="Constant"><span class="Constant">:</span>email</span>, <span class="Constant"><span class="Constant">:</span>with</span> =&gt; <span class="StringRegexp"><span class="StringRegexp">/</span></span><span class="StringRegexp"><span class="StringRegexpSpecial">\A</span><span class="StringRegexp"><span class="StringRegexp">(</span><span class="StringRegexp"><span class="StringRegexp">[</span>^@<span class="StringRegexpSpecial">\s</span><span class="StringRegexp">]</span></span>+<span class="StringRegexp">)</span></span>@<span class="StringRegexp"><span class="StringRegexp">(</span><span class="StringRegexp"><span class="StringRegexp">(</span>?:<span class="StringRegexp"><span class="StringRegexp">[</span>-a-z0-9<span class="StringRegexp">]</span></span>+<span class="StringRegexpSpecial">\.</span><span class="StringRegexp">)</span></span>+<span class="StringRegexp"><span class="StringRegexp">[</span>a-z<span class="StringRegexp">]</span></span>{2,}<span class="StringRegexp">)</span></span><span class="StringRegexpSpecial">\Z</span></span><span class="StringRegexp"><span class="StringRegexp">/i</span></span> <span class="Comment"><span class="Comment">#</span> Attribut 'email' muss dem angegebenen Format entsprechen</span>
+<span class="SupportFunction">validates_length_of</span> <span class="Constant"><span class="Constant">:</span>password</span>, <span class="Constant"><span class="Constant">:</span>minimum</span> =&gt; <span class="Constant">5</span> <span class="Comment"><span class="Comment">#</span> Attribut 'password' muss mindestens 5 Zeichen lang sein</span>
+
+user <span class="Keyword">=</span> <span class="Support">User</span>.<span class="Entity">new</span>
+user.<span class="Entity">valid?</span> <span class="Comment"><span class="Comment">#</span> =&gt; false</span>
+user.<span class="Entity">errors</span>.<span class="Entity">include?</span> <span class="Constant"><span class="Constant">:</span>email</span> <span class="Comment"><span class="Comment">#</span> =&gt; true</span>
+user.<span class="Entity">errors</span> <span class="Comment"><span class="Comment">#</span> =&gt; {:email=&gt;["can't be blank", "is invalid"], :last_name=&gt;["can't be blank"], :first_name=&gt;["can't be blank"]}</span>
+</pre></code></pre>
+
+<h3>Eigene Validierung:</h3>
+
+<pre><code><pre class="sunburst"><span class="Keyword">def</span> <span class="Entity">validate</span> 
+  errors.<span class="Entity">add</span>(birthday, <span class="String"><span class="String">"</span>Who are you? Methusalem?<span class="String">"</span></span>) <span class="Keyword">unless</span> birthday <span class="Keyword">&lt;</span> <span class="Support">Time</span>.<span class="Entity">parse</span>(<span class="String"><span class="String">"</span>01-01-1900<span class="String">"</span></span>) 
+<span class="Keyword">end</span>
+</pre></code></pre>
+
+        </div>
+
+  		<div class="footer">
+  			get the source code on GitHub : <a href="http://github.com/galaxycats/ASS-Beginner">galaxycats/ASS-Beginner</a>
+  		</div>
+
+  	</div>
+
+</body>
+</html>

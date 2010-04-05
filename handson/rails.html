@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
+<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
+<style type="text/css">
+		body {
+			margin-top: 1.0em;
+			background-color: #0b084a;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #ffffff;
+		}
+		#container {
+			margin: 0 auto;
+			width: 800px;
+		}
+		h1 {
+		  font-size: 50px;
+		  color: #f4f7b5;
+		  margin-bottom: 3px;
+		}
+		h1 .small {
+		  font-size: 0.4em;
+		}
+		h1 a {
+		  text-decoration: none
+		}
+		h2 {
+		  font-size: 1.5em; color: #f4f7b5;
+		}
+		h3 {
+		  text-align: center; color: #f4f7b5;
+		}
+		a {
+		  color: #f4f7b5;
+		}
+		.description {
+		  font-size: 1.2em;
+		  margin-bottom: 30px;
+		  margin-top: 30px;
+		  font-style: italic;
+		}
+		.download { 
+		  float: right;
+		}
+		pre {
+		  background: #000;
+		  color: #fff;
+		  padding: 15px;
+		}
+		hr {
+		  border: 0;
+		  width: 80%;
+		  border-bottom: 1px solid #aaa;
+		}
+		.footer {
+		  text-align:center;
+		  padding-top:30px;
+		  font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  	<div id="container">
+
+  		<div class="download">
+  			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  		</div>
+
+        <div id="content">
+          <h1>Tag 1, Hands-On 2: Getting started with Rails</h1>
+
+<h2>Ziel</h2>
+
+<p>Ein Rails Projekt aufsetzen und die dazugeh&ouml;rige Datenbank einrichten
+und migrieren k&ouml;nnen.</p>
+
+<h2>Aufgabe</h2>
+
+<ol>
+<li><p>&Uuml;ber die Dauer des Kurses soll eine kleine aber voll funktionsf&auml;hige
+Webanwendung entstehen. Dazu wollen wir zusammen den Webdienst
+<a href="http://twitter.com/" title="Twitter">Twitter</a> nachbauen. Dabei handelt es sich um
+eine Plattform auf der sich jeder kostenfrei anmelden kann und in Form von 140
+Zeichen seinen aktuellen Status der Welt mitteilen kann. Eine solche
+Statusmitteilung kann dabei so ziemlich alles sein was sich eben in 140
+Zeichen ausdr&uuml;cken l&auml;sst: Ein interessanter Link, ein lustiges Video bei
+YouTube, was ich gerade Esse, wo ich gerade bin oder an was ich gerade
+arbeite. Diese Statusmitteilung werden so in einer Liste dargestellt, dass
+jeweils die aktuellste Mitteilung ganz oben steht. Diese Liste bezeichnen wir
+daher als Timeline. Interessant wird das ganze nun, wenn man das Konzept von
+"Followern" einf&uuml;hrt. Hierbei geht es darum, dass ich als Nutzer bestimmten
+anderen Leuten "folgen" kann, also deren Statusmitteilungen ebenfalls zu
+meinen in meiner pers&ouml;nlichen Timeline angzeigt werden. So bin ich zum
+Beispiel immer auf dem laufenden &uuml;ber das was meine Freunde gerade machen oder
+f&uuml;r spannend im Netz erachten. Zus&auml;tzlich kann ich in meinen
+Statusmitteilungen andere Nutzer explizit erw&auml;hnen, also "mention". Diese
+Mentions werden mir auch dann immer in meiner pers&ouml;nlichen Timeline angezeigt,
+wenn ich dem Nutzer nicht explizit folge. Zus&auml;tzlich zu der pers&ouml;nlichen
+Timeline eines Benutzers (die auch nur er im eingeloggten Zustand sehen kann)
+hat jeder Nutzer auch eine &ouml;ffentliche Timeline, in der nur seine
+Statusmitteilungen zu sehen sind, also ohne Mentions und Mitteilungen von
+gefolgten Nutzern (Followee). Dar&uuml;ber hinaus gibt es auch eine Haupt-Timeline
+in der alle Nachrichten aller Nutzer auftauchen und die f&uuml;r jeden &ouml;ffentlich
+einsehbar ist. Die wesentlichen Elemente der Anwendung sind demnach:</p></li>
+<li><p>Benutzer</p></li>
+<li>Statusmitteilungen</li>
+<li>Beziehungen zwischen Benutzern (Follower)</li>
+<li><p>Beziehungen zwischen Benutzern und Statusmitteilungen (Mentions)</p></li>
+<li><p>Auf der Haupt-URL (<code>http://localhost:3000/</code>) soll die &ouml;ffentliche Timeline
+angezeigt werden. Dazu muss die <code>index.html</code> aus dem <code>public</code>-Verzeichnis der
+Rails-Anwendung gel&ouml;scht und eine <code>root</code>-Route angelegt werden.</p></li>
+<li><p>Mit Hilfe von <code>ActiveRecord::Migration</code> sollen die n&ouml;tigen
+Datenbank-Tabellen angelegt werden.</p></li>
+</ol>
+<h2>Ressourcen</h2>
+
+<ul>
+<li><a href="http://railsapi.com/" title="Rails Searchable API Doc">Rails Searchable API Doc</a></li>
+<li><a href="http://guides.rails.info/" title="Rails Guides">Rails Guides</a></li>
+<li><a href="http://guides.rails.info/getting_started.html" title="Getting Started with Rails">Getting Started with Rails</a></li>
+<li><a href="http://guides.rails.info/migrations.html" title="Migrations">Migrations</a></li>
+<li>
+<em>Bonus:</em> <a href="http://guides.rails.info/command_line.html" title="A Guide to The Rails Command Line">A Guide to The Rails Command Line</a>
+</li>
+</ul>
+<h2>Shortcuts</h2>
+
+<h3>Rails installieren und Projektstruktur initialisieren</h3>
+
+<pre><code><pre class="sunburst">$&gt; gem update --system
+$&gt; gem --version
+1.3.6
+$&gt; gem install rails --pre
+</pre></code></pre>
+
+<p>Rails-Projekt generieren:</p>
+
+<pre><code><pre class="sunburst">$&gt; rails &lt;appname&gt;
+</pre></code></pre>
+
+<h3>Generatoren und rake-Tasks</h3>
+
+<p>Zun&auml;chst muss eine Resource mit Hilfe des folgenden Befehls generiert werden:
+<code>rails generieren resource &lt;ResourceName&gt; &lt;attribubute&gt;:&lt;attribute_type&gt;</code>.
+Dabei werden alle relevanten Dateien erzeugt, von der Migration &uuml;ber das
+Modell bis hin zum Controller. Hier ein Beispiel:</p>
+
+<pre><code><pre class="sunburst">rails generate resource message content:string
+($&gt; ~/projects/ass/twitter-clone)
+    invoke  active_record
+    create    db/migrate/20100312165212_create_messages.rb
+    create    app/models/message.rb
+    invoke    test_unit
+    create      test/unit/message_test.rb
+    create      test/fixtures/messages.yml
+    invoke  controller
+    create    app/controllers/messages_controller.rb
+    invoke    erb
+    create      app/views/messages
+    invoke    test_unit
+    create      test/functional/messages_controller_test.rb
+    invoke    helper
+    create      app/helpers/messages_helper.rb
+    invoke      test_unit
+    create        test/unit/helpers/messages_helper_test.rb
+     route  resources :messages
+</pre></code></pre>
+
+<p>Jetzt kann man direkt die erzeugte Migration ausf&uuml;hren und den Server starten:</p>
+
+<ul>
+<li>Migration ausf&uuml;hren: <code>rake db:migrate</code>
+</li>
+<li>Server starten: <code>rails server</code>
+</li>
+</ul>
+<p><strong>Aber</strong> wir wollen uns das ganze erstmal ohne Web Server auf der <em>Console</em>
+ansehen:</p>
+
+<pre><code><pre class="sunburst">$&gt; rails console
+  irb&gt; Message
+      =&gt; Message(id: integer, content: string, created_at: datetime, updated_at: datetime)
+  irb&gt; message = Message.new(:content =&gt; "Dies ist meine erste Nachricht.")
+      =&gt; #&lt;Message id: nil, content: "Dies ist meine erste Nachricht.", created_at: nil, updated_at: nil&gt;
+  irb&gt; message.save
+      =&gt; true
+  irb&gt; message
+      =&gt; #&lt;Message id: 1, content: "Dies ist meine erste Nachricht.", created_at: "2010-03-12 17:02:41", updated_at: "2010-03-12 17:02:41"&gt;
+</pre></code></pre>
+
+<h3>Konventionen</h3>
+
+<ul>
+<li>ActiveRecord Klassen sind immer im Singular</li>
+<li>ActionController Klassen sind immer im Plural</li>
+</ul>
+<h3>Wichtige Dateien</h3>
+
+<ul>
+<li>Templates: <code>RAILS_ROOT/app/views/&lt;ControllerName&gt;/&lt;action&gt;.html.erb</code>
+</li>
+<li>Controller: <code>RAILS_ROOT/app/controllers/&lt;ControllerName&gt;_controller.rb</code>
+</li>
+<li>Modelle: <code>RAILS_ROOT/app/models/&lt;ModelName&gt;.rb</code>
+</li>
+<li>Konfiguration: <code>RAILS_ROOT/config/</code>
+</li>
+<li>Routing Konfiguration: <code>RAILS_ROOT/config/routes.rb</code>
+</li>
+<li>Statische Inhalte: <code>RAILS_ROOT/public</code>
+</li>
+</ul>
+<h3>Routing</h3>
+
+<p>In der Routing-Datei (<code>RAILS_ROOT/config/routes.rb</code>) muss zu diesem Zeitpunkt nichts weiter getan werden, als eine
+<code>root</code>-Route anzulegen. Diese beschreibt welche Action mit dazugeh&ouml;rigem Controller beim Aufruf der Haupt-URL (<code>http://localhost:3000</code>)
+aufgerufen werden soll. Dazu f&uuml;gt man folgenden Code am Ende der Routing-Definition ein:</p>
+
+<pre><code><pre class="sunburst">route <span class="Constant"><span class="Constant">:</span>to</span> =&gt; <span class="String"><span class="String">"</span>&lt;controller&gt;#&lt;action&gt;<span class="String">"</span></span>
+</pre></code></pre>
+
+<h3>Migrationen</h3>
+
+<p>Migrationsdateien: <code>db/XXX_&lt;name&gt;.rb</code> wobei XXX ein automatisch generierter
+Timestamp ist.</p>
+
+<p>Wichtige Methoden:</p>
+
+<ul>
+<li><code>create_table / drop_table</code></li>
+<li>
+<code>t.string :spalten_name</code> erzeugt eine neue Spalte vom Typ <code>string</code> w&auml;hrend des <code>create_table</code> Blocks</li>
+<li>
+<code>t.integer :spalten_name</code> erzeugt eine neue Spalte vom Typ <code>string</code> w&auml;hrend des <code>create_table</code> Blocks</li>
+<li><code>add_column(table_name, column_name, type, options) / remove_column(table_name, column_name)</code></li>
+</ul>
+<p>Datentypen:</p>
+
+<ul>
+<li>Die Datentypen werden in die spezifischen DB Typen &uuml;bersetzt.</li>
+<li><code>integer, float, datetime, date, timestamp, time, text, string, binary, boolean</code></li>
+<li>relevant sind f&uuml;r uns haupts&auml;chlich <code>integer, string, text, datetime und boolean</code>
+</li>
+</ul>
+<p><strong>Wichtig</strong> In der <code>self.down</code> Methode m&uuml;ssen immer die Aktionen der <code>self.up</code>
+Methode r&uuml;ckg&auml;ngig gemacht werden.</p>
+
+        </div>
+
+  		<div class="footer">
+  			get the source code on GitHub : <a href="http://github.com/galaxycats/ASS-Beginner">galaxycats/ASS-Beginner</a>
+  		</div>
+
+  	</div>
+
+</body>
+</html>

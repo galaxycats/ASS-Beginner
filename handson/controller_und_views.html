@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
+<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
+<style type="text/css">
+		body {
+			margin-top: 1.0em;
+			background-color: #0b084a;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #ffffff;
+		}
+		#container {
+			margin: 0 auto;
+			width: 800px;
+		}
+		h1 {
+		  font-size: 50px;
+		  color: #f4f7b5;
+		  margin-bottom: 3px;
+		}
+		h1 .small {
+		  font-size: 0.4em;
+		}
+		h1 a {
+		  text-decoration: none
+		}
+		h2 {
+		  font-size: 1.5em; color: #f4f7b5;
+		}
+		h3 {
+		  text-align: center; color: #f4f7b5;
+		}
+		a {
+		  color: #f4f7b5;
+		}
+		.description {
+		  font-size: 1.2em;
+		  margin-bottom: 30px;
+		  margin-top: 30px;
+		  font-style: italic;
+		}
+		.download { 
+		  float: right;
+		}
+		pre {
+		  background: #000;
+		  color: #fff;
+		  padding: 15px;
+		}
+		hr {
+		  border: 0;
+		  width: 80%;
+		  border-bottom: 1px solid #aaa;
+		}
+		.footer {
+		  text-align:center;
+		  padding-top:30px;
+		  font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  	<div id="container">
+
+  		<div class="download">
+  			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  		</div>
+
+        <div id="content">
+          <h1>Tag 2, Hands-On 4: Controller und Views</h1>
+
+<h2>Ziel</h2>
+
+<p>Realisierung einer Weboberfl&auml;che zur Interaktion zwischen Nutzer und Server.</p>
+
+<h2>Aufgabe</h2>
+
+<p>Bisher konnten wir nur Statusmitteilungen &uuml;ber die Rails-Console erzeugen. Da
+wir eine Web-Anwendung bauen, wollen wir das nat&uuml;rlich &uuml;ber einen Browser
+realisieren. Sobald wir eine Statusmitteilung eingegeben haben, soll diese
+nat&uuml;rlich auch in einer Liste mit allen anderen Mitteilungen angezeigt werden.
+Die Liste soll dabei so sortiert sein, dass jeweils die neueste Mitteilungen
+ganz oben in der Liste steht.</p>
+
+<p>Zusammengefasst soll am Ende dieses Hands-On folgendes umgesetzt sein:</p>
+
+<ul>
+<li>Eingabeformular f&uuml;r neue Statusmitteilung (<em>Fehlerbehandlung nicht vergessen</em>)</li>
+<li>Sortierte Liste aller Statusmitteilungen</li>
+</ul>
+<h2>Ressourcen</h2>
+
+<ul>
+<li><a href="http://guides.rails.info/action_controller_overview.html" title="Action Controller Overview">Action Controller Overview</a></li>
+<li><a href="http://guides.rails.info/layouts_and_rendering.html" title="Layouts and Rendering in Rails">Layouts and Rendering in Rails</a></li>
+<li><a href="http://guides.rails.info/form_helpers.html" title="Rails Form helpers">Rails Form helpers</a></li>
+</ul>
+<h2>Shortcuts</h2>
+
+<p>Die Aufgabe soll nat&uuml;rlich RESTful realisiert werden. Wir brauchen daher auf
+jeden Fall drei Actions in unserem Controller. Hier noch einmal beispielhaft
+die Implementierung der Action zu Anzeige aller Statusmitteilungen:</p>
+
+<pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">MessagesController<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ApplicationController</span></span>
+
+  <span class="Keyword">def</span> <span class="Entity">index</span>
+    <span class="Variable"><span class="Variable">@</span>messages</span> <span class="Keyword">=</span> <span class="Support">Messages</span>.<span class="Entity">all</span> <span class="Comment"><span class="Comment">#</span> Sind die Statusmitteilungen hier schon richtig sortiert?</span>
+  <span class="Keyword">end</span>
+
+<span class="Keyword">end</span>
+</pre></code></pre>
+
+<p>Zu dieser Action wird Rails automatisch das Template <code>index.html.erb</code> im
+Ordner <code>app/views/messages</code> verwenden. Im Template muss nicht mehr das HTML
+Ger&uuml;st definiert werden, dass ist bereits &uuml;ber das Layout geschehen. Wir m&uuml;ssen also
+nur noch alle Statusmitteilungen ausgeben. Dazu kann man sich folgenden Code vorstellen:</p>
+
+<pre><code><pre class="sunburst"><span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%</span> <span class="Variable"><span class="Variable">@</span>messages</span><span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">.</span><span class="Entity">each</span></span> <span class="Keyword">do </span><span class="EmbeddedSourceBright">|</span><span class="Variable">message</span><span class="EmbeddedSourceBright">|</span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+  <span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%</span> div_for message <span class="Keyword">do </span><span class="EmbeddedSourceBright">%&gt;</span></span>
+    <span class="MetaTagAll"><span class="MetaTagAll">&lt;</span><span class="MetaTagAll">p</span><span class="MetaTagAll">&gt;</span></span><span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%=</span> message<span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">.</span><span class="Entity">content</span></span> <span class="EmbeddedSourceBright">%&gt;</span></span><span class="MetaTagAll"><span class="MetaTagAll">&lt;/</span><span class="MetaTagAll">p</span><span class="MetaTagAll">&gt;</span></span>
+  <span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%</span> <span class="Keyword">end</span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+<span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%</span> <span class="Keyword">end</span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+</pre></code></pre>
+
+<p>In diesem Beispiel iterieren wir &uuml;ber alle Statusmitteilungen, die sich in der
+Variablen <code>@messages</code> befinden. Jede einzelne stellen wir dabei in einem
+dedizierten <code>DIV</code>-Block dar, den wir in diesem Fall mit dem Rails-Helper
+<code>div_for &lt;object&gt;</code> erzeugen. Wichtig ist noch, die beiden unterschiedlichen
+Methoden zur Einbindung von Ruby-Code in unsere Templates zu erw&auml;hnen: Die
+Notation <code>&lt;% ruby_code %&gt;</code> evaluiert den enthaltenden Ruby-Code und gibt das
+Ergebnis der Evaluierung nicht direkt wieder aus. Hier kann man jetzt
+einwerfen, dass der Helper <code>div_for &lt;object&gt;</code> ja nun etwas ausgeben muss,
+n&auml;mlich das entsprechenden HTML-Markup. Das ist absolut korrekt, jedoch
+geschieht hier die Ausgabe &uuml;ber einen anderen Weg, der an dieser Stelle nicht
+weiter betrachtet werden soll. Wenn wir das Ergebnis unseres Ruby-Codes in das
+Template integrieren wollen, verwenden wir die Notation <code>&lt;%= ruby_code %&gt;</code>.
+Wie eben f&uuml;r die Ausgabe des Inhalts (<code>content</code>) des <code>message</code>-Objekts.</p>
+
+<p>Zur Eingabe von Daten auf einer Webseite werden bekannterma&szlig;en Formulare
+verwendet. F&uuml;r deren Realisierung zur Eingabe von Daten f&uuml;r ein
+<code>ActiveRecord</code>-Objekt bietet Rails eine ganze Reihe von Helper-Methoden an. An
+folgendem Beispiel seien einige dieser Methoden kurz beschrieben:</p>
+
+<pre><code><pre class="sunburst"><span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%</span> form_for <span class="Constant"><span class="Constant">:</span>message</span> <span class="Keyword">do </span><span class="EmbeddedSourceBright">|</span><span class="Variable">f</span><span class="EmbeddedSourceBright">|</span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+  <span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%=</span> f<span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">.</span><span class="Entity">text_area</span></span> <span class="Constant"><span class="Constant">:</span>content</span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+  <span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%=</span> f<span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">.</span><span class="Entity">submit</span></span> <span class="String"><span class="String">"</span>Post Status<span class="String">"</span></span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+<span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%</span> <span class="Keyword">end</span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+</pre></code></pre>
+
+<p>Durch die Helper-Methode <code>form_for</code> erhalten wir ein Formular-Objekt auf das
+wir im folgenden &uuml;ber die Variable <code>f</code> Zugriff erhalten. Auf diesem Objekt
+lassen sich dann die &uuml;blichen Formularfelder definieren, wie hier zum Beispiel
+eine <code>text_area</code> oder ein <code>submit</code>-Button. Am Ende erhalten wir ein
+HTML-Formular, dass die einzelnen Felder korrekt bezeichnet hat, um ein
+<code>Message</code>-Objekt damit zu erzeugen. Die Helper-Methode erzeugt ebenfalls die
+URL an die die Formulardaten gesandt werden sollen korrekt f&uuml;r uns.</p>
+
+        </div>
+
+  		<div class="footer">
+  			get the source code on GitHub : <a href="http://github.com/galaxycats/ASS-Beginner">galaxycats/ASS-Beginner</a>
+  		</div>
+
+  	</div>
+
+</body>
+</html>

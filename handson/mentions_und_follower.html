@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
+<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
+<style type="text/css">
+		body {
+			margin-top: 1.0em;
+			background-color: #0b084a;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #ffffff;
+		}
+		#container {
+			margin: 0 auto;
+			width: 800px;
+		}
+		h1 {
+		  font-size: 50px;
+		  color: #f4f7b5;
+		  margin-bottom: 3px;
+		}
+		h1 .small {
+		  font-size: 0.4em;
+		}
+		h1 a {
+		  text-decoration: none
+		}
+		h2 {
+		  font-size: 1.5em; color: #f4f7b5;
+		}
+		h3 {
+		  text-align: center; color: #f4f7b5;
+		}
+		a {
+		  color: #f4f7b5;
+		}
+		.description {
+		  font-size: 1.2em;
+		  margin-bottom: 30px;
+		  margin-top: 30px;
+		  font-style: italic;
+		}
+		.download { 
+		  float: right;
+		}
+		pre {
+		  background: #000;
+		  color: #fff;
+		  padding: 15px;
+		}
+		hr {
+		  border: 0;
+		  width: 80%;
+		  border-bottom: 1px solid #aaa;
+		}
+		.footer {
+		  text-align:center;
+		  padding-top:30px;
+		  font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  	<div id="container">
+
+  		<div class="download">
+  			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
+  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  		</div>
+
+        <div id="content">
+          <h1>Tag 3, Hands-On 7: Mentions und Follower</h1>
+
+<h2>Ziel</h2>
+
+<p>Auch komplexere Assoziationen zwischen Objekten mit Hilfe von Rails
+modellieren und abbilden zu k&ouml;nnen.</p>
+
+<h2>Aufgabe</h2>
+
+<p>Mittlerweile k&ouml;nnen unterschiedliche Benutzer Statusmitteilungen &uuml;ber unsere
+App ver&ouml;ffentlichen, allerdings fehlt uns noch der wichtigste Punkt: Die
+Vernetzung der einzelnen Nutzer. Die Vernetzung geschieht &uuml;ber zwei Wege, zum
+einen durch das "verfolgen" anderer Nutzer und zum anderen, dass ich als
+Nutzer andere Nutzer in meinen Mitteilungen explizit erw&auml;hnen kann.</p>
+
+<ol>
+<li><p>Zun&auml;chst wollen wir uns daher dem "verfolgen" anderer Nutzer widmen. Es
+soll m&ouml;glich sein, dass jeder Nutzer von jedem anderen Nutzer dessen
+Mitteilungen verfolgen kann. Wenn also Alice eine Mitteilung schreibt, und Bob
+Alice folgt, dann soll Bob in der Liste seiner Nachrichten auch die
+Nachrichten von Alice sehen. Um jemandem folgen zu k&ouml;nnen soll ein
+entsprechender Link auf der Profilseite eine Nutzers angezeigt werden. Es
+sollte auch m&ouml;glich sein, dass man aufh&ouml;rt jemandem zu folgen.</p></li>
+<li><p>Sobald man einander folgen kann, sollen sich die Nutzer gegenseitig in
+ihren Mitteilungen erw&auml;hnen k&ouml;nnen. Dies wird einfach dar&uuml;ber realisiert, dass
+man in einer Mitteilung einen oder mehrere Benutzername mit einem @-Zeichen
+als Prefix schreibt. Wenn also Alice Bob in ihrer Mitteilung erw&auml;hnen m&ouml;chte,
+dann muss sie in ihrer Nachricht <code>@bob</code> schreiben. Wenn ich von einem anderen
+Nutzer in einer Mitteilung erw&auml;hnt wurde, so soll diese Mitteilung nat&uuml;rlich
+auch in meiner Mitteilungsliste auftauchen. Sie soll dabei entsprechend
+gekennzeichnet werden.</p></li>
+<li><p>Als kleine Bonusaufgabe sollen die erw&auml;hnten Benutzernamen in einer
+Nachricht mit einem Link versehen werden, der auf die Profilseite des
+erw&auml;hnten Benutzers f&uuml;hrt. Hierbei ist zu beachten, dass es passieren kann,
+dass man sich verschrieben hat und es den Benutzer nicht gibt. In diesem Fall
+sollte nat&uuml;rlich eine passende Meldung ausgegeben werden.</p></li>
+</ol>
+<h2>Ressourcen</h2>
+
+<ul>
+<li><a href="http://guides.rails.info/association_basics.html" title="A Guide to Active Record Associations">A Guide to Active Record Associations</a></li>
+<li><a href="http://guides.rails.info/activerecord_validations_callbacks.html#callbacks-overview" title="Active Record Validations and Callbacks">Active Record Callbacks</a></li>
+</ul>
+<h2>Shortcuts</h2>
+
+<p>F&uuml;r die Implementierung der Mention-Funktionalit&auml;t ist es notwendig, dass
+<strong>nach</strong> dem Speichern einer Mitteilung noch etwas ausgef&uuml;hrt wird. Hierf&uuml;r
+stellt Active Record sogenannte <em>Callback</em>-Funktionen bereit. Diese werden
+aufgerufen, nachdem eine bestimmte Methode ausgef&uuml;hrt wurde, wie z.B. die
+<code>save</code>-Methode eines Active Record Objekts. Hier ein kleines Beispiel, um das
+zu verdeutlichen:</p>
+
+<pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">User<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ActiveRecord::Base</span></span>
+  <span class="SupportFunction">after_save</span> <span class="Constant"><span class="Constant">:</span>send_welcome_email</span>
+
+  <span class="Keyword">private</span>
+
+<span class="Comment">    <span class="Comment">#</span> We don't want to make this publictly callable</span>
+    <span class="Keyword">def</span> <span class="Entity">send_welcome_email</span>
+      <span class="Support">Mailer</span>.<span class="Entity">deliver_welcome_mail</span>(<span class="Constant"><span class="Constant">:</span>user</span> =&gt; <span class="Variable">self</span>)
+    <span class="Keyword">end</span>
+<span class="Keyword">end</span>
+
+user <span class="Keyword">=</span> <span class="Support">User</span>.<span class="Entity">new</span>
+user.<span class="Entity">save</span> <span class="Comment"><span class="Comment">#</span> =&gt; Will save the record AND will send the email</span>
+</pre></code></pre>
+
+        </div>
+
+  		<div class="footer">
+  			get the source code on GitHub : <a href="http://github.com/galaxycats/ASS-Beginner">galaxycats/ASS-Beginner</a>
+  		</div>
+
+  	</div>
+
+</body>
+</html>

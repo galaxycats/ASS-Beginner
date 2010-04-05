@@ -1,1 +1,0 @@
-# ASS Anfänger Kurs
