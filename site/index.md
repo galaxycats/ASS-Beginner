@@ -1,7 +1,8 @@
 # ASS Anfängerkurs
 
-Maintains the demo source code, course material, like hand outs and
-demo-scripts for the ASS courses at the University of Applied Science Cologne.
+Hier stellen wir alle relevanten Kursmaterialien wie Hands-On Aufgaben und
+Musterlösungen für die Teilnehmer des ASS Anfängerkurses "Ruby on Rails"
+bereit. Der Kurs findet statt vom *07.04. – 09.04.2010*.
 
 ## Hands-On
 

@@ -114,6 +114,44 @@ ansehen:
           => true
       irb> message
           => #<Message id: 1, content: "Dies ist meine erste Nachricht.", created_at: "2010-03-12 17:02:41", updated_at: "2010-03-12 17:02:41">
+          
+#### Einrichten der Rails Console
+
+Die Console lässt sich um einige Gimmicks erweitern, wie etwa
+Syntax-Highlighting. Eine weitere sinnvolle Anpassung ist die Umleitung der
+Logausgaben auf STDOUT. So kann man direkt in der Console sehen wie etwa die
+SQL-Query aussieht, die von Rails generiert wird. Um dass zu erreichen, müssen
+zwei kleine Gems (Ruby Bibliotheken) installiert werden:
+
+    !!!plain_text
+    $> gem install wirble
+    $> gem install utility_belt
+
+Danach muss noch eine `.irbrc`-Datei im Home-Verzeihnis angelegt mit folgendem
+Inhalt angelegt werden:
+
+    # load libraries
+    require 'rubygems'
+    require 'wirble'  
+    require 'utility_belt'
+
+    # start wirble (with color)
+    Wirble.init
+    Wirble.colorize
+
+    IRB.conf[:SAVE_HISTORY] = 100
+    IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+
+    if Object.const_defined?('Rails')
+      Rails.logger.instance_variable_set("@log", STDOUT)
+    end
+
+Anschließend müssen nun noch die zuvor installierten Gems im Rails-Projekt
+hinzugefügt werden. Dazu einfach folgende Zeilen im `Gemfile` des
+Rails-Projektes hinzufügen:
+
+    gem "wirble"
+    gem "utility_belt"
 
 ### Konventionen
 
