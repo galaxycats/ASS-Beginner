@@ -118,16 +118,16 @@ ansehen:
 
 ### Wichtige Dateien
 
-* Templates: `RAILS_ROOT/app/views/<ControllerName>/<action>.html.erb`
-* Controller: `RAILS_ROOT/app/controllers/<ControllerName>_controller.rb`
-* Modelle: `RAILS_ROOT/app/models/<ModelName>.rb`
-* Konfiguration: `RAILS_ROOT/config/`
-* Routing Konfiguration: `RAILS_ROOT/config/routes.rb`
-* Statische Inhalte: `RAILS_ROOT/public`
+* Templates: `app/views/<ControllerName>/<action>.html.erb`
+* Controller: `app/controllers/<ControllerName>_controller.rb`
+* Modelle: `app/models/<ModelName>.rb`
+* Konfiguration: `config/`
+* Routing Konfiguration: `config/routes.rb`
+* Statische Inhalte: `public`
 
 ### Routing
 
-In der Routing-Datei (`RAILS_ROOT/config/routes.rb`) muss zu diesem Zeitpunkt nichts weiter getan werden, als eine
+In der Routing-Datei (`config/routes.rb`) muss zu diesem Zeitpunkt nichts weiter getan werden, als eine
 `root`-Route anzulegen. Diese beschreibt welche Action mit dazugehörigem Controller beim Aufruf der Haupt-URL (`http://localhost:3000`)
 aufgerufen werden soll. Dazu fügt man folgenden Code am Ende der Routing-Definition ein:
 
