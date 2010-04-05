@@ -170,3 +170,19 @@ ausgeführt werden, ohne das entsprechende Vorbedingungen erfüllt sind, gibt es
 "Action Controller Overview – Filter"). Um sicher zu stellen, dass nur dann
 eine Mitteilungen geschrieben werden kann, wenn ein Benutzer eingeloggt ist,
 definiert man in der Regel eine `before_filter` in der Controller-Ebene.
+
+### Echte Benutzerauthentifizierung
+
+Wir hoffen natürlich, dass man sich auch über die Laufzeit des Kurses hinaus
+mit Rails beschäftigen wird. Wer dann gerne einen "echten" Benutzerlogin
+realisieren will, also mit verschlüsseltem Passwort in der Datenbank und
+Opt-In Email, sollte sich dazu einige Plugins anschauen. Zum einen gibt es da
+[`restful_authentication`](http://github.com/technoweenie/restful-authentication
+"technoweenie's restful-authentication at master - GitHub") oder auch
+[`authlogic`](http://github.com/binarylogic/authlogic "binarylogic's authlogic
+at master - GitHub"). Beide lassen sich jeweils gut erweitern und auf die
+eigenen Bedürfnisse anpassen. Wir bevorzugen zur Zeit `authlogic`, da es kein
+Generator ist, das MVC-Paradigma stärker unterstützt und sich leichter in die
+eigene Applikation einfügt. Aber probiert es einfach selbst aus und es gibt
+auch noch zahlreiche andere Plugins. Auch selber bauen ist eine Alternative,
+wenn es darum geht ein Verständnis für die Thematik zu entwickeln.

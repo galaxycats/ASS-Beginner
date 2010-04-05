@@ -18,5 +18,9 @@
 
 ### Tag 3
 
+  * [Mentions und Follower](handson/mentions_und_follower.html "Mentions und Follower Hands-On - Tag 3")
+  * [Testing](handson/testing.html "Testing Hands-On - Tag 3")
+
 ## Musterlösungen
 
+*Not yet ... ;-)*
