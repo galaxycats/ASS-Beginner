@@ -9,8 +9,8 @@ Ruby Syntax verstehen und in den Grundzügen schreiben können.
 1. Gib auf vier verschiedene Arten den String "Hello World!" viermal auf dem
 Bildschirm aus. Die unterschiedlichen Methoden sollten möglichst kreativ sein!
 
-2. Eine Liste von Studenten, die Matrikelnummern den Namen der Studenten
-zuweist (mind. 4 Studenten in der Liste). Aus dieser Liste sollen die Namen
+2. Erstelle eine Liste von Studenten, die Matrikelnummern den Namen der Studenten
+zuweist  mit mind. 4 Einträgen. Aus dieser Liste sollen nun die Namen
 sortiert ausgegeben werden.
 
 3. Make an `OrangeTree` class. It should have a `height` method which returns
