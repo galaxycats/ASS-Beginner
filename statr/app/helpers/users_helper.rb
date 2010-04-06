@@ -7,7 +7,7 @@ module UsersHelper
       elsif current_user.follows?(@user)
         content_tag(:span, button_to("Unfollow", unfollow_user_url(@user), :class => "unfollow_button"))
       elsif !current_user.follows?(@user)
-        button_to "Follow", follow_user_url(@user), :class => "follow_button"
+        content_tag(:span, button_to("Follow", follow_user_url(@user), :class => "follow_button"))
       end
     end
   end
