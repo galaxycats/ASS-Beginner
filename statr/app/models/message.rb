@@ -13,7 +13,7 @@ class Message < ActiveRecord::Base
   private
   
     def associate_message_to_users_have_been_mentioned
-      mentioned_useres = content.scan(/@([\w\d]+)/)
+      mentioned_useres = content.scan(/@([\w\d]+)/).flatten
       
       unless mentioned_useres.blank?
         mentioned_useres.each do |mentioned_user|
