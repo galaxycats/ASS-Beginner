@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     end
   end
   
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :username
   validates_presence_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_uniqueness_of :username
@@ -25,15 +25,11 @@ class User < ActiveRecord::Base
   end
   
   def follow(user)
-    follow_unfollow(user) do |user|
-      followees << user
-    end
+    followees << find_user(user)
   end
   
   def unfollow(user)
-    follow_unfollow(user) do |user|
-      followees.delete(user)
-    end
+    followees.delete(find_user(user))
   end
   
   def follows?(user)
@@ -42,9 +38,7 @@ class User < ActiveRecord::Base
   
   private
   
-    def follow_unfollow(user, &block)
-      user = user.is_a?(User) ? user : User.find_by_username(user)
-      yield user
-      save and user.save
+    def find_user(user_or_username)
+      user_or_username.is_a?(User) ? user_or_username : User.find_by_username(user_or_username)
     end
 end
