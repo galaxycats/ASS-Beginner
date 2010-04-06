@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM>
 <html lang="de">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
-<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
-<style type="text/css">
+	<meta charset="utf-8" content="text/html" http-equiv="Content-Type" />
+  <title>ASS Anfänger Kurs – Kursmaterial</title>
+  
+  <link href="../css/sunburst.css" rel="stylesheet" media="screen" type="text/css" charset="utf-8" />
+  
+  <style type="text/css">
 		body {
 			margin-top: 1.0em;
 			background-color: #0b084a;
@@ -60,18 +62,19 @@
 		  font-style: italic;
 		}
 	</style>
+	
 </head>
 <body>
 
-  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" style="position: absolute; top: 0; right: 0; border: 0;" /></a>
 
   	<div id="container">
 
   		<div class="download">
   			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  				<img src="http://github.com/images/modules/download/zip.png" border="0" width="90" /></a>
   			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  				<img src="http://github.com/images/modules/download/tar.png" border="0" width="90" /></a>
   		</div>
 
         <div id="content">
@@ -80,50 +83,54 @@
 <h2>Ziel</h2>
 
 <p>Auch komplexere Assoziationen zwischen Objekten mit Hilfe von Rails
-modellieren und abbilden zu k&ouml;nnen.</p>
+modellieren und abbilden zu können.</p>
 
 <h2>Aufgabe</h2>
 
-<p>Mittlerweile k&ouml;nnen unterschiedliche Benutzer Statusmitteilungen &uuml;ber unsere
-App ver&ouml;ffentlichen, allerdings fehlt uns noch der wichtigste Punkt: Die
-Vernetzung der einzelnen Nutzer. Die Vernetzung geschieht &uuml;ber zwei Wege, zum
+<p>Mittlerweile können unterschiedliche Benutzer Statusmitteilungen über unsere
+App veröffentlichen, allerdings fehlt uns noch der wichtigste Punkt: Die
+Vernetzung der einzelnen Nutzer. Die Vernetzung geschieht über zwei Wege, zum
 einen durch das "verfolgen" anderer Nutzer und zum anderen, dass ich als
-Nutzer andere Nutzer in meinen Mitteilungen explizit erw&auml;hnen kann.</p>
+Nutzer andere Nutzer in meinen Mitteilungen explizit erwähnen kann.</p>
 
 <ol>
-<li><p>Zun&auml;chst wollen wir uns daher dem "verfolgen" anderer Nutzer widmen. Es
-soll m&ouml;glich sein, dass jeder Nutzer von jedem anderen Nutzer dessen
+<li><p>Zunächst wollen wir uns daher dem "verfolgen" anderer Nutzer widmen. Es
+soll möglich sein, dass jeder Nutzer von jedem anderen Nutzer dessen
 Mitteilungen verfolgen kann. Wenn also Alice eine Mitteilung schreibt, und Bob
 Alice folgt, dann soll Bob in der Liste seiner Nachrichten auch die
-Nachrichten von Alice sehen. Um jemandem folgen zu k&ouml;nnen soll ein
+Nachrichten von Alice sehen. Um jemandem folgen zu können soll ein
 entsprechender Link auf der Profilseite eine Nutzers angezeigt werden. Es
-sollte auch m&ouml;glich sein, dass man aufh&ouml;rt jemandem zu folgen.</p></li>
+sollte auch möglich sein, dass man aufhört jemandem zu folgen.</p></li>
 <li><p>Sobald man einander folgen kann, sollen sich die Nutzer gegenseitig in
-ihren Mitteilungen erw&auml;hnen k&ouml;nnen. Dies wird einfach dar&uuml;ber realisiert, dass
+ihren Mitteilungen erwähnen können. Dies wird einfach darüber realisiert, dass
 man in einer Mitteilung einen oder mehrere Benutzername mit einem @-Zeichen
-als Prefix schreibt. Wenn also Alice Bob in ihrer Mitteilung erw&auml;hnen m&ouml;chte,
+als Prefix schreibt. Wenn also Alice Bob in ihrer Mitteilung erwähnen möchte,
 dann muss sie in ihrer Nachricht <code>@bob</code> schreiben. Wenn ich von einem anderen
-Nutzer in einer Mitteilung erw&auml;hnt wurde, so soll diese Mitteilung nat&uuml;rlich
+Nutzer in einer Mitteilung erwähnt wurde, so soll diese Mitteilung natürlich
 auch in meiner Mitteilungsliste auftauchen. Sie soll dabei entsprechend
 gekennzeichnet werden.</p></li>
-<li><p>Als kleine Bonusaufgabe sollen die erw&auml;hnten Benutzernamen in einer
+<li><p>Als kleine Bonusaufgabe sollen die erwähnten Benutzernamen in einer
 Nachricht mit einem Link versehen werden, der auf die Profilseite des
-erw&auml;hnten Benutzers f&uuml;hrt. Hierbei ist zu beachten, dass es passieren kann,
+erwähnten Benutzers führt. Hierbei ist zu beachten, dass es passieren kann,
 dass man sich verschrieben hat und es den Benutzer nicht gibt. In diesem Fall
-sollte nat&uuml;rlich eine passende Meldung ausgegeben werden.</p></li>
+sollte natürlich eine passende Meldung ausgegeben werden.</p></li>
 </ol>
+
+
 <h2>Ressourcen</h2>
 
 <ul>
 <li><a href="http://guides.rails.info/association_basics.html" title="A Guide to Active Record Associations">A Guide to Active Record Associations</a></li>
 <li><a href="http://guides.rails.info/activerecord_validations_callbacks.html#callbacks-overview" title="Active Record Validations and Callbacks">Active Record Callbacks</a></li>
 </ul>
+
+
 <h2>Shortcuts</h2>
 
-<p>F&uuml;r die Implementierung der Mention-Funktionalit&auml;t ist es notwendig, dass
-<strong>nach</strong> dem Speichern einer Mitteilung noch etwas ausgef&uuml;hrt wird. Hierf&uuml;r
+<p>Für die Implementierung der Mention-Funktionalität ist es notwendig, dass
+<strong>nach</strong> dem Speichern einer Mitteilung noch etwas ausgeführt wird. Hierfür
 stellt Active Record sogenannte <em>Callback</em>-Funktionen bereit. Diese werden
-aufgerufen, nachdem eine bestimmte Methode ausgef&uuml;hrt wurde, wie z.B. die
+aufgerufen, nachdem eine bestimmte Methode ausgeführt wurde, wie z.B. die
 <code>save</code>-Methode eines Active Record Objekts. Hier ein kleines Beispiel, um das
 zu verdeutlichen:</p>
 

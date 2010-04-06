@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM>
 <html lang="de">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
-<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
-<style type="text/css">
+	<meta charset="utf-8" content="text/html" http-equiv="Content-Type" />
+  <title>ASS Anfänger Kurs – Kursmaterial</title>
+  
+  <link href="../css/sunburst.css" rel="stylesheet" media="screen" type="text/css" charset="utf-8" />
+  
+  <style type="text/css">
 		body {
 			margin-top: 1.0em;
 			background-color: #0b084a;
@@ -60,18 +62,19 @@
 		  font-style: italic;
 		}
 	</style>
+	
 </head>
 <body>
 
-  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" style="position: absolute; top: 0; right: 0; border: 0;" /></a>
 
   	<div id="container">
 
   		<div class="download">
   			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  				<img src="http://github.com/images/modules/download/zip.png" border="0" width="90" /></a>
   			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  				<img src="http://github.com/images/modules/download/tar.png" border="0" width="90" /></a>
   		</div>
 
         <div id="content">
@@ -86,18 +89,22 @@ bezeichnet.</p>
 <h2>Aufgabe</h2>
 
 <ol>
-<li><p>Zun&auml;chst soll die Darstellung einer einzelnen Statusmitteilung innerhalb
+<li><p>Zunächst soll die Darstellung einer einzelnen Statusmitteilung innerhalb
 der Liste aller Mitteilungen in ein Partial extrahiert werden. Diese
-Darstellung werden wir sp&auml;ter noch an andere Stelle verwenden m&uuml;ssen bzw.
-k&ouml;nnen.</p></li>
-<li><p>Auch das Formular f&uuml;r die Eingabe neuer Statusmitteilungen soll in einem
+Darstellung werden wir später noch an andere Stelle verwenden müssen bzw.
+können.</p></li>
+<li><p>Auch das Formular für die Eingabe neuer Statusmitteilungen soll in einem
 Partial realisiert werden.</p></li>
 </ol>
+
+
 <h2>Ressourcen</h2>
 
 <ul>
-<li><a href="http://guides.rails.info/layouts_and_rendering.html#using-partials" title="Layouts and Rendering in Rails &ndash; Using Partials">Layouts and Rendering in Rails &ndash; Using Partials</a></li>
+<li><a href="http://guides.rails.info/layouts_and_rendering.html#using-partials" title="Layouts and Rendering in Rails – Using Partials">Layouts and Rendering in Rails – Using Partials</a></li>
 </ul>
+
+
 <h2>Shortcuts</h2>
 
 <p>Partials werden in Rails immer durch einen Underscore als Prefix im Dateinamen
@@ -112,26 +119,26 @@ Templates zu einem Controller:</p>
     +-_form.html.erb
 </pre></code></pre>
 
-<p>Anhand des folgenden Beispiels wollen wir kurz erkl&auml;ren, wie Partials in Templates
-integriert werden k&ouml;nnen:</p>
+<p>Anhand des folgenden Beispiels wollen wir kurz erklären, wie Partials in Templates
+integriert werden können:</p>
 
 <pre><code><pre class="sunburst"><span class="MetaTagAll"><span class="MetaTagAll">&lt;</span><span class="MetaTagAll">h1</span><span class="MetaTagAll">&gt;</span></span>Statusmitteilungen<span class="MetaTagAll"><span class="MetaTagAll">&lt;/</span><span class="MetaTagAll">h1</span><span class="MetaTagAll">&gt;</span></span>
 <span class="MetaTagAll"><span class="MetaTagAll">&lt;</span><span class="MetaTagAll">div</span><span class="MetaTagAll">&gt;</span></span>
-  <span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%=</span> <span class="SupportFunction">render</span> <span class="String"><span class="String">"</span>messages/form<span class="String">"</span></span> <span class="EmbeddedSourceBright">%&gt;</span></span>
+  <span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%=</span> <span class="SupportFunction">render</span> <span class="String"><span class="String">&quot;</span>messages/form<span class="String">&quot;</span></span> <span class="EmbeddedSourceBright">%&gt;</span></span>
 <span class="MetaTagAll"><span class="MetaTagAll">&lt;/</span><span class="MetaTagAll">div</span><span class="MetaTagAll">&gt;</span></span>
-<span class="MetaTagAll"><span class="MetaTagAll">&lt;</span><span class="MetaTagAll">div</span> <span class="MetaTagAll"><span class="MetaTagAll">id</span><span class="MetaTagAll">=</span><span class="String"><span class="String">"</span><span class="String">timeline</span><span class="String">"</span></span></span><span class="MetaTagAll">&gt;</span></span>
+<span class="MetaTagAll"><span class="MetaTagAll">&lt;</span><span class="MetaTagAll">div</span> <span class="MetaTagAll"><span class="MetaTagAll">id</span><span class="MetaTagAll">=</span><span class="String"><span class="String">&quot;</span><span class="String">timeline</span><span class="String">&quot;</span></span></span><span class="MetaTagAll">&gt;</span></span>
   <span class="EmbeddedSourceBright"><span class="EmbeddedSourceBright">&lt;%=</span> <span class="SupportFunction">render</span> <span class="Variable"><span class="Variable">@</span>messages</span> <span class="EmbeddedSourceBright">%&gt;</span></span>
 <span class="MetaTagAll"><span class="MetaTagAll">&lt;/</span><span class="MetaTagAll">div</span><span class="MetaTagAll">&gt;</span></span>
 </pre></code></pre>
 
-<p>Hier l&auml;sst sich schon sehr gut sehen, dass es unterschiedliche Arten gibt ein
+<p>Hier lässt sich schon sehr gut sehen, dass es unterschiedliche Arten gibt ein
 Partial einzubinden. Die erste Variante <code>&lt;%= render "messages/form" %&gt;</code> bindet
-das Partial <code>_form.html.erb</code> aus dem Verzeichnis f&uuml;r die Message-Templates
+das Partial <code>_form.html.erb</code> aus dem Verzeichnis für die Message-Templates
 ein. Rails erkennt hier automatisch, dass es das Partial <code>_form.html.erb</code>
-nehmen muss. Die zweite, nicht ganz offensichtliche Variante, stellt f&uuml;r jedes
+nehmen muss. Die zweite, nicht ganz offensichtliche Variante, stellt für jedes
 <code>message</code>-Objekt in der Collection <code>@messages</code> das Partial <code>_message.html.erb</code>
-dar. Dabei wird das jeweilige <code>message</code>-Objekt an das Partial &uuml;bergeben und
-ist &uuml;ber die Variable <code>message</code> verf&uuml;gbar.</p>
+dar. Dabei wird das jeweilige <code>message</code>-Objekt an das Partial übergeben und
+ist über die Variable <code>message</code> verfügbar.</p>
 
         </div>
 

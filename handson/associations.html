@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM>
 <html lang="de">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
-<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
-<style type="text/css">
+	<meta charset="utf-8" content="text/html" http-equiv="Content-Type" />
+  <title>ASS Anfänger Kurs – Kursmaterial</title>
+  
+  <link href="../css/sunburst.css" rel="stylesheet" media="screen" type="text/css" charset="utf-8" />
+  
+  <style type="text/css">
 		body {
 			margin-top: 1.0em;
 			background-color: #0b084a;
@@ -60,18 +62,19 @@
 		  font-style: italic;
 		}
 	</style>
+	
 </head>
 <body>
 
-  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" style="position: absolute; top: 0; right: 0; border: 0;" /></a>
 
   	<div id="container">
 
   		<div class="download">
   			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  				<img src="http://github.com/images/modules/download/zip.png" border="0" width="90" /></a>
   			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  				<img src="http://github.com/images/modules/download/tar.png" border="0" width="90" /></a>
   		</div>
 
         <div id="content">
@@ -79,8 +82,8 @@
 
 <h2>Ziel des Hands-on</h2>
 
-<p>Datenbank-Relationen auf Objekt-Ebene umsetzen k&ouml;nnen und die Session nutzen,
-um Nutzer wieder erkennen zu k&ouml;nnen.</p>
+<p>Datenbank-Relationen auf Objekt-Ebene umsetzen können und die Session nutzen,
+um Nutzer wieder erkennen zu können.</p>
 
 <h2>Aufgabe</h2>
 
@@ -94,38 +97,44 @@ Fall folgende Eigenschaften besitzen:</p></li>
 <li>Benutzernamen</li>
 <li>Vor- und Nachnamen</li>
 </ol>
-<p>  Hier sollte man sich auch &uuml;berlegen, welche dieser Eigenschaften man
+
+
+<p>  Hier sollte man sich auch überlegen, welche dieser Eigenschaften man
   validieren sollte, bevor man sie speichert.</p>
 
 <ol>
-<li>Im zweiten Schritt soll dann nat&uuml;rlich auch auf der Weboberfl&auml;che die
+<li>Im zweiten Schritt soll dann natürlich auch auf der Weboberfläche die
 Beziehung zwischen Nutzer und Statusmitteilungen hergestellt werden. Im
 Einzelnen bedeutet das also, dass wir uns an der Anwendung als Benutzer
-anmelden m&uuml;ssen. Und nat&uuml;rlich k&ouml;nnen nur angemeldete Nutzer &uuml;berhaupt erst
+anmelden müssen. Und natürlich können nur angemeldete Nutzer überhaupt erst
 Mitteilungen verfassen. Die Anwendung muss dann immer den aktuell angemeldeten
 Nutzer der eingegebenen Nachricht zuweisen.</li>
 </ol>
+
+
 <h2>Ressourcen</h2>
 
 <ul>
 <li><a href="http://guides.rails.info/association_basics.html" title="A Guide to Active Record Associations">A Guide to Active Record Associations</a></li>
-<li><a href="http://guides.rails.info/action_controller_overview.html#session" title="Action Controller Overview &ndash; Sessions">Rails Sessions</a></li>
+<li><a href="http://guides.rails.info/action_controller_overview.html#session" title="Action Controller Overview – Sessions">Rails Sessions</a></li>
 </ul>
+
+
 <h2>Shortcuts</h2>
 
-<p>Zun&auml;chst brauchen wir erst einmal ein Benutzer-Objekt mit dazugeh&ouml;riger
+<p>Zunächst brauchen wir erst einmal ein Benutzer-Objekt mit dazugehöriger
 Datenbank-Migration und Controller. Dazu verwenden wir einfach wieder den
-Rails-Generator, um eine Resource zu erzeugen. Hier k&ouml;nnen direkt wieder die
+Rails-Generator, um eine Resource zu erzeugen. Hier können direkt wieder die
 Attribute mit ihren Typ-Definitionen angegeben werden.</p>
 
-<p>Dadurch haben wir ein Benutzermodell erzeugt, nun m&uuml;ssen wir (neben m&ouml;glichen
+<p>Dadurch haben wir ein Benutzermodell erzeugt, nun müssen wir (neben möglichen
 Validierungen) noch die Assoziationen zwischen Benutzer und Mitteilung
-definieren. Dabei ist zu beachten, dass f&uuml;r diese Assoziation wahrscheinlich
-ein <em>Foreign-Key</em> in der Tabelle f&uuml;r die Mitteilungen definiert werden muss
+definieren. Dabei ist zu beachten, dass für diese Assoziation wahrscheinlich
+ein <em>Foreign-Key</em> in der Tabelle für die Mitteilungen definiert werden muss
 (<strong>Tipp:</strong> Migration zum Anlegen dieser Spalte).</p>
 
 <p>Im Anschluss sind noch einmal alle Assoziationsmethoden kurz als Code-Beispiele
-dargestellt. Die L&ouml;sung dieser Aufgabe l&auml;sst sich daraus dann recht leicht
+dargestellt. Die Lösung dieser Aufgabe lässt sich daraus dann recht leicht
 ableiten.</p>
 
 <p>1:1-Beziehung (<code>has_one</code>) zwischen zwei Objekten: Ein <code>Picture</code> hat genau ein
@@ -143,7 +152,7 @@ picture <span class="Keyword">=</span> <span class="Support">Picture</span>.<spa
 picture.<span class="Entity">thumbnail</span> <span class="Comment"><span class="Comment">#</span> =&gt; Das assoziierte Thumbnail-Objekt</span>
 
 thumbnail <span class="Keyword">=</span> <span class="Support">Thumbnail</span>.<span class="Entity">first</span>
-thumbnail.<span class="Entity">picture</span> <span class="Comment"><span class="Comment">#</span> =&gt; Das Picture-Objekt zu dem dieses Thumbnail geh&amp;ouml;rt</span>
+thumbnail.<span class="Entity">picture</span> <span class="Comment"><span class="Comment">#</span> =&gt; Das Picture-Objekt zu dem dieses Thumbnail gehört</span>
 </pre></code></pre>
 
 <p>1:m-Beziehung (<code>has_many</code>) zwischen zwei Objekten: Eine <code>Company</code> hat viele
@@ -161,7 +170,7 @@ company <span class="Keyword">=</span> <span class="Support">Company</span>.<spa
 company.<span class="Entity">clients</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Client-Objekte die mit dieser Company assoziiert sind</span>
 
 client <span class="Keyword">=</span> <span class="Support">Client</span>.<span class="Entity">first</span>
-client.<span class="Entity">company</span> <span class="Comment"><span class="Comment">#</span> =&gt; Das Company-Objekte zu dem dieser Client geh&amp;ouml;rt</span>
+client.<span class="Entity">company</span> <span class="Comment"><span class="Comment">#</span> =&gt; Das Company-Objekte zu dem dieser Client gehört</span>
 </pre></code></pre>
 
 <p>n:m-Beziehungen (<code>has_many_and_belongs_to</code> und <code>has_many :through</code>) zwischen
@@ -170,11 +179,11 @@ wird von vielen <code>Developer</code>n umgesetzt. Diese Art der Beziehung kann 
 Arten umgesetzt werden: Die erste (<code>has_many_and_belongs_to</code>) ist dabei die
 einfachere und sieht kein dediziertes Objekt vor, welches die Assoziation
 abbildet. Die zweite Variante (<code>has_many :through</code>) modelliert explizit ein eigenes
-Objekt, welches die Assoziation repr&auml;sentiert. In beiden F&auml;llen muss aber eine
-Datenbank-Tabelle erzeugt werden. F&uuml;r <code>has_many :through</code> muss dar&uuml;ber hinaus
+Objekt, welches die Assoziation repräsentiert. In beiden Fällen muss aber eine
+Datenbank-Tabelle erzeugt werden. Für <code>has_many :through</code> muss darüber hinaus
 noch eine Klasse definiert werden.</p>
 
-<p>Beispiel f&uuml;r <code>has_many_and_belongs_to</code>:</p>
+<p>Beispiel für <code>has_many_and_belongs_to</code>:</p>
 
 <pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">Developer<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ActiveRecord::Base</span></span>
   <span class="SupportFunction">has_and_belongs_to_many</span> <span class="Constant"><span class="Constant">:</span>projects</span>
@@ -185,30 +194,30 @@ noch eine Klasse definiert werden.</p>
 <span class="Keyword">end</span>
 
 <span class="Comment"><span class="Comment">#</span> Die Datenbank-Tabelle, um beide Objekte miteinander in Relation zu bringen</span>
-<span class="Comment"><span class="Comment">#</span> muss per Konvention 'developers_projects' hei&amp;szlig;en!</span>
+<span class="Comment"><span class="Comment">#</span> muss per Konvention 'developers_projects' heißen!</span>
 
 developer <span class="Keyword">=</span> <span class="Support">Developer</span>.<span class="Entity">first</span>
-developer.<span class="Entity">projects</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Project-Objekte f&amp;uuml;r die der Developer arbeitet</span>
+developer.<span class="Entity">projects</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Project-Objekte für die der Developer arbeitet</span>
 
 project <span class="Keyword">=</span> <span class="Support">Project</span>.<span class="Entity">first</span>
 project.<span class="Entity">developers</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Developer-Objekte, die an diesem Project arbeiten</span>
 </pre></code></pre>
 
-<p>Beispiel f&uuml;r <code>has_many :through</code>:</p>
+<p>Beispiel für <code>has_many :through</code>:</p>
 
 <pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">Developer<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ActiveRecord::Base</span></span>
   <span class="SupportFunction">has_many</span> <span class="Constant"><span class="Constant">:</span>assignments</span>
   <span class="SupportFunction">has_many</span> <span class="Constant"><span class="Constant">:</span>projects</span>, <span class="Constant"><span class="Constant">:</span>through</span> =&gt; <span class="Constant"><span class="Constant">:</span>assignments</span>
 <span class="Keyword">end</span>
 
-<span class="Comment"><span class="Comment">#</span> Hier muss eine vollst&amp;auml;ndiges Model erzeugt werden (rails generate model)</span>
+<span class="Comment"><span class="Comment">#</span> Hier muss eine vollständiges Model erzeugt werden (rails generate model)</span>
 <span class="Keyword">class</span> <span class="JEntityNameType">Assignment<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ActiveRecord::Base</span></span>
   <span class="SupportFunction">belongs_to</span> <span class="Constant"><span class="Constant">:</span>developer</span>
   <span class="SupportFunction">belongs_to</span> <span class="Constant"><span class="Constant">:</span>project</span>
 
-<span class="Comment">  <span class="Comment">#</span> Hier lassen sich weitere Attribute definieren, die f&amp;uuml;r diese Relation von</span>
-<span class="Comment">  <span class="Comment">#</span> Bedeutung sein k&amp;ouml;nnten, wie zum Beispiel wie viel Zeit ein Developer f&amp;uuml;r</span>
-<span class="Comment">  <span class="Comment">#</span> ein Projekt zur Verf&amp;uuml;gung steht.</span>
+<span class="Comment">  <span class="Comment">#</span> Hier lassen sich weitere Attribute definieren, die für diese Relation von</span>
+<span class="Comment">  <span class="Comment">#</span> Bedeutung sein könnten, wie zum Beispiel wie viel Zeit ein Developer für</span>
+<span class="Comment">  <span class="Comment">#</span> ein Projekt zur Verfügung steht.</span>
 <span class="Keyword">end</span>
 
 <span class="Keyword">class</span> <span class="JEntityNameType">Project<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ActiveRecord::Base</span></span>
@@ -217,8 +226,8 @@ project.<span class="Entity">developers</span> <span class="Comment"><span class
 <span class="Keyword">end</span>
 
 developer <span class="Keyword">=</span> <span class="Support">Developer</span>.<span class="Entity">first</span>
-developer.<span class="Entity">projects</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Project-Objekte f&amp;uuml;r die der Developer arbeitet</span>
-developer.<span class="Entity">assignments</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Assignment-Objekte f&amp;uuml;r diesen Developer</span>
+developer.<span class="Entity">projects</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Project-Objekte für die der Developer arbeitet</span>
+developer.<span class="Entity">assignments</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Assignment-Objekte für diesen Developer</span>
 
 project <span class="Keyword">=</span> <span class="Support">Project</span>.<span class="Entity">first</span>
 project.<span class="Entity">developers</span> <span class="Comment"><span class="Comment">#</span> =&gt; Alle Developer-Objekte, die an diesem Project arbeiten</span>
@@ -226,16 +235,16 @@ project.<span class="Entity">assignments</span> <span class="Comment"><span clas
 </pre></code></pre>
 
 <p><strong>Tipp:</strong> Nachdem die Assoziationen implementiert wurden, empfiehlt es sich
-diese zun&auml;chst &uuml;ber die Rails-Console (<code>$&gt; rails console</code>) auszuprobieren,
+diese zunächst über die Rails-Console (<code>$&gt; rails console</code>) auszuprobieren,
 bevor man sich an die Umsetzung in den Templates widmet.</p>
 
 <h3>Session-Handling</h3>
 
-<p>Um den Benutzer wieder erkennen zu k&ouml;nnen, muss in seiner Session etwas
+<p>Um den Benutzer wieder erkennen zu können, muss in seiner Session etwas
 abgelegt werden, mit dem man ihn auch wieder finden kann. Hier eignet sich die
-ID des Benutzer. Auf die Session l&auml;sst dann sowohl in den Templates als auch
-in den Controllern &uuml;ber die Methode <code>session</code> zugreifen. Das <code>session</code>-Objekt
-ist dabei als Hash realisiert. Die Speicherung der ID eines Benutzers k&ouml;nnte
+ID des Benutzer. Auf die Session lässt dann sowohl in den Templates als auch
+in den Controllern über die Methode <code>session</code> zugreifen. Das <code>session</code>-Objekt
+ist dabei als Hash realisiert. Die Speicherung der ID eines Benutzers könnte
 dementsprechend wie folgt aussehen:</p>
 
 <pre><code><pre class="sunburst">user <span class="Keyword">=</span> <span class="Support">User</span>.<span class="Entity">find_by_username</span>(params[<span class="Constant"><span class="Constant">:</span>username</span>])
@@ -245,29 +254,29 @@ dementsprechend wie folgt aussehen:</p>
 </pre></code></pre>
 
 <p>Eine Implementierung dieser Art sollte sich in einem <code>SessionController</code>
-wieder finden lassen, &uuml;ber den der Login eines Benutzer stattfinden kann. In
-diesem Zuge sollte man auch &uuml;ber einen Logout nachdenken.</p>
+wieder finden lassen, über den der Login eines Benutzer stattfinden kann. In
+diesem Zuge sollte man auch über einen Logout nachdenken.</p>
 
 <p><strong>Bonus:</strong> Um zu verhindern, dass bestimmte Actions in einem Controller
-ausgef&uuml;hrt werden, ohne das entsprechende Vorbedingungen erf&uuml;llt sind, gibt es
-<a href="http://guides.rails.info/action_controller_overview.html#filters" title="Action Controller Overview &ndash; Filter">Filter</a>. Um sicher zu stellen, dass nur dann
+ausgeführt werden, ohne das entsprechende Vorbedingungen erfüllt sind, gibt es
+<a href="http://guides.rails.info/action_controller_overview.html#filters" title="Action Controller Overview – Filter">Filter</a>. Um sicher zu stellen, dass nur dann
 eine Mitteilungen geschrieben werden kann, wenn ein Benutzer eingeloggt ist,
 definiert man in der Regel eine <code>before_filter</code> in der Controller-Ebene.</p>
 
 <h3>Echte Benutzerauthentifizierung</h3>
 
-<p>Wir hoffen nat&uuml;rlich, dass man sich auch &uuml;ber die Laufzeit des Kurses hinaus
-mit Rails besch&auml;ftigen wird. Wer dann gerne einen "echten" Benutzerlogin
-realisieren will, also mit verschl&uuml;sseltem Passwort in der Datenbank und
+<p>Wir hoffen natürlich, dass man sich auch über die Laufzeit des Kurses hinaus
+mit Rails beschäftigen wird. Wer dann gerne einen "echten" Benutzerlogin
+realisieren will, also mit verschlüsseltem Passwort in der Datenbank und
 Opt-In Email, sollte sich dazu einige Plugins anschauen. Zum einen gibt es da
 <a href="http://github.com/technoweenie/restful-authentication" title="technoweenie's restful-authentication at master - GitHub"><code>restful_authentication</code></a> oder auch
 <a href="http://github.com/binarylogic/authlogic" title="binarylogic's authlogic
 at master - GitHub"><code>authlogic</code></a>. Beide lassen sich jeweils gut erweitern und auf die
-eigenen Bed&uuml;rfnisse anpassen. Wir bevorzugen zur Zeit <code>authlogic</code>, da es kein
-Generator ist, das MVC-Paradigma st&auml;rker unterst&uuml;tzt und sich leichter in die
-eigene Applikation einf&uuml;gt. Aber probiert es einfach selbst aus und es gibt
+eigenen Bedürfnisse anpassen. Wir bevorzugen zur Zeit <code>authlogic</code>, da es kein
+Generator ist, das MVC-Paradigma stärker unterstützt und sich leichter in die
+eigene Applikation einfügt. Aber probiert es einfach selbst aus und es gibt
 auch noch zahlreiche andere Plugins. Auch selber bauen ist eine Alternative,
-wenn es darum geht ein Verst&auml;ndnis f&uuml;r die Thematik zu entwickeln.</p>
+wenn es darum geht ein Verständnis für die Thematik zu entwickeln.</p>
 
         </div>
 

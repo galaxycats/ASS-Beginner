@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM>
 <html lang="de">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-<title>ASS Anf&auml;nger Kurs &ndash; Kursmaterial</title>
-<link rel="stylesheet" href="../css/sunburst.css" type="text/css" media="screen" charset="utf-8">
-<style type="text/css">
+	<meta charset="utf-8" content="text/html" http-equiv="Content-Type" />
+  <title>ASS Anfänger Kurs – Kursmaterial</title>
+  
+  <link href="../css/sunburst.css" rel="stylesheet" media="screen" type="text/css" charset="utf-8" />
+  
+  <style type="text/css">
 		body {
 			margin-top: 1.0em;
 			background-color: #0b084a;
@@ -60,18 +62,19 @@
 		  font-style: italic;
 		}
 	</style>
+	
 </head>
 <body>
 
-  	<a href="http://github.com/galaxycats/ASS-Beginner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  	<a href="http://github.com/galaxycats/ASS-Beginner"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" style="position: absolute; top: 0; right: 0; border: 0;" /></a>
 
   	<div id="container">
 
   		<div class="download">
   			<a href="http://github.com/galaxycats/ASS-Beginner/zipball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+  				<img src="http://github.com/images/modules/download/zip.png" border="0" width="90" /></a>
   			<a href="http://github.com/galaxycats/ASS-Beginner/tarball/master">
-  				<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+  				<img src="http://github.com/images/modules/download/tar.png" border="0" width="90" /></a>
   		</div>
 
         <div id="content">
@@ -79,47 +82,49 @@
 
 <h2>Ziel</h2>
 
-<p>Ein Rails Projekt aufsetzen und die dazugeh&ouml;rige Datenbank einrichten
-und migrieren k&ouml;nnen.</p>
+<p>Ein Rails Projekt aufsetzen und die dazugehörige Datenbank einrichten
+und migrieren können.</p>
 
 <h2>Aufgabe</h2>
 
 <ol>
-<li><p>&Uuml;ber die Dauer des Kurses soll eine kleine aber voll funktionsf&auml;hige
+<li><p>Über die Dauer des Kurses soll eine kleine aber voll funktionsfähige
 Webanwendung entstehen. Dazu wollen wir zusammen den Webdienst
 <a href="http://twitter.com/" title="Twitter">Twitter</a> nachbauen. Dabei handelt es sich um
 eine Plattform auf der sich jeder kostenfrei anmelden kann und in Form von 140
 Zeichen seinen aktuellen Status der Welt mitteilen kann. Eine solche
 Statusmitteilung kann dabei so ziemlich alles sein was sich eben in 140
-Zeichen ausdr&uuml;cken l&auml;sst: Ein interessanter Link, ein lustiges Video bei
+Zeichen ausdrücken lässt: Ein interessanter Link, ein lustiges Video bei
 YouTube, was ich gerade Esse, wo ich gerade bin oder an was ich gerade
 arbeite. Diese Statusmitteilung werden so in einer Liste dargestellt, dass
 jeweils die aktuellste Mitteilung ganz oben steht. Diese Liste bezeichnen wir
 daher als Timeline. Interessant wird das ganze nun, wenn man das Konzept von
-"Followern" einf&uuml;hrt. Hierbei geht es darum, dass ich als Nutzer bestimmten
+"Followern" einführt. Hierbei geht es darum, dass ich als Nutzer bestimmten
 anderen Leuten "folgen" kann, also deren Statusmitteilungen ebenfalls zu
-meinen in meiner pers&ouml;nlichen Timeline angzeigt werden. So bin ich zum
-Beispiel immer auf dem laufenden &uuml;ber das was meine Freunde gerade machen oder
-f&uuml;r spannend im Netz erachten. Zus&auml;tzlich kann ich in meinen
-Statusmitteilungen andere Nutzer explizit erw&auml;hnen, also "mention". Diese
-Mentions werden mir auch dann immer in meiner pers&ouml;nlichen Timeline angezeigt,
-wenn ich dem Nutzer nicht explizit folge. Zus&auml;tzlich zu der pers&ouml;nlichen
+meinen in meiner persönlichen Timeline angzeigt werden. So bin ich zum
+Beispiel immer auf dem laufenden über das was meine Freunde gerade machen oder
+für spannend im Netz erachten. Zusätzlich kann ich in meinen
+Statusmitteilungen andere Nutzer explizit erwähnen, also "mention". Diese
+Mentions werden mir auch dann immer in meiner persönlichen Timeline angezeigt,
+wenn ich dem Nutzer nicht explizit folge. Zusätzlich zu der persönlichen
 Timeline eines Benutzers (die auch nur er im eingeloggten Zustand sehen kann)
-hat jeder Nutzer auch eine &ouml;ffentliche Timeline, in der nur seine
+hat jeder Nutzer auch eine öffentliche Timeline, in der nur seine
 Statusmitteilungen zu sehen sind, also ohne Mentions und Mitteilungen von
-gefolgten Nutzern (Followee). Dar&uuml;ber hinaus gibt es auch eine Haupt-Timeline
-in der alle Nachrichten aller Nutzer auftauchen und die f&uuml;r jeden &ouml;ffentlich
+gefolgten Nutzern (Followee). Darüber hinaus gibt es auch eine Haupt-Timeline
+in der alle Nachrichten aller Nutzer auftauchen und die für jeden öffentlich
 einsehbar ist. Die wesentlichen Elemente der Anwendung sind demnach:</p></li>
 <li><p>Benutzer</p></li>
 <li>Statusmitteilungen</li>
 <li>Beziehungen zwischen Benutzern (Follower)</li>
 <li><p>Beziehungen zwischen Benutzern und Statusmitteilungen (Mentions)</p></li>
-<li><p>Auf der Haupt-URL (<code>http://localhost:3000/</code>) soll die &ouml;ffentliche Timeline
+<li><p>Auf der Haupt-URL (<code>http://localhost:3000/</code>) soll die öffentliche Timeline
 angezeigt werden. Dazu muss die <code>index.html</code> aus dem <code>public</code>-Verzeichnis der
-Rails-Anwendung gel&ouml;scht und eine <code>root</code>-Route angelegt werden.</p></li>
-<li><p>Mit Hilfe von <code>ActiveRecord::Migration</code> sollen die n&ouml;tigen
+Rails-Anwendung gelöscht und eine <code>root</code>-Route angelegt werden.</p></li>
+<li><p>Mit Hilfe von <code>ActiveRecord::Migration</code> sollen die nötigen
 Datenbank-Tabellen angelegt werden.</p></li>
 </ol>
+
+
 <h2>Ressourcen</h2>
 
 <ul>
@@ -127,10 +132,10 @@ Datenbank-Tabellen angelegt werden.</p></li>
 <li><a href="http://guides.rails.info/" title="Rails Guides">Rails Guides</a></li>
 <li><a href="http://guides.rails.info/getting_started.html" title="Getting Started with Rails">Getting Started with Rails</a></li>
 <li><a href="http://guides.rails.info/migrations.html" title="Migrations">Migrations</a></li>
-<li>
-<em>Bonus:</em> <a href="http://guides.rails.info/command_line.html" title="A Guide to The Rails Command Line">A Guide to The Rails Command Line</a>
-</li>
+<li><em>Bonus:</em> <a href="http://guides.rails.info/command_line.html" title="A Guide to The Rails Command Line">A Guide to The Rails Command Line</a></li>
 </ul>
+
+
 <h2>Shortcuts</h2>
 
 <h3>Rails installieren und Projektstruktur initialisieren</h3>
@@ -148,9 +153,9 @@ $&gt; gem install rails --pre
 
 <h3>Generatoren und rake-Tasks</h3>
 
-<p>Zun&auml;chst muss eine Resource mit Hilfe des folgenden Befehls generiert werden:
+<p>Zunächst muss eine Resource mit Hilfe des folgenden Befehls generiert werden:
 <code>rails generieren resource &lt;ResourceName&gt; &lt;attribubute&gt;:&lt;attribute_type&gt;</code>.
-Dabei werden alle relevanten Dateien erzeugt, von der Migration &uuml;ber das
+Dabei werden alle relevanten Dateien erzeugt, von der Migration über das
 Modell bis hin zum Controller. Hier ein Beispiel:</p>
 
 <pre><code><pre class="sunburst">rails generate resource message content:string
@@ -174,34 +179,34 @@ Modell bis hin zum Controller. Hier ein Beispiel:</p>
      route  resources :messages
 </pre></code></pre>
 
-<p>Jetzt kann man direkt die erzeugte Migration ausf&uuml;hren und den Server starten:</p>
+<p>Jetzt kann man direkt die erzeugte Migration ausführen und den Server starten:</p>
 
 <ul>
-<li>Migration ausf&uuml;hren: <code>rake db:migrate</code>
-</li>
-<li>Server starten: <code>rails server</code>
-</li>
+<li>Migration ausführen: <code>rake db:migrate</code></li>
+<li>Server starten: <code>rails server</code></li>
 </ul>
+
+
 <p><strong>Aber</strong> wir wollen uns das ganze erstmal ohne Web Server auf der <em>Console</em>
 ansehen:</p>
 
 <pre><code><pre class="sunburst">$&gt; rails console
   irb&gt; Message
       =&gt; Message(id: integer, content: string, created_at: datetime, updated_at: datetime)
-  irb&gt; message = Message.new(:content =&gt; "Dies ist meine erste Nachricht.")
-      =&gt; #&lt;Message id: nil, content: "Dies ist meine erste Nachricht.", created_at: nil, updated_at: nil&gt;
+  irb&gt; message = Message.new(:content =&gt; &quot;Dies ist meine erste Nachricht.&quot;)
+      =&gt; #&lt;Message id: nil, content: &quot;Dies ist meine erste Nachricht.&quot;, created_at: nil, updated_at: nil&gt;
   irb&gt; message.save
       =&gt; true
   irb&gt; message
-      =&gt; #&lt;Message id: 1, content: "Dies ist meine erste Nachricht.", created_at: "2010-03-12 17:02:41", updated_at: "2010-03-12 17:02:41"&gt;
+      =&gt; #&lt;Message id: 1, content: &quot;Dies ist meine erste Nachricht.&quot;, created_at: &quot;2010-03-12 17:02:41&quot;, updated_at: &quot;2010-03-12 17:02:41&quot;&gt;
 </pre></code></pre>
 
 <h4>Einrichten der Rails Console</h4>
 
-<p>Die Console l&auml;sst sich um einige Gimmicks erweitern, wie etwa
+<p>Die Console lässt sich um einige Gimmicks erweitern, wie etwa
 Syntax-Highlighting. Eine weitere sinnvolle Anpassung ist die Umleitung der
 Logausgaben auf STDOUT. So kann man direkt in der Console sehen wie etwa die
-SQL-Query aussieht, die von Rails generiert wird. Um dass zu erreichen, m&uuml;ssen
+SQL-Query aussieht, die von Rails generiert wird. Um dass zu erreichen, müssen
 zwei kleine Gems (Ruby Bibliotheken) installiert werden:</p>
 
 <pre><code><pre class="sunburst">$&gt; gem install wirble
@@ -221,19 +226,19 @@ Inhalt angelegt werden:</p>
 <span class="Support">Wirble</span>.<span class="Entity">colorize</span>
 
 <span class="Variable">IRB</span>.<span class="Entity">conf</span>[<span class="Constant"><span class="Constant">:</span>SAVE_HISTORY</span>] <span class="Keyword">=</span> <span class="Constant">100</span>
-<span class="Variable">IRB</span>.<span class="Entity">conf</span>[<span class="Constant"><span class="Constant">:</span>HISTORY_FILE</span>] <span class="Keyword">=</span> <span class="String"><span class="String">"</span><span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span><span class="StringEmbeddedSource"><span class="StringVariable">ENV</span>[<span class="String"><span class="String">'</span>HOME<span class="String">'</span></span>]</span><span class="StringEmbeddedSource">}</span></span>/.irb-save-history<span class="String">"</span></span>
+<span class="Variable">IRB</span>.<span class="Entity">conf</span>[<span class="Constant"><span class="Constant">:</span>HISTORY_FILE</span>] <span class="Keyword">=</span> <span class="String"><span class="String">&quot;</span><span class="StringEmbeddedSource"><span class="StringEmbeddedSource">#{</span><span class="StringEmbeddedSource"><span class="StringVariable">ENV</span>[<span class="String"><span class="String">'</span>HOME<span class="String">'</span></span>]</span><span class="StringEmbeddedSource">}</span></span>/.irb-save-history<span class="String">&quot;</span></span>
 
 <span class="Keyword">if</span> <span class="Support">Object</span>.<span class="Entity">const_defined?</span>(<span class="String"><span class="String">'</span>Rails<span class="String">'</span></span>)
-  <span class="Support">Rails</span>.<span class="Entity">logger</span>.<span class="Entity">instance_variable_set</span>(<span class="String"><span class="String">"</span>@log<span class="String">"</span></span>, <span class="Variable">STDOUT</span>)
+  <span class="Support">Rails</span>.<span class="Entity">logger</span>.<span class="Entity">instance_variable_set</span>(<span class="String"><span class="String">&quot;</span>@log<span class="String">&quot;</span></span>, <span class="Variable">STDOUT</span>)
 <span class="Keyword">end</span>
 </pre></code></pre>
 
-<p>Anschlie&szlig;end m&uuml;ssen nun noch die zuvor installierten Gems im Rails-Projekt
-hinzugef&uuml;gt werden. Dazu einfach folgende Zeilen im <code>Gemfile</code> des
-Rails-Projektes hinzuf&uuml;gen:</p>
+<p>Anschließend müssen nun noch die zuvor installierten Gems im Rails-Projekt
+hinzugefügt werden. Dazu einfach folgende Zeilen im <code>Gemfile</code> des
+Rails-Projektes hinzufügen:</p>
 
-<pre><code><pre class="sunburst">gem <span class="String"><span class="String">"</span>wirble<span class="String">"</span></span>
-gem <span class="String"><span class="String">"</span>utility_belt<span class="String">"</span></span>
+<pre><code><pre class="sunburst">gem <span class="String"><span class="String">&quot;</span>wirble<span class="String">&quot;</span></span>
+gem <span class="String"><span class="String">&quot;</span>utility_belt<span class="String">&quot;</span></span>
 </pre></code></pre>
 
 <h3>Konventionen</h3>
@@ -242,29 +247,27 @@ gem <span class="String"><span class="String">"</span>utility_belt<span class="S
 <li>ActiveRecord Klassen sind immer im Singular</li>
 <li>ActionController Klassen sind immer im Plural</li>
 </ul>
+
+
 <h3>Wichtige Dateien</h3>
 
 <ul>
-<li>Templates: <code>app/views/&lt;ControllerName&gt;/&lt;action&gt;.html.erb</code>
-</li>
-<li>Controller: <code>app/controllers/&lt;ControllerName&gt;_controller.rb</code>
-</li>
-<li>Modelle: <code>app/models/&lt;ModelName&gt;.rb</code>
-</li>
-<li>Konfiguration: <code>config/</code>
-</li>
-<li>Routing Konfiguration: <code>config/routes.rb</code>
-</li>
-<li>Statische Inhalte: <code>public</code>
-</li>
+<li>Templates: <code>app/views/&lt;ControllerName&gt;/&lt;action&gt;.html.erb</code></li>
+<li>Controller: <code>app/controllers/&lt;ControllerName&gt;_controller.rb</code></li>
+<li>Modelle: <code>app/models/&lt;ModelName&gt;.rb</code></li>
+<li>Konfiguration: <code>config/</code></li>
+<li>Routing Konfiguration: <code>config/routes.rb</code></li>
+<li>Statische Inhalte: <code>public</code></li>
 </ul>
+
+
 <h3>Routing</h3>
 
 <p>In der Routing-Datei (<code>config/routes.rb</code>) muss zu diesem Zeitpunkt nichts weiter getan werden, als eine
-<code>root</code>-Route anzulegen. Diese beschreibt welche Action mit dazugeh&ouml;rigem Controller beim Aufruf der Haupt-URL (<code>http://localhost:3000</code>)
-aufgerufen werden soll. Dazu f&uuml;gt man folgenden Code am Ende der Routing-Definition ein:</p>
+<code>root</code>-Route anzulegen. Diese beschreibt welche Action mit dazugehörigem Controller beim Aufruf der Haupt-URL (<code>http://localhost:3000</code>)
+aufgerufen werden soll. Dazu fügt man folgenden Code am Ende der Routing-Definition ein:</p>
 
-<pre><code><pre class="sunburst">route <span class="Constant"><span class="Constant">:</span>to</span> =&gt; <span class="String"><span class="String">"</span>&lt;controller&gt;#&lt;action&gt;<span class="String">"</span></span>
+<pre><code><pre class="sunburst">route <span class="Constant"><span class="Constant">:</span>to</span> =&gt; <span class="String"><span class="String">&quot;</span>&lt;controller&gt;#&lt;action&gt;<span class="String">&quot;</span></span>
 </pre></code></pre>
 
 <h3>Migrationen</h3>
@@ -276,22 +279,23 @@ Timestamp ist.</p>
 
 <ul>
 <li><code>create_table / drop_table</code></li>
-<li>
-<code>t.string :spalten_name</code> erzeugt eine neue Spalte vom Typ <code>string</code> w&auml;hrend des <code>create_table</code> Blocks</li>
-<li>
-<code>t.integer :spalten_name</code> erzeugt eine neue Spalte vom Typ <code>string</code> w&auml;hrend des <code>create_table</code> Blocks</li>
+<li><code>t.string :spalten_name</code> erzeugt eine neue Spalte vom Typ <code>string</code> während des <code>create_table</code> Blocks</li>
+<li><code>t.integer :spalten_name</code> erzeugt eine neue Spalte vom Typ <code>string</code> während des <code>create_table</code> Blocks</li>
 <li><code>add_column(table_name, column_name, type, options) / remove_column(table_name, column_name)</code></li>
 </ul>
+
+
 <p>Datentypen:</p>
 
 <ul>
-<li>Die Datentypen werden in die spezifischen DB Typen &uuml;bersetzt.</li>
+<li>Die Datentypen werden in die spezifischen DB Typen übersetzt.</li>
 <li><code>integer, float, datetime, date, timestamp, time, text, string, binary, boolean</code></li>
-<li>relevant sind f&uuml;r uns haupts&auml;chlich <code>integer, string, text, datetime und boolean</code>
-</li>
+<li>relevant sind für uns hauptsächlich <code>integer, string, text, datetime und boolean</code></li>
 </ul>
-<p><strong>Wichtig</strong> In der <code>self.down</code> Methode m&uuml;ssen immer die Aktionen der <code>self.up</code>
-Methode r&uuml;ckg&auml;ngig gemacht werden.</p>
+
+
+<p><strong>Wichtig</strong> In der <code>self.down</code> Methode müssen immer die Aktionen der <code>self.up</code>
+Methode rückgängig gemacht werden.</p>
 
         </div>
 
