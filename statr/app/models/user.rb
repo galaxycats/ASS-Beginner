@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_uniqueness_of :username
   
+  attr_accessor :password
+  
   def real_name
     [first_name, last_name].join(" ")
   end
@@ -21,7 +23,7 @@ class User < ActiveRecord::Base
   end
   
   def all_messages
-    (messages + mentions + followees.messages.all).sort { |message, another_message| another_message.created_at <=> message.created_at }
+    (messages + mentions + followees.messages.all).uniq_by {|msg| msg.content}.sort { |message, another_message| another_message.created_at <=> message.created_at }
   end
   
   def follow(user)

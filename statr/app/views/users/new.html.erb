@@ -1,0 +1,27 @@
+<div id="signup_box">
+  <%= error_messages_for :user, :header_message => "Some errors occured during the registration process:", :message => nil %>
+  <h1>Signup for Statr:</h1>
+  <% form_for :user, :url => users_url do |f| %>
+    <div class="field_with_label">
+      <%= label :user, :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field_with_label">
+      <%= label :user, :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field_with_label">
+      <%= label :user, :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div class="field_with_label">
+      <%= label :user, :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field_with_label">
+      <%= label :user, :password %>
+      <%= f.password_field :password %>
+    </div>
+    <%= f.submit "Signup" %>
+  <% end %>
+</div>

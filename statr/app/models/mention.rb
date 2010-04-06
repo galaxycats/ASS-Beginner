@@ -9,4 +9,5 @@ class Mention < ActiveRecord::Base
   def user
     message.user
   end
+  
 end
