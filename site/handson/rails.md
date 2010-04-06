@@ -8,42 +8,42 @@ und migrieren können.
 ## Aufgabe
 
 1. Über die Dauer des Kurses soll eine kleine aber voll funktionsfähige
-Webanwendung entstehen. Dazu wollen wir zusammen den Webdienst
-[Twitter](http://twitter.com/ "Twitter") nachbauen. Dabei handelt es sich um
-eine Plattform auf der sich jeder kostenfrei anmelden kann und in Form von 140
-Zeichen seinen aktuellen Status der Welt mitteilen kann. Eine solche
-Statusmitteilung kann dabei so ziemlich alles sein was sich eben in 140
-Zeichen ausdrücken lässt: Ein interessanter Link, ein lustiges Video bei
-YouTube, was ich gerade Esse, wo ich gerade bin oder an was ich gerade
-arbeite. Diese Statusmitteilung werden so in einer Liste dargestellt, dass
-jeweils die aktuellste Mitteilung ganz oben steht. Diese Liste bezeichnen wir
-daher als Timeline. Interessant wird das ganze nun, wenn man das Konzept von
-"Followern" einführt. Hierbei geht es darum, dass ich als Nutzer bestimmten
-anderen Leuten "folgen" kann, also deren Statusmitteilungen ebenfalls zu
-meinen in meiner persönlichen Timeline angzeigt werden. So bin ich zum
-Beispiel immer auf dem laufenden über das was meine Freunde gerade machen oder
-für spannend im Netz erachten. Zusätzlich kann ich in meinen
-Statusmitteilungen andere Nutzer explizit erwähnen, also "mention". Diese
-Mentions werden mir auch dann immer in meiner persönlichen Timeline angezeigt,
-wenn ich dem Nutzer nicht explizit folge. Zusätzlich zu der persönlichen
-Timeline eines Benutzers (die auch nur er im eingeloggten Zustand sehen kann)
-hat jeder Nutzer auch eine öffentliche Timeline, in der nur seine
-Statusmitteilungen zu sehen sind, also ohne Mentions und Mitteilungen von
-gefolgten Nutzern (Followee). Darüber hinaus gibt es auch eine Haupt-Timeline
-in der alle Nachrichten aller Nutzer auftauchen und die für jeden öffentlich
-einsehbar ist. Die wesentlichen Elemente der Anwendung sind demnach:
+   Webanwendung entstehen. Dazu wollen wir zusammen den Webdienst
+   [Twitter](http://twitter.com/ "Twitter") nachbauen. Dabei handelt es sich um
+   eine Plattform auf der sich jeder kostenfrei anmelden kann und in Form von 140
+   Zeichen seinen aktuellen Status der Welt mitteilen kann. Eine solche
+   Statusmitteilung kann dabei so ziemlich alles sein was sich eben in 140
+   Zeichen ausdrücken lässt: Ein interessanter Link, ein lustiges Video bei
+   YouTube, was ich gerade Esse, wo ich gerade bin oder an was ich gerade
+   arbeite. Diese Statusmitteilung werden so in einer Liste dargestellt, dass
+   jeweils die aktuellste Mitteilung ganz oben steht. Diese Liste bezeichnen wir
+   daher als Timeline. Interessant wird das ganze nun, wenn man das Konzept von
+   "Followern" einführt. Hierbei geht es darum, dass ich als Nutzer bestimmten
+   anderen Leuten "folgen" kann, also deren Statusmitteilungen ebenfalls zu
+   meinen in meiner persönlichen Timeline angzeigt werden. So bin ich zum
+   Beispiel immer auf dem laufenden über das was meine Freunde gerade machen oder
+   für spannend im Netz erachten. Zusätzlich kann ich in meinen
+   Statusmitteilungen andere Nutzer explizit erwähnen, also "mention". Diese
+   Mentions werden mir auch dann immer in meiner persönlichen Timeline angezeigt,
+   wenn ich dem Nutzer nicht explizit folge. Zusätzlich zu der persönlichen
+   Timeline eines Benutzers (die auch nur er im eingeloggten Zustand sehen kann)
+   hat jeder Nutzer auch eine öffentliche Timeline, in der nur seine
+   Statusmitteilungen zu sehen sind, also ohne Mentions und Mitteilungen von
+   gefolgten Nutzern (Followee). Darüber hinaus gibt es auch eine Haupt-Timeline
+   in der alle Nachrichten aller Nutzer auftauchen und die für jeden öffentlich
+   einsehbar ist. Die wesentlichen Elemente der Anwendung sind demnach:
 
-  * Benutzer
-  * Statusmitteilungen
-  * Beziehungen zwischen Benutzern (Follower)
-  * Beziehungen zwischen Benutzern und Statusmitteilungen (Mentions)
+    * Benutzer
+    * Statusmitteilungen
+    * Beziehungen zwischen Benutzern (Follower)
+    * Beziehungen zwischen Benutzern und Statusmitteilungen (Mentions)
 
 2. Auf der Haupt-URL (`http://localhost:3000/`) soll die öffentliche Timeline
-angezeigt werden. Dazu muss die `index.html` aus dem `public`-Verzeichnis der
-Rails-Anwendung gelöscht und eine `root`-Route angelegt werden.
+   angezeigt werden. Dazu muss die `index.html` aus dem `public`-Verzeichnis der
+   Rails-Anwendung gelöscht und eine `root`-Route angelegt werden.
 
 3. Mit Hilfe von `ActiveRecord::Migration` sollen die nötigen
-Datenbank-Tabellen angelegt werden.
+   Datenbank-Tabellen angelegt werden.
 
 ## Ressourcen
 
