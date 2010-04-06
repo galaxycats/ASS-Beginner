@@ -4,4 +4,6 @@ Dies ist das git-Repository des ASS Anfängerkurses Ruby on Rails der FH Köln C
 
 Die Übungen und andere Informationen findet man unter
 
-[http://galaxycats.github.com/ASS-Beginner/](http://galaxycats.github.com/ASS-Beginner/, "ASS-Beginner")
+[http://galaxycats.github.com/ASS-Beginner/](http://galaxycats.github.com/ASS-Beginner/ "ASS-Beginner")
+
+Der Kurs wurde erstellt von Andreas Bade und Dirk Breuer.
