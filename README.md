@@ -25,6 +25,9 @@ Webanwendungen konzipieren und umsetzen könnt. Bisher konnten wir dieses Ziel
 immer ganz gut erreichen und sind guter Dinge, dass uns das auch bei diesem
 Kurs wieder gelingen wird.
 
+Weitere Informationen finden sich
+[hier](http://galaxycats.github.com/ASS-Beginner/ "ASS-Beginner").
+
 ## Lizenzbestimmungen
 
 Das gesamte, hier zur Verfügung gestellte Material ist Eigentum der
@@ -32,3 +35,5 @@ Fachhochschule Köln. Es darf ausschließlich für Lehrzwecke verwendet werden.
 Eine kommerzielle Nutzung ist damit ausgeschlossen. Auch weitere Kurse an der
 Fachhochschule Köln dürfen nur mit vorheriger Genehmigung damit durchgeführt
 werden.
+
+Der Kurs wurde erstellt von Andreas Bade und Dirk Breuer.
