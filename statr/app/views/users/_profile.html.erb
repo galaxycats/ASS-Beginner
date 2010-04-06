@@ -9,6 +9,9 @@
     <% unless @user.mentions.blank? %>
     <div><span id="info_text">mentioned:</span> <%= link_to @user.mentions.count, user_mentions_url(:user_id => @user.username) %> <span id="info_text">times</span></div>
     <% end %>
+    <% unless @user.followees.blank? %>
+    <div><span id="info_text">following:</span> <%= pluralize(@user.followees.count, 'person') %></div>
+    <% end %>
     <div id="last_status">
       <div><span id="info_text">last status:</span><p>"<%= @user.messages.last.try(:content) %>"</p></div>
     </div>
