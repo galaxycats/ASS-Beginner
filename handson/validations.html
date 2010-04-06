@@ -133,7 +133,9 @@ user.<span class="Entity">errors</span> <span class="Comment"><span class="Comme
 
 <h3>Eigene Validierung:</h3>
 
-<pre><code><pre class="sunburst"><span class="Keyword">def</span> <span class="Entity">validate</span> 
+<pre><code><pre class="sunburst"><span class="SupportFunction">validate</span> <span class="Constant"><span class="Constant">:</span>special_birthday_validation</span>
+
+<span class="Keyword">def</span> <span class="Entity">special_birthday_validation</span>
   errors.<span class="Entity">add</span>(birthday, <span class="String"><span class="String">&quot;</span>Who are you? Methusalem?<span class="String">&quot;</span></span>) <span class="Keyword">unless</span> birthday <span class="Keyword">&lt;</span> <span class="Support">Time</span>.<span class="Entity">parse</span>(<span class="String"><span class="String">&quot;</span>01-01-1900<span class="String">&quot;</span></span>) 
 <span class="Keyword">end</span>
 </pre></code></pre>

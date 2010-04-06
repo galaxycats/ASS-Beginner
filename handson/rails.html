@@ -124,8 +124,8 @@ einsehbar ist. Die wesentlichen Elemente der Anwendung sind demnach:</p>
 <li><p>Auf der Haupt-URL (<code>http://localhost:3000/</code>) soll die öffentliche Timeline
 angezeigt werden. Dazu muss die <code>index.html</code> aus dem <code>public</code>-Verzeichnis der
 Rails-Anwendung gelöscht und eine <code>root</code>-Route angelegt werden.</p></li>
-<li><p>Mit Hilfe von <code>ActiveRecord::Migration</code> sollen die nötigen
-Datenbank-Tabellen angelegt werden.</p></li>
+<li><p>Im ersten Schritt (iteratives Vorgehen) soll das Model <code>Message</code> inklusive Datenbank
+(<code>ActiveRecord::Migration</code>) angelegt werden.</p></li>
 </ol>
 
 
@@ -217,7 +217,7 @@ zwei kleine Gems (Ruby Bibliotheken) installiert werden:</p>
 $&gt; gem install utility_belt
 </pre></code></pre>
 
-<p>Danach muss noch eine <code>.irbrc</code>-Datei im Home-Verzeihnis angelegt mit folgendem
+<p>Danach muss noch eine <code>.irbrc</code>-Datei im Home-Verzeihnis mit folgendem
 Inhalt angelegt werden:</p>
 
 <pre><code><pre class="sunburst"><span class="Comment"><span class="Comment">#</span> load libraries</span>
@@ -245,6 +245,14 @@ Rails-Projektes hinzufügen:</p>
 gem <span class="String"><span class="String">&quot;</span>utility_belt<span class="String">&quot;</span></span>
 </pre></code></pre>
 
+<p>Nun kann die Rails-Console benutzt werden und man sieht Log-Ausgaben direkt
+in der Console.</p>
+
+<pre><code><pre class="sunburst">rails console
+<span class="Keyword">-</span> oder <span class="Keyword">-</span>
+rails c
+</pre></code></pre>
+
 <h3>Konventionen</h3>
 
 <ul>
@@ -257,8 +265,8 @@ gem <span class="String"><span class="String">&quot;</span>utility_belt<span cla
 
 <ul>
 <li>Templates: <code>app/views/&lt;ControllerName&gt;/&lt;action&gt;.html.erb</code></li>
-<li>Controller: <code>app/controllers/&lt;ControllerName&gt;_controller.rb</code></li>
-<li>Modelle: <code>app/models/&lt;ModelName&gt;.rb</code></li>
+<li>Controller: <code>app/controllers/&lt;controller_name&gt;_controller.rb</code></li>
+<li>Modelle: <code>app/models/&lt;model_name&gt;.rb</code></li>
 <li>Konfiguration: <code>config/</code></li>
 <li>Routing Konfiguration: <code>config/routes.rb</code></li>
 <li>Statische Inhalte: <code>public</code></li>

@@ -133,12 +133,13 @@ Program"</a> von <em>Chris Pine</em>)</p></li>
 <h3>Symbols</h3>
 
 <pre><code><pre class="sunburst"><span class="Constant"><span class="Constant">:</span>das_ist_ein_symbol</span>
+<span class="Constant"><span class="Constant">:&quot;</span>das hier auch<span class="Constant">&quot;</span></span>
 </pre></code></pre>
 
 <h3>Arrays</h3>
 
 <pre><code><pre class="sunburst">[<span class="Constant">1</span>,<span class="Constant">2</span>,<span class="Constant">3</span>]
-<span class="String"><span class="String">%w(</span>eins zwei drei<span class="String">)</span></span>
+<span class="String"><span class="String">%w(</span>eins zwei drei<span class="String">)</span></span> <span class="Comment"><span class="Comment">#</span> =&gt; [&quot;eins&quot; &quot;zwei&quot;, &quot;drei&quot;]</span>
 </pre></code></pre>
 
 <h3>Hash</h3>
@@ -146,9 +147,20 @@ Program"</a> von <em>Chris Pine</em>)</p></li>
 <pre><code><pre class="sunburst">{ <span class="Constant"><span class="Constant">:</span>key</span> =&gt; <span class="String"><span class="String">'</span>value<span class="String">'</span></span>, <span class="Constant"><span class="Constant">:</span>another_key</span> =&gt; <span class="String"><span class="String">'</span>another_value<span class="String">'</span></span> }
 </pre></code></pre>
 
+<h3>Kombination unterschiedlicher Datenstrukturen</h3>
+
+<pre><code><pre class="sunburst">{ <span class="Constant"><span class="Constant">:</span>key</span> =&gt; {
+    <span class="Constant"><span class="Constant">:</span>another_hash</span> =&gt; <span class="String"><span class="String">&quot;</span>value<span class="String">&quot;</span></span>
+  },
+  <span class="Constant"><span class="Constant">:</span>another_key</span> =&gt; [<span class="String"><span class="String">&quot;</span>elem1<span class="String">&quot;</span></span>, <span class="String"><span class="String">&quot;</span>elem2<span class="String">&quot;</span></span>, <span class="String"><span class="String">&quot;</span>elem3<span class="String">&quot;</span></span>],
+  <span class="Constant"><span class="Constant">:</span>yak</span> =&gt; <span class="String"><span class="String">&quot;</span>bla<span class="String">&quot;</span></span>
+}
+</pre></code></pre>
+
 <h3>Ranges</h3>
 
-<pre><code><pre class="sunburst"><span class="Constant">0</span>..<span class="Constant">4</span>
+<pre><code><pre class="sunburst"><span class="Constant">0</span>..<span class="Constant">4</span>  <span class="Comment"><span class="Comment">#</span> =&gt; 0,1,2,3,4</span>
+<span class="Constant">0</span>...<span class="Constant">4</span> <span class="Comment"><span class="Comment">#</span> =&gt; 0,1,2,3</span>
 </pre></code></pre>
 
 <h3>Schleifen</h3>
@@ -177,7 +189,7 @@ puts obj.<span class="Entity">inspect</span> <span class="Comment"><span class="
 
 <ul>
 <li>Ruby Source Dateien: <code>my_ruby_prog.rb</code></li>
-<li>Ruby Interpreter starten: <code>ruby &lt;dateiname&gt;.rb</code></li>
+<li>Ruby Interpreter starten: <code>ruby &lt;dateiname.rb&gt;</code></li>
 <li>Interactive Ruby Shell starten: <code>irb</code></li>
 <li>Interactive Ruby Shell starten und Bibliothek laden: <code>irb -r bib.rb</code></li>
 <li>Rückgabewerte: Eine Funktion gibt <strong>immer den zuletzt evaluierten Wert zurück</strong>, auch ohne Angabe des Schlüsselworts <code>return</code>.</li>

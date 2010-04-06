@@ -108,7 +108,7 @@ Datenstruktur (Attribute) und die Methoden von der vererbenden Klasse
 erzeugt und können anderen Objekten als Prototypen dienen und damit ihre
 eigenen Methoden zur Wiederverwendung zur Verfügung stellen, wobei die
 neuen Objekte nur die Unterschiede zu ihrem Prototypen-Objekt definieren
-müssen..</li>
+müssen.</li>
 </ul>
 
 
@@ -165,10 +165,16 @@ m.<span class="Entity">call</span>(<span class="Constant">7</span>)
 
 <span class="Comment"><span class="Comment">#</span> Wissenwertes: Call-by-Reference</span>
 <span class="Keyword">def</span> <span class="Entity">modify_arg</span>(<span class="Variable">arg</span>)
+  arg <span class="Keyword">&lt;&lt;</span> <span class="Entity">rand</span>(<span class="Constant">40</span>)
+<span class="Keyword">end</span>
+array <span class="Keyword">=</span> [<span class="Constant">12</span>,<span class="Constant">34</span>,<span class="Constant">54</span>]
+<span class="Entity">modify_arg</span>(array)
+array
+
+<span class="Comment"><span class="Comment">#</span> Kann mit der +clone+ Methode verhindert werden.</span>
+<span class="Keyword">def</span> <span class="Entity">modify_arg</span>(<span class="Variable">arg</span>)
   arg.<span class="Entity">clone</span> <span class="Keyword">&lt;&lt;</span> <span class="Entity">rand</span>(<span class="Constant">40</span>)
 <span class="Keyword">end</span>
-  arg <span class="Keyword">&lt;&lt;</span> <span class="Entity">rand</span>(<span class="Constant">40</span>)
-<span class="Comment">  <span class="Comment">#</span> Kann mit der +clone+ Methode verhindert werden.</span>
 array <span class="Keyword">=</span> [<span class="Constant">12</span>,<span class="Constant">34</span>,<span class="Constant">54</span>]
 <span class="Entity">modify_arg</span>(array)
 array

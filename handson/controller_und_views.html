@@ -114,7 +114,7 @@ ganz oben in der Liste steht.</p>
 
 <p>Die Aufgabe soll natürlich RESTful realisiert werden. Wir brauchen daher auf
 jeden Fall drei Actions in unserem Controller. Hier noch einmal beispielhaft
-die Implementierung der Action zu Anzeige aller Statusmitteilungen:</p>
+die Implementierung der Action zur Anzeige aller Statusmitteilungen:</p>
 
 <pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">MessagesController<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ApplicationController</span></span>
 
@@ -146,10 +146,11 @@ Notation <code>&lt;% ruby_code %&gt;</code> evaluiert den enthaltenden Ruby-Code
 Ergebnis der Evaluierung nicht direkt wieder aus. Hier kann man jetzt
 einwerfen, dass der Helper <code>div_for &lt;object&gt;</code> ja nun etwas ausgeben muss,
 nämlich das entsprechenden HTML-Markup. Das ist absolut korrekt, jedoch
-geschieht hier die Ausgabe über einen anderen Weg, der an dieser Stelle nicht
-weiter betrachtet werden soll. Wenn wir das Ergebnis unseres Ruby-Codes in das
-Template integrieren wollen, verwenden wir die Notation <code>&lt;%= ruby_code %&gt;</code>.
-Wie eben für die Ausgabe des Inhalts (<code>content</code>) des <code>message</code>-Objekts.</p>
+geschieht hier die Ausgabe aufgrund des Blocks über einen anderen Weg, der an
+dieser Stelle nicht weiter betrachtet werden soll. Wenn wir das Ergebnis
+unseres Ruby-Codes in das Template integrieren wollen, verwenden wir die
+Notation <code>&lt;%= ruby_code %&gt;</code>. Wie eben für die Ausgabe des Inhalts (<code>content</code>)
+des <code>message</code>-Objekts.</p>
 
 <p>Zur Eingabe von Daten auf einer Webseite werden bekanntermaßen Formulare
 verwendet. Für deren Realisierung zur Eingabe von Daten für ein
@@ -168,7 +169,7 @@ lassen sich dann die üblichen Formularfelder definieren, wie hier zum Beispiel
 eine <code>text_area</code> oder ein <code>submit</code>-Button. Am Ende erhalten wir ein
 HTML-Formular, dass die einzelnen Felder korrekt bezeichnet hat, um ein
 <code>Message</code>-Objekt damit zu erzeugen. Die Helper-Methode erzeugt ebenfalls die
-URL an die die Formulardaten gesandt werden sollen korrekt für uns.</p>
+korrekte URL an die die Formulardaten gesandt werden sollen für uns.</p>
 
         </div>
 
