@@ -50,6 +50,7 @@ aufgerufen, nachdem eine bestimmte Methode ausgeführt wurde, wie z.B. die
 `save`-Methode eines Active Record Objekts. Hier ein kleines Beispiel, um das
 zu verdeutlichen:
 
+    !!!ruby_on_rails
     class User < ActiveRecord::Base
       after_save :send_welcome_email
 

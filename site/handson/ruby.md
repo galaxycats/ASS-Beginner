@@ -31,11 +31,13 @@ Program"](http://pine.fm/LearnToProgram/ "Learn to Program, by Chris Pine") von 
 
 * [Rails Searchable API Doc](http://railsapi.com/ "Rails Searchable API Doc")
 * [Ruby Quick Reference Card](http://www.scribd.com/doc/7991776/Refcard-30-Essential-Ruby "Refcard #30: Essential Ruby")
+* [Ruby Essentials](ruby_essentials.html "Ruby Essentials")
 
 ## Shortcuts
 
 ### Environment Setup
 
+    !!!plain_text
     export PATH=/usr/local/bin:$PATH
 
 ### Strings
@@ -64,7 +66,7 @@ Program"](http://pine.fm/LearnToProgram/ "Learn to Program, by Chris Pine") von 
     
     4.times { |n| puts n }
 
-    while i &lt; 10 
+    while i < 10 
       # do something 
     end
 

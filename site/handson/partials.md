@@ -26,6 +26,7 @@ Partials werden in Rails immer durch einen Underscore als Prefix im Dateinamen
 identifiziert und werden in der gleichen Verzeichnisstruktur abgelegt wie die eigentlichen
 Templates zu einem Controller:
 
+    !!!plain_text
     app/
     +-views/
       +-messages/
@@ -36,6 +37,7 @@ Templates zu einem Controller:
 Anhand des folgenden Beispiels wollen wir kurz erklären, wie Partials in Templates
 integriert werden können:
 
+    !!!html_rails
     <h1>Statusmitteilungen</h1>
     <div>
       <%= render "messages/form" %>

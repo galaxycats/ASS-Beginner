@@ -52,6 +52,7 @@ ableiten.
 1:1-Beziehung (`has_one`) zwischen zwei Objekten: Ein `Picture` hat genau ein
 `Thumbnail`.
 
+    !!!ruby_on_rails
     class Picture < ActiveRecord::Base
       has_one :thumbnail
     end
@@ -69,6 +70,7 @@ ableiten.
 1:m-Beziehung (`has_many`) zwischen zwei Objekten: Eine `Company` hat viele
 `Client`s.
 
+    !!!ruby_on_rails
     class Company < ActiveRecord::Base
       has_many :clients
     end
@@ -95,6 +97,7 @@ noch eine Klasse definiert werden.
 
 Beispiel für `has_many_and_belongs_to`:
 
+    !!!ruby_on_rails
     class Developer < ActiveRecord::Base
       has_and_belongs_to_many :projects
     end
@@ -114,6 +117,7 @@ Beispiel für `has_many_and_belongs_to`:
 
 Beispiel für `has_many :through`:
 
+    !!!ruby_on_rails
     class Developer < ActiveRecord::Base
       has_many :assignments
       has_many :projects, :through => :assignments
@@ -155,6 +159,7 @@ in den Controllern über die Methode `session` zugreifen. Das `session`-Objekt
 ist dabei als Hash realisiert. Die Speicherung der ID eines Benutzers könnte
 dementsprechend wie folgt aussehen:
 
+    !!!ruby_on_rails
     user = User.find_by_username(params[:username])
     if user
       session[:user_id] = user.id

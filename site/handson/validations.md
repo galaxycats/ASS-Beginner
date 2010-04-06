@@ -35,6 +35,7 @@ dann sollen ihn entsprechende Fehler darauf aufmerksam machen.
 
 ### Einige Standardvalidierungen:
 
+    !!!ruby_on_rails
     validates_presence_of :first_name, :last_name # Attribute 'first_name' und 'last_name' dürfen nicht leer sein
     validates_uniqueness_of :username # Attribut 'username' muss einzigartig sein
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i # Attribut 'email' muss dem angegebenen Format entsprechen
@@ -47,6 +48,7 @@ dann sollen ihn entsprechende Fehler darauf aufmerksam machen.
 
 ### Eigene Validierung:
 
+    !!!ruby_on_rails
     def validate 
       errors.add(birthday, "Who are you? Methusalem?") unless birthday < Time.parse("01-01-1900") 
     end

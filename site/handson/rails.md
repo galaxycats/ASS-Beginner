@@ -57,6 +57,7 @@ Datenbank-Tabellen angelegt werden.
 
 ### Rails installieren und Projektstruktur initialisieren
 
+    !!!plain_text
     $> gem update --system
     $> gem --version
     1.3.6
@@ -64,6 +65,7 @@ Datenbank-Tabellen angelegt werden.
     
 Rails-Projekt generieren:
 
+    !!!plain_text
     $> rails <appname>
 
 ### Generatoren und rake-Tasks
@@ -73,6 +75,7 @@ Zunächst muss eine Resource mit Hilfe des folgenden Befehls generiert werden:
 Dabei werden alle relevanten Dateien erzeugt, von der Migration über das
 Modell bis hin zum Controller. Hier ein Beispiel:
   
+    !!!plain_text
     rails generate resource message content:string
     ($> ~/projects/ass/twitter-clone)
         invoke  active_record
@@ -101,6 +104,7 @@ Jetzt kann man direkt die erzeugte Migration ausführen und den Server starten:
 **Aber** wir wollen uns das ganze erstmal ohne Web Server auf der *Console*
 ansehen:
 
+    !!!plain_text
      $> rails console
       irb> Message
           => Message(id: integer, content: string, created_at: datetime, updated_at: datetime)
@@ -110,6 +114,44 @@ ansehen:
           => true
       irb> message
           => #<Message id: 1, content: "Dies ist meine erste Nachricht.", created_at: "2010-03-12 17:02:41", updated_at: "2010-03-12 17:02:41">
+          
+#### Einrichten der Rails Console
+
+Die Console lässt sich um einige Gimmicks erweitern, wie etwa
+Syntax-Highlighting. Eine weitere sinnvolle Anpassung ist die Umleitung der
+Logausgaben auf STDOUT. So kann man direkt in der Console sehen wie etwa die
+SQL-Query aussieht, die von Rails generiert wird. Um dass zu erreichen, müssen
+zwei kleine Gems (Ruby Bibliotheken) installiert werden:
+
+    !!!plain_text
+    $> gem install wirble
+    $> gem install utility_belt
+
+Danach muss noch eine `.irbrc`-Datei im Home-Verzeihnis angelegt mit folgendem
+Inhalt angelegt werden:
+
+    # load libraries
+    require 'rubygems'
+    require 'wirble'  
+    require 'utility_belt'
+
+    # start wirble (with color)
+    Wirble.init
+    Wirble.colorize
+
+    IRB.conf[:SAVE_HISTORY] = 100
+    IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+
+    if Object.const_defined?('Rails')
+      Rails.logger.instance_variable_set("@log", STDOUT)
+    end
+
+Anschließend müssen nun noch die zuvor installierten Gems im Rails-Projekt
+hinzugefügt werden. Dazu einfach folgende Zeilen im `Gemfile` des
+Rails-Projektes hinzufügen:
+
+    gem "wirble"
+    gem "utility_belt"
 
 ### Konventionen
 
@@ -131,6 +173,7 @@ In der Routing-Datei (`config/routes.rb`) muss zu diesem Zeitpunkt nichts weiter
 `root`-Route anzulegen. Diese beschreibt welche Action mit dazugehörigem Controller beim Aufruf der Haupt-URL (`http://localhost:3000`)
 aufgerufen werden soll. Dazu fügt man folgenden Code am Ende der Routing-Definition ein:
 
+    !!!ruby_on_rails
     route :to => "<controller>#<action>"
 
 ### Migrationen
