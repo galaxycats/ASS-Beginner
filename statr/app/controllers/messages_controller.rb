@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+
+  before_filter :require_login, :only => [:create]
   
   before_filter :load_latest_messages
   

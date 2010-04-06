@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  before_filter :require_login, :only => [:follow, :unfollow]
+  
   def show
     if @user = User.find_by_username(params[:id])
       @messages = if logged_in? and current_user == @user

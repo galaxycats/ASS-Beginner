@@ -12,4 +12,10 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
+class ActionController::TestCase
+  def login_user(user = users(:natsume))
+    session[:current_user] = user.id
+  end
+end
+
 require 'mocha/integration/test_unit'

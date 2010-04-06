@@ -19,17 +19,11 @@ module MessagesHelper
       contents << content_tag(:ul, error_messages)
 
       content_tag(:div, contents, html)
-    else
-      ''
     end
   end
   
   def display_mention_info_for(message)
-    if message.is_a? Mention
-      raw '<span class="mentioned_by">mentioned</span>'
-    else
-      ""
-    end
+    raw '<span class="mentioned_by">mentioned</span>' if message.is_a? Mention
   end
   
   def auto_markup(message)
