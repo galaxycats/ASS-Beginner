@@ -6,7 +6,7 @@ require 'ftools'
 require 'rdiscount'
 require 'erb'
 require 'uv'
-require 'nokogiri'
+require 'hpricot'
 require 'cgi'
 
 opts = Trollop::options do
@@ -68,13 +68,13 @@ class SiteGenerator
     end
     
     def highlight_code_in_html(html)
-      html = Nokogiri::HTML(html)
-      html.xpath('//pre/code').each do |element|
+      html = Hpricot(html)
+      html.search('//pre/code') do |element|
         element.inner_html =~ /^\!\!\!(\w+)/
         element.inner_html = element.inner_html.gsub(/^\!\!\!(\w+)/, '')
-        element.inner_html = Uv.parse(CGI.unescapeHTML(CGI.unescapeHTML(element.inner_html)), "xhtml", "#{$1 || 'ruby'}", false, @options[:theme])
+        element.inner_html = Uv.parse(element.to_plain_text, "xhtml", "#{$1 || 'ruby'}", false, @options[:theme])
       end
-      html
+      html.to_html
     end
     
     def template

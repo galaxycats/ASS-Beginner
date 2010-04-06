@@ -66,7 +66,7 @@ Program"](http://pine.fm/LearnToProgram/ "Learn to Program, by Chris Pine") von 
     
     4.times { |n| puts n }
 
-    while i &lt; 10 
+    while i < 10 
       # do something 
     end
 
