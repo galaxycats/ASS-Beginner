@@ -27,7 +27,7 @@ prototypbasierten Programmierung).
   erzeugt und können anderen Objekten als Prototypen dienen und damit ihre
   eigenen Methoden zur Wiederverwendung zur Verfügung stellen, wobei die
   neuen Objekte nur die Unterschiede zu ihrem Prototypen-Objekt definieren
-  müssen..
+  müssen.
  
 ### Datenkapselung
  
@@ -82,10 +82,16 @@ oft auch von objektbasierter Programmierung.
 
     # Wissenwertes: Call-by-Reference
     def modify_arg(arg)
+      arg << rand(40)
+    end
+    array = [12,34,54]
+    modify_arg(array)
+    array
+    
+    # Kann mit der +clone+ Methode verhindert werden.
+    def modify_arg(arg)
       arg.clone << rand(40)
     end
-      arg << rand(40)
-      # Kann mit der +clone+ Methode verhindert werden.
     array = [12,34,54]
     modify_arg(array)
     array

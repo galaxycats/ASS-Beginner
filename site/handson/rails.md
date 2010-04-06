@@ -42,8 +42,8 @@ und migrieren können.
    angezeigt werden. Dazu muss die `index.html` aus dem `public`-Verzeichnis der
    Rails-Anwendung gelöscht und eine `root`-Route angelegt werden.
 
-3. Mit Hilfe von `ActiveRecord::Migration` sollen die nötigen
-   Datenbank-Tabellen angelegt werden.
+3. Im ersten Schritt (iteratives Vorgehen) soll das Model `Message` inklusive Datenbank
+   (`ActiveRecord::Migration`) angelegt werden.
 
 ## Ressourcen
 
@@ -127,7 +127,7 @@ zwei kleine Gems (Ruby Bibliotheken) installiert werden:
     $> gem install wirble
     $> gem install utility_belt
 
-Danach muss noch eine `.irbrc`-Datei im Home-Verzeihnis angelegt mit folgendem
+Danach muss noch eine `.irbrc`-Datei im Home-Verzeihnis mit folgendem
 Inhalt angelegt werden:
 
     # load libraries
@@ -153,6 +153,13 @@ Rails-Projektes hinzufügen:
     gem "wirble"
     gem "utility_belt"
 
+Nun kann die Rails-Console benutzt werden und man sieht Log-Ausgaben direkt
+in der Console.
+    
+    rails console
+    - oder -
+    rails c
+
 ### Konventionen
 
 * ActiveRecord Klassen sind immer im Singular
@@ -161,8 +168,8 @@ Rails-Projektes hinzufügen:
 ### Wichtige Dateien
 
 * Templates: `app/views/<ControllerName>/<action>.html.erb`
-* Controller: `app/controllers/<ControllerName>_controller.rb`
-* Modelle: `app/models/<ModelName>.rb`
+* Controller: `app/controllers/<controller_name>_controller.rb`
+* Modelle: `app/models/<model_name>.rb`
 * Konfiguration: `config/`
 * Routing Konfiguration: `config/routes.rb`
 * Statische Inhalte: `public`

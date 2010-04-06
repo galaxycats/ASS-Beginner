@@ -49,6 +49,8 @@ dann sollen ihn entsprechende Fehler darauf aufmerksam machen.
 ### Eigene Validierung:
 
     !!!ruby_on_rails
-    def validate 
+    validate :special_birthday_validation
+
+    def special_birthday_validation
       errors.add(birthday, "Who are you? Methusalem?") unless birthday < Time.parse("01-01-1900") 
     end

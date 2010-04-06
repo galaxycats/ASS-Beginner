@@ -71,8 +71,8 @@ existiert.
   beinhalten Anweisungen, die vor bzw. nach jedem Test (also jeder
   Testmethode) auszuführen sind.
 
-* Testmethoden werden mit `test "<test_name>" do; # your test code; end`,
-  ansonsten werden sie nicht beim Testlauf ausgeführt.
+* Testmethoden werden mit `test "<test_name>" do; # your test code; end`
+  definiert, ansonsten werden sie nicht beim Testlauf ausgeführt.
 
 ### Assertions
 

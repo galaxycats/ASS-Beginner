@@ -28,7 +28,7 @@ Zusammengefasst soll am Ende dieses Hands-On folgendes umgesetzt sein:
 
 Die Aufgabe soll natürlich RESTful realisiert werden. Wir brauchen daher auf
 jeden Fall drei Actions in unserem Controller. Hier noch einmal beispielhaft
-die Implementierung der Action zu Anzeige aller Statusmitteilungen:
+die Implementierung der Action zur Anzeige aller Statusmitteilungen:
 
     !!!ruby_on_rails
     class MessagesController < ApplicationController
@@ -61,10 +61,11 @@ Notation `<% ruby_code %>` evaluiert den enthaltenden Ruby-Code und gibt das
 Ergebnis der Evaluierung nicht direkt wieder aus. Hier kann man jetzt
 einwerfen, dass der Helper `div_for <object>` ja nun etwas ausgeben muss,
 nämlich das entsprechenden HTML-Markup. Das ist absolut korrekt, jedoch
-geschieht hier die Ausgabe über einen anderen Weg, der an dieser Stelle nicht
-weiter betrachtet werden soll. Wenn wir das Ergebnis unseres Ruby-Codes in das
-Template integrieren wollen, verwenden wir die Notation `<%= ruby_code %>`.
-Wie eben für die Ausgabe des Inhalts (`content`) des `message`-Objekts.
+geschieht hier die Ausgabe aufgrund des Blocks über einen anderen Weg, der an
+dieser Stelle nicht weiter betrachtet werden soll. Wenn wir das Ergebnis
+unseres Ruby-Codes in das Template integrieren wollen, verwenden wir die
+Notation `<%= ruby_code %>`. Wie eben für die Ausgabe des Inhalts (`content`)
+des `message`-Objekts.
 
 Zur Eingabe von Daten auf einer Webseite werden bekanntermaßen Formulare
 verwendet. Für deren Realisierung zur Eingabe von Daten für ein
@@ -83,4 +84,4 @@ lassen sich dann die üblichen Formularfelder definieren, wie hier zum Beispiel
 eine `text_area` oder ein `submit`-Button. Am Ende erhalten wir ein
 HTML-Formular, dass die einzelnen Felder korrekt bezeichnet hat, um ein
 `Message`-Objekt damit zu erzeugen. Die Helper-Methode erzeugt ebenfalls die
-URL an die die Formulardaten gesandt werden sollen korrekt für uns.
+korrekte URL an die die Formulardaten gesandt werden sollen für uns.

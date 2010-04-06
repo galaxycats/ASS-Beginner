@@ -48,19 +48,30 @@ Program"](http://pine.fm/LearnToProgram/ "Learn to Program, by Chris Pine") von 
 ### Symbols    
 
     :das_ist_ein_symbol
+    :"das hier auch"
 
 ### Arrays
 
     [1,2,3]
-    %w(eins zwei drei)
+    %w(eins zwei drei) # => ["eins" "zwei", "drei"]
 
 ### Hash
   
     { :key => 'value', :another_key => 'another_value' }
 
+### Kombination unterschiedlicher Datenstrukturen
+  
+    { :key => {
+        :another_hash => "value"
+      },
+      :another_key => ["elem1", "elem2", "elem3"],
+      :yak => "bla"
+    }
+
 ### Ranges
 
-    0..4
+    0..4  # => 0,1,2,3,4
+    0...4 # => 0,1,2,3
 
 ### Schleifen
     
@@ -85,7 +96,7 @@ Program"](http://pine.fm/LearnToProgram/ "Learn to Program, by Chris Pine") von 
 ### Allgemeines
 
 * Ruby Source Dateien: `my_ruby_prog.rb`
-* Ruby Interpreter starten: `ruby <dateiname>.rb`
+* Ruby Interpreter starten: `ruby <dateiname.rb>`
 * Interactive Ruby Shell starten: `irb`
 * Interactive Ruby Shell starten und Bibliothek laden: `irb -r bib.rb`
 * Rückgabewerte: Eine Funktion gibt **immer den zuletzt evaluierten Wert zurück**, auch ohne Angabe des Schlüsselworts `return`. 

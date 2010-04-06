@@ -13,9 +13,9 @@ um Nutzer wieder erkennen zu können.
   Mitteilungen in Relation gesetzt werden. Ein Benutzer sollte dabei in jedem
   Fall folgende Eigenschaften besitzen:
 
-  * Email-Adresse
-  * Benutzernamen
-  * Vor- und Nachnamen
+    * Email-Adresse
+    * Benutzernamen
+    * Vor- und Nachnamen
 
   Hier sollte man sich auch überlegen, welche dieser Eigenschaften man
   validieren sollte, bevor man sie speichert.
