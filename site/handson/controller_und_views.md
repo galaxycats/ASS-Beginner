@@ -34,7 +34,7 @@ die Implementierung der Action zur Anzeige aller Statusmitteilungen:
     class MessagesController < ApplicationController
     
       def index
-        @messages = Messages.all # Sind die Statusmitteilungen hier schon richtig sortiert?
+        @messages = Message.all # Sind die Statusmitteilungen hier schon richtig sortiert?
       end
     
     end
