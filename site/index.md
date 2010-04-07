@@ -50,7 +50,13 @@ bereit. Der Kurs findet statt vom *07.04. – 09.04.2010*.
 
 ## Musterlösungen
 
-*Not yet ... ;-)*
+Orange Tree Lösungen von
+[Andi](http://github.com/galaxycats/ASS-Beginner/blob/master/demos/orange_tree_andi.rb
+"demos/orange_tree_andi.rb at master from galaxycats's ASS-Beginner - GitHub")
+und
+[Dirk](http://github.com/galaxycats/ASS-Beginner/blob/master/demos/orange_tree_dirk.rb
+"demos/orange_tree_dirk.rb at master from galaxycats's ASS-Beginner -
+GitHub").
 
 ## Authors
 
