@@ -19,17 +19,11 @@ module MessagesHelper
       contents << content_tag(:ul, error_messages)
 
       content_tag(:div, contents, html)
-    else
-      ''
     end
   end
   
   def display_mention_info_for(message)
-    if message.is_a? Mention
-      raw '<span class="mentioned_by">mentioned</span>'
-    else
-      ""
-    end
+    raw '<span class="mentioned_by">mentioned</span>' if message.is_a? Mention
   end
   
   def auto_markup(message)
@@ -46,6 +40,19 @@ module MessagesHelper
     content.gsub(/#([\w\d]+)/) do |matched_string|
       content_tag(:span, link_to(matched_string, "#"), :class => "tag")
     end
+  end
+
+  def display_user_image_for(user, size=:default)
+    size_modifier = case size
+    when :big
+      "_big"
+    else
+      ""
+    end
+    
+    image_url = File.exists?(File.join(Rails.root, "public/images/user_images/#{user.username}#{size_modifier}.png")) ? "/images/user_images/#{user.username}#{size_modifier}.png" : "/images/default_user_image#{size_modifier}.png"
+    
+    link_to image_tag(image_url, :alt => "Profile page of #{user.username}", :class => "gravatar_image"), user_url(user)
   end
   
 end

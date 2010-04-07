@@ -1,0 +1,6 @@
+<% if flash[:error] %>
+<div class="error">
+  <%= image_tag "error.png", :id => "error_image" %>
+  <%= flash[:error] %>
+</div>
+<% end %>

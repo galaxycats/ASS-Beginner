@@ -1,11 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
-
-two:
-  email: MyString
-  first_name: MyString
-  last_name: MyString
+natsume:
+  email: maya@juken-club.jp
+  first_name: Maya
+  last_name: Natsume

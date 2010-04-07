@@ -1,6 +1,6 @@
 <%- div_for message do -%>
   <div class="gravatar">
-    <a href="#"><img src="/images/user_images/<%= message.user.username %>.png" class="gravatar_image"></a>
+    <%= display_user_image_for(message.user) %>
   </div>
   <div class="name_of_poster"><%= link_to "@#{message.user.username}", user_url(message.user) %>&nbsp;<%= display_mention_info_for(message) %></div>
   <span><%= auto_markup message.content %></span>

@@ -1,6 +1,18 @@
-#login_box
-  :margin-top 130px
+#login_box, #signup_box
   :height 700px
+  :width 800px
+  :margin auto
+  :margin-top 130px
+  
+  .field_with_label
+    label
+      :color = !light_grey
+      :font-size 34px
+      :width 180px
+      :float left
+      :padding-top 50px
+      :display block
+      :font-style italic
 
   form
     :margin-top 20px
@@ -12,4 +24,10 @@
       :margin-top 15px
       :font-size 64px
       :color = !light_grey
-  
+
+#signup_box
+  :margin-left -90px
+
+  input[type="submit"]
+    :margin-left 617px
+    

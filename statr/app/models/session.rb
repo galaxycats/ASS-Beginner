@@ -4,8 +4,8 @@ class Session
 
   attr_accessor :username, :password
   
-  validates_presence_of :username
-  validates_presence_of :password
+  validates_presence_of :username, :message => "must be given"
+  validates_presence_of :password, :message => "must be given"
   validates_with UsernamePasswordValidator
   
   def initialize(attributes = {})

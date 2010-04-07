@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  content: MyString
-
-two:
-  content: MyString
+# older:
+#   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed"
+#   user: natsume
+#   created_at: <%= Time.now - 1.day %>
+# 
+# newer:
+#   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed"
+#   user: natsume

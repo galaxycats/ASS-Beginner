@@ -1,6 +1,6 @@
 <div id="<%= logged_in? ? 'logged_in_user_info' : 'user_info' %>">
   <div id="profile_picture">
-    <img src="/images/user_images/<%= @user.username %>_big.png" class="big_gravatar_image">
+    <%= display_user_image_for(@user, :big) %>
   </div>
   <div id="profile_info">
     <div id="username">@<%= @user.username %><%= follow_user_button %></div>
