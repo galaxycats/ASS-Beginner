@@ -119,7 +119,7 @@ die Implementierung der Action zur Anzeige aller Statusmitteilungen:</p>
 <pre><code><pre class="sunburst"><span class="Keyword">class</span> <span class="JEntityNameType">MessagesController<span class="EntityInheritedClass"> <span class="EntityInheritedClass">&lt;</span> ApplicationController</span></span>
 
   <span class="Keyword">def</span> <span class="Entity">index</span>
-    <span class="Variable"><span class="Variable">@</span>messages</span> <span class="Keyword">=</span> <span class="Support">Messages</span>.<span class="Entity">all</span> <span class="Comment"><span class="Comment">#</span> Sind die Statusmitteilungen hier schon richtig sortiert?</span>
+    <span class="Variable"><span class="Variable">@</span>messages</span> <span class="Keyword">=</span> <span class="Support">Message</span>.<span class="Entity">all</span> <span class="Comment"><span class="Comment">#</span> Sind die Statusmitteilungen hier schon richtig sortiert?</span>
   <span class="Keyword">end</span>
 
 <span class="Keyword">end</span>
