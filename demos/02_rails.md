@@ -15,7 +15,7 @@ http://localhost:3000
 index.html löschen
 http://localhost:3000 --> Fehler
     
-    rails generate scaffold message content:string
+    rails generate scaffold message content:text
     
 http://localhost:3000/messages --> database-error
     
@@ -27,9 +27,13 @@ database.yml zeigen
 routes.rb öffnen
 
 in Gemfile eintragen, damit Consolen-Logger funktioniert
-gem "wirble"
-gem "utility_belt"
 
+    sudo gem install wirble utility_belt
+
+    gem "wirble"
+    gem "utility_belt"
+
+Dann weiter in der Console
 
     rails console
     
