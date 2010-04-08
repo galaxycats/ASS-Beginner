@@ -87,8 +87,7 @@ und migrieren können.</p>
 
 <h2>Aufgabe</h2>
 
-<ol>
-<li><p>Über die Dauer des Kurses soll eine kleine aber voll funktionsfähige
+<p>Über die Dauer des Kurses soll eine kleine aber voll funktionsfähige
 Webanwendung entstehen. Dazu wollen wir zusammen den Webdienst
 <a href="http://twitter.com/" title="Twitter">Twitter</a> nachbauen. Dabei handelt es sich um
 eine Plattform auf der sich jeder kostenfrei anmelden kann und in Form von 140
@@ -120,12 +119,14 @@ einsehbar ist. Die wesentlichen Elemente der Anwendung sind demnach:</p>
 <li>Beziehungen zwischen Benutzern (Follower)</li>
 <li>Beziehungen zwischen Benutzern und Statusmitteilungen (Mentions)</li>
 </ul>
-</li>
-<li><p>Auf der Haupt-URL (<code>http://localhost:3000/</code>) soll die öffentliche Timeline
-angezeigt werden. Dazu muss die <code>index.html</code> aus dem <code>public</code>-Verzeichnis der
-Rails-Anwendung gelöscht und eine <code>root</code>-Route angelegt werden.</p></li>
-<li><p>Im ersten Schritt (iteratives Vorgehen) soll das Model <code>Message</code> inklusive Datenbank
-(<code>ActiveRecord::Migration</code>) angelegt werden.</p></li>
+
+
+<p>Das beschreibt das gewünschte Endergebnis, für den Anfang wollen wir uns aber
+mit etwas weniger begnügen:</p>
+
+<ol>
+<li>Im ersten Schritt (iteratives Vorgehen) soll das Model <code>Message</code> inklusive Datenbank
+(<code>ActiveRecord::Migration</code>) angelegt werden.</li>
 </ol>
 
 
@@ -272,15 +273,6 @@ rails c
 <li>Statische Inhalte: <code>public</code></li>
 </ul>
 
-
-<h3>Routing</h3>
-
-<p>In der Routing-Datei (<code>config/routes.rb</code>) muss zu diesem Zeitpunkt nichts weiter getan werden, als eine
-<code>root</code>-Route anzulegen. Diese beschreibt welche Action mit dazugehörigem Controller beim Aufruf der Haupt-URL (<code>http://localhost:3000</code>)
-aufgerufen werden soll. Dazu fügt man folgenden Code am Ende der Routing-Definition ein:</p>
-
-<pre><code><pre class="sunburst">route <span class="Constant"><span class="Constant">:</span>to</span> =&gt; <span class="String"><span class="String">&quot;</span>&lt;controller&gt;#&lt;action&gt;<span class="String">&quot;</span></span>
-</pre></code></pre>
 
 <h3>Migrationen</h3>
 
