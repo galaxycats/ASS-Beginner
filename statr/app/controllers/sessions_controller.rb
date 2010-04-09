@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new(params[:session])
     if @session.valid?
-      session[:current_user_id] = @session.user
+      session[:current_user_id] = @session.user.id
       redirect_to user_url(@session.user)
     else
       render :action => "new"

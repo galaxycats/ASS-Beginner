@@ -9,9 +9,11 @@ class Session
   validates_with UsernamePasswordValidator
   
   def initialize(attributes = {})
-    attributes.each do |attr, value|
-      self.send("#{attr}=", value)
-    end
+    # attributes.each do |attr, value|
+    #   self.send("#{attr}=", value)
+    # end
+    @username = attributes[:username]
+    @password = attributes[:password]
   end
   
   def user

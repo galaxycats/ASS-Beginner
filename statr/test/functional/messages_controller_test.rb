@@ -8,7 +8,8 @@ class MessagesControllerTest < ActionController::TestCase
     
     login_user
     @controller.expects(:current_user).at_least_once.returns(user = mock("UserMock"))
-    Message.expects(:new).with("content" => "A status update for testing purpose", "user" => user).returns(message = mock("MessageMock"))
+    user.expects(:messages).returns(messages = mock("MessagesCollectionMock"))
+    messages.expects(:build).with("content" => "A status update for testing purpose").returns(message = mock("MessageMock"))
     message.expects(:save).returns(true)
     post :create, :message => {:content => "A status update for testing purpose"}
     assert_response :redirect, @response.body

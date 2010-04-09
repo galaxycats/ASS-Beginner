@@ -60,13 +60,17 @@ class UserTest < ActiveSupport::TestCase
   
   test "should return own messages, mentioned messages and followees messages as all_messages " do
     user = User.new
-    
-    user.expects(:messages).returns([])
-    user.expects(:mentions).returns([])
-    followees = mock("Followees")
-    followees.expects(:messages).returns(mock("Messages", :all => []))
+
+    user.expects(:id => 42)
+    followees = [stub("UserStub", :id => 23)]
     user.expects(:followees).returns(followees)
     
+    arel_join_mock = mock("ArelJoinMock")
+    arel_join_mock.expects(:order).with("created_at DESC")
+    arel_where_mock = mock("ArelWhereMock")
+    arel_where_mock.expects(:joins).with(:user => :mentions).returns(arel_join_mock)
+    Message.expects(:where).with(:user_id => [23,42]).returns(arel_where_mock)
+
     user.all_messages
   end
   

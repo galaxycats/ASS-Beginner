@@ -6,22 +6,20 @@ class Message < ActiveRecord::Base
   
   validates_presence_of :user
   
-  after_create :associate_message_to_users_have_been_mentioned
+  after_create :associate_message_to_users_that_have_been_mentioned
   
   scope :latest, :order => "created_at DESC"
   
   private
   
-    def associate_message_to_users_have_been_mentioned
-      mentioned_useres = content.scan(/@([\w\d]+)/).flatten
+    def associate_message_to_users_that_have_been_mentioned
+      mentioned_users = content.scan(/@([\w\d]+)/).flatten
       
-      unless mentioned_useres.blank?
-        mentioned_useres.each do |mentioned_user|
-          Mention.create(
-            :message        => self,
-            :mentioned_user => User.find_by_username(mentioned_user)
-          )
-        end
+      mentioned_users.each do |mentioned_user|
+        Mention.create(
+          :message        => self,
+          :mentioned_user => User.find_by_username(mentioned_user)
+        )
       end
     end
 end

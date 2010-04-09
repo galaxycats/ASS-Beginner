@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   before_filter :load_latest_messages
   
   def create
-    @message = Message.new(params[:message].merge(:user => current_user))
+    @message = current_user.messages.build(params[:message])
     if @message.save
       redirect_to user_url(current_user)
     else

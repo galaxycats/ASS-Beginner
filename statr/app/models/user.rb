@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   has_many :mentions, :class_name => "Mention", :foreign_key => "mentioning_id"
   has_many :messages
-  has_and_belongs_to_many :followees, :join_table => "followees", :class_name => "User", :foreign_key => "followee_id" do
+  has_and_belongs_to_many :followees,
+    :join_table  => "followees",
+    :class_name  => "User",
+    :foreign_key => "followee_id" do
     def messages
       Message.where(:user_id => proxy_owner.followees.map(&:id))
     end
@@ -23,7 +26,11 @@ class User < ActiveRecord::Base
   end
   
   def all_messages
-    (messages + mentions + followees.messages.all).uniq_by {|msg| msg.content}.sort { |message, another_message| another_message.created_at <=> message.created_at }
+    # (messages + mentions + followees.messages.all).uniq_by {|msg| msg.content}.sort { |message, another_message| another_message.created_at <=> message.created_at }
+    Message.
+      where(:user_id => followees.collect(&:id) << self.id).
+      joins(:user => :mentions).
+      order("created_at DESC")
   end
   
   def follow(user)
@@ -35,7 +42,7 @@ class User < ActiveRecord::Base
   end
   
   def follows?(user)
-    followees.find_by_username(user.username)
+    !!followees.find_by_username(user.username)
   end
   
   private
