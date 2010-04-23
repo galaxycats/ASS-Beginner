@@ -26,11 +26,14 @@ class User < ActiveRecord::Base
   end
   
   def all_messages
-    # (messages + mentions + followees.messages.all).uniq_by {|msg| msg.content}.sort { |message, another_message| another_message.created_at <=> message.created_at }
     Message.
-      where(:user_id => followees.collect(&:id) << self.id).
-      joins(:user => :mentions).
-      order("created_at DESC")
+      where("messages.user_id IN (:user_ids) OR mentioning_id IN (:my_user_id)", {
+        :user_ids => followees.collect(&:id) << self.id,
+        :my_user_id => self.id
+      }).
+      select("DISTINCT(messages.content) AS content, messages.*").
+      joins('LEFT JOIN "users" ON "users"."id" = "messages"."user_id" LEFT JOIN "mentions" ON "mentions"."mentioning_id" = "users"."id" LEFT JOIN "messages" AS "messages_mentions" ON "messages_mentions"."id" = "mentions"."message_id"').
+      order("messages.created_at DESC")
   end
   
   def follow(user)
